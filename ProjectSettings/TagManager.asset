@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Projectile
+  - Rooms
+  - RoomSpawner
+  - NavMesh
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Fly
   - Projectile
   - Holes
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -51,4 +54,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 1159096525
+    locked: 0
+  - name: Walls
+    uniqueID: 2284929961
     locked: 0

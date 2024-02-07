@@ -1,35 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> Enemies = new List<GameObject>();
     public float spawnRate = 5.0f;
+    public int spawnMax;
+    public Tilemap floorTilemap = null;
+
+    private int spawnCounter = 0;
 
     private float _x, _y;
-    private Vector3 _spawnPosition;
+    private Vector2 _spawnPosition;
 
     void Start()
     {
         StartCoroutine(SpawnEnemy());
     }
 
-
-    void Update()
-    {
-        
-    }
-
     IEnumerator SpawnEnemy()
     {
+
         _x = Random.Range(-1, 1); // Spawn in diferent points
         _y = Random.Range(-1, 1);
 
-        _spawnPosition = new Vector3(_x, _y, 0);
+        _spawnPosition = this.transform.position;
 
-        Instantiate(Enemies[0], _spawnPosition, Quaternion.identity);
+        int enemyIndex = Random.Range(0, Enemies.Count);
+        GameObject enemy = Instantiate(Enemies[enemyIndex], _spawnPosition, Quaternion.identity);
+
+        EnemySpawner children = enemy.GetComponent<EnemySpawner>();
+
+        if (children != null)
+        {
+            children.floorTilemap = floorTilemap;
+        }
+        RoamingState roamingState = enemy.GetComponent<RoamingState>();
+        if (roamingState != null)
+        {
+            roamingState.tilemap = floorTilemap;
+        }
+        spawnCounter++;
+        Debug.Log(enemy.transform.rotation.eulerAngles);
         yield return new WaitForSeconds(spawnRate);
-        StartCoroutine(SpawnEnemy());
+
+        if (spawnCounter < spawnMax) {
+            StartCoroutine(SpawnEnemy());
+        }
     }
 }

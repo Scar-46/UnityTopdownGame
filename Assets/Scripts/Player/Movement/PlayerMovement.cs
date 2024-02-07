@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dash settings")]
     public float dashSpeed;
-    private float _dashCooldown = 1f;
-    private float _dashDuration = 0.5f;
+    public float _dashCooldown = 1f;
+    private float _dashDuration = 0.4f;
     private bool _isDashing;
     private bool _canDash;
 
@@ -64,9 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetAnimation(Vector2 direction)
     {
-        _animator.SetFloat("AxisX", direction.x);
-        _animator.SetFloat("AxisY", direction.y);
+
         _animator.SetFloat("Speed", direction.sqrMagnitude);
+
+
 
     }
 
@@ -74,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _canDash = false;
         _isDashing = true;
+        _animator.SetTrigger("Dash");
+        AudioManager.Instance.Play("Dash");
         _rigidbody.velocity = _playerInput * dashSpeed;
         yield return new WaitForSeconds(_dashDuration);
         _isDashing = false;

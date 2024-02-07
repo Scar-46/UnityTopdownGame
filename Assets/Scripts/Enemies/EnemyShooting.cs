@@ -21,6 +21,7 @@ public class EnemyShooting : EnemyAttack
 
     public override IEnumerator PerformAttack()
     {
+        AudioManager.Instance.Play("MagicAttack");
         animator.SetTrigger("Attack");
 
         // Instantiate proyectile.

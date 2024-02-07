@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
 
-    public enum PickupObject {COIN, GEM};
+    public enum PickupObject {COIN, KEY};
     public PickupObject currentObject;
     public int pickupValue;
 
@@ -15,13 +15,12 @@ public class Pickup : MonoBehaviour
         {
             if (currentObject == PickupObject.COIN)
             {
-                print("Collected");
-                PlayerStats.Instance.AddCurrency(pickupValue);
+                PlayerStats.Instance.AddCoins(pickupValue);
 
             }
-            else if (currentObject == PickupObject.GEM)
+            else if (currentObject == PickupObject.KEY)
             {
-
+                PlayerStats.Instance.AddKeys(pickupValue);
             }
             Destroy(gameObject);
         }

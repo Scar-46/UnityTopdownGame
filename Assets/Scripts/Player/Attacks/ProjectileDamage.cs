@@ -20,4 +20,12 @@ public class ProjectileDamage : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.name != "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

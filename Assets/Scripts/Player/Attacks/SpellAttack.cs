@@ -10,15 +10,24 @@ public class SpellAttack : MonoBehaviour
     public float maxDamage;
     public float projectileForce;
     public float knockbackForce = 100f;
+    public float magicConsumed = 0;
 
     public Animator animator;
-
+    public bool attackBloked = false;
+    public float attackDelay = 0f;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
-            animator.SetTrigger("Attack");
+
+            if (PlayerStats.Instance.magic <= 0 || attackBloked)
+                return;
+
+            AudioManager.Instance.Play("MagicAttack");
+            animator.SetTrigger("MagicAttack");
+            attackBloked = true;
+            StartCoroutine(DelayAttack());
 
             // Instantiate proyectile.
             GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -36,7 +45,14 @@ public class SpellAttack : MonoBehaviour
 
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
             spell.GetComponent<ProjectileDamage>().damage = Random.Range(minDamage, maxDamage);
-            //spell.GetComponent<ProjectileDamage>().knockbackForce = knockbackForce;
+
+            //Consume magic
+            PlayerStats.Instance.UseMagic(magicConsumed);
         }
+    }
+    private IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(attackDelay);
+        attackBloked = false;
     }
 }
