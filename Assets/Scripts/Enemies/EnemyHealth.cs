@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health;
     public float maxHealth = 100;
+    public float knockbackDelay = 0;
 
     public TextMeshProUGUI enemyName;
     public string enemyStringName;
@@ -68,6 +69,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void DealDamage(float damage, Vector2 knockback)
     {
+        StopAllCoroutines();
         health -= damage;
         CheckDeath();
         if (CurrentHealth)
@@ -79,7 +81,14 @@ public class EnemyHealth : MonoBehaviour
         }
 
         rb2D.AddForce(knockback, ForceMode2D.Impulse);
+        StartCoroutine(ResetKnockback());
         
+    }
+
+    private IEnumerator ResetKnockback()
+    {
+        yield return new WaitForSeconds(knockbackDelay);
+        rb2D.velocity = Vector2.zero;
     }
 
     public void DestroyEnemy()

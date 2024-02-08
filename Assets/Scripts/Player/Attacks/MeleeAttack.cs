@@ -16,7 +16,7 @@ public class MeleeAttack : MonoBehaviour
     public bool attackBloked = false;
     public float attackDelay = 0f;
     public float radius = 0.2f;
-    public float knockbackForce = 100f;
+    public float knockbackForce = 0.1f;
 
     private void Awake()
     {
@@ -44,7 +44,8 @@ public class MeleeAttack : MonoBehaviour
             {
                 float damage = Random.Range(minDamage, maxDamage);
                 Vector2 knockback = (collider.transform.position - transform.position).normalized * knockbackForce;
-                collider.GetComponent<EnemyHealth>().DealDamage(damage);
+                Debug.Log(knockback);
+                collider.GetComponent<EnemyHealth>().DealDamage(damage,knockback);
             }
         }
         StartCoroutine(DelayAttack());

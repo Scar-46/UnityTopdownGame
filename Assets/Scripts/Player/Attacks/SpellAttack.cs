@@ -9,7 +9,7 @@ public class SpellAttack : MonoBehaviour
     public float minDamage;
     public float maxDamage;
     public float projectileForce;
-    public float knockbackForce = 100f;
+    public float knockbackForce = 16;
     public float magicConsumed = 0;
 
     public Animator animator;
@@ -44,6 +44,7 @@ public class SpellAttack : MonoBehaviour
             spell.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
+            spell.GetComponent<ProjectileDamage>().knockbackforce = knockbackForce;
             spell.GetComponent<ProjectileDamage>().damage = Random.Range(minDamage, maxDamage);
 
             //Consume magic

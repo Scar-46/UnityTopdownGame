@@ -57,7 +57,7 @@ public class ChaseState : State
         }
         else
         {
-             _Animator.SetFloat("Speed", 0.04f);
+            _Animator.SetFloat("Speed", 0.04f);
             _RoamingState._isFacingRight = _isFacingRight;
             return _RoamingState;
         }

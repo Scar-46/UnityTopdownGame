@@ -400,6 +400,7 @@ MonoBehaviour:
   price: 1
   priceBox: {fileID: 7299960074702527346}
   priceText: {fileID: 7358822676044077410}
+  loot: {fileID: 0}
 --- !u!58 &9155850071607338935
 CircleCollider2D:
   m_ObjectHideFlags: 0

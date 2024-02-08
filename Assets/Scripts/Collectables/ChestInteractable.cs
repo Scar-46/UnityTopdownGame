@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class ChestInteractable : Interactable
 {
+    public GameObject loot;
+    private float _x, _y;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isInRange)
         {
+            _x = Random.Range(-1, 1); // Spawn in diferent points
+            _y = Random.Range(-1, 1);
+
             if (PlayerStats.Instance.RemoveKeys(price))
             {
                 animator.SetTrigger("Open");
+                
+                Vector2 postition = new Vector2(gameObject.transform.position.x + _x, gameObject.transform.position.x +_y);
 
-                Debug.Log("Open");
+                Instantiate(loot, postition, Quaternion.identity);
                 priceBox.SetActive(false);
                 Destroy(this);
             }
