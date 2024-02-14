@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackState : State
 {
@@ -11,6 +12,9 @@ public class AttackState : State
 
     [SerializeField]
     public float _AttackDistance = 0.5f;
+
+    [SerializeField]
+    public float _FleeDistance = 0;
 
     [SerializeField]
     private State roamingState;
@@ -26,11 +30,16 @@ public class AttackState : State
     [SerializeField]
     private AIData aiData;
 
+    NavMeshAgent agent;
+
     public bool attacking = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         _Attack = GetComponent<EnemyAttack>();
         _Rigidbody2 = GetComponent<Rigidbody2D>();
     }
@@ -54,7 +63,17 @@ public class AttackState : State
                 Flip(player.position);
                 float distance = Vector2.Distance(player.position, transform.position);
 
-                if (distance <= _AttackDistance)
+                if (distance <= _FleeDistance)
+                {
+                    Vector3 playerDir = transform.position - player.position;
+                    Vector3 newPos = transform.position + playerDir;
+                    agent.stoppingDistance = 0;
+                    agent.SetDestination(newPos);
+                    StartCoroutine(_Attack.PerformAttack());
+                    return this;
+
+                }
+                else if (distance <= _AttackDistance)
                 {
                     StartCoroutine(_Attack.PerformAttack());
                     return this;

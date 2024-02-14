@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roaming: 0
-  targetDetectionRange: 8
+  targetDetectionRange: 25
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 320
@@ -427,7 +427,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 600
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -498,7 +498,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 0.2
   m_BaseOffset: 0.1
-  m_WalkableMask: 5
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &6950395725591836763
 MonoBehaviour:
@@ -542,6 +542,8 @@ MonoBehaviour:
   projectileForce: 2
   projectileOrigin: {fileID: 2874341622295264873}
   attackDelay: 1
+  separationAngle: 0
+  projectiles: 1
   attackState: {fileID: 7487829692091469792}
 --- !u!114 &6408599967917525329
 MonoBehaviour:
@@ -608,6 +610,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetDetector: {fileID: 4693668167619331877}
   aiData: {fileID: 6408599967917525329}
+  _isFacingRight: 1
   _RoamingState: {fileID: 895221914509123595}
   _AttackState: {fileID: 7487829692091469792}
 --- !u!114 &7487829692091469792
@@ -625,6 +628,7 @@ MonoBehaviour:
   _isFacingRight: 1
   _Attack: {fileID: 0}
   _AttackDistance: 5
+  _FleeDistance: 1.5
   roamingState: {fileID: 895221914509123595}
   chasingState: {fileID: 8021768731658357541}
   targetDetector: {fileID: 4693668167619331877}

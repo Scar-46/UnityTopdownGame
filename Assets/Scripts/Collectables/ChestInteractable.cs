@@ -18,10 +18,13 @@ public class ChestInteractable : Interactable
             {
                 animator.SetTrigger("Open");
                 
-                Vector2 postition = new Vector2(gameObject.transform.position.x + _x, gameObject.transform.position.x +_y);
+                Vector2 postition = new Vector2(gameObject.transform.position.x + _x, gameObject.transform.position.y +_y);
 
                 Instantiate(loot, postition, Quaternion.identity);
-                priceBox.SetActive(false);
+                if (priceBox != null)
+                {
+                    priceBox.SetActive(false);
+                }
                 Destroy(this);
             }
         }

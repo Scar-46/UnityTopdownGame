@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7864998189210011733}
   - component: {fileID: 4196542357183268952}
   m_Layer: 0
-  m_Name: Point (1)
+  m_Name: Point (T)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2185,7 +2185,6 @@ GameObject:
   - component: {fileID: 2023339655079164185}
   - component: {fileID: 6856147546499411167}
   - component: {fileID: 156625695945785296}
-  - component: {fileID: 7579762829376521807}
   m_Layer: 0
   m_Name: T (Chest)
   m_TagString: Rooms
@@ -2237,10 +2236,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff6eb956af2d7d429433ac2e781d5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawns: 
-  previous: 4
+  spawns: []
+  nextSpawned: 
+  previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 0
+  startX: 0
+  startY: 0
+  upperWalls: {fileID: 0}
+  lowerWalls: {fileID: 0}
+  floor: {fileID: 0}
+  LTile: {fileID: 0}
+  RTile: {fileID: 0}
+  DTile: {fileID: 0}
+  T1Tile: {fileID: 0}
+  T2Tile: {fileID: 0}
 --- !u!61 &6856147546499411167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2314,21 +2324,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7579762829376521807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6649617466711997649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lights: []
-  spawners:
-  - {fileID: 0}
 --- !u!1 &8524949482250848923
 GameObject:
   m_ObjectHideFlags: 0

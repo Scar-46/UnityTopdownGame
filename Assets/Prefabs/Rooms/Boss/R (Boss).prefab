@@ -5191,10 +5191,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff6eb956af2d7d429433ac2e781d5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawns: 
-  previous: 4
+  spawns: []
+  nextSpawned: 
+  previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 1
+  startX: 0
+  startY: 0
+  upperWalls: {fileID: 0}
+  lowerWalls: {fileID: 0}
+  floor: {fileID: 0}
+  LTile: {fileID: 0}
+  RTile: {fileID: 0}
+  DTile: {fileID: 0}
+  T1Tile: {fileID: 0}
+  T2Tile: {fileID: 0}
 --- !u!61 &694192045220535844
 BoxCollider2D:
   m_ObjectHideFlags: 0

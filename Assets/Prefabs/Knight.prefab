@@ -284,7 +284,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 0.2
   m_BaseOffset: 0.1
-  m_WalkableMask: 5
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8183240422452330644
 MonoBehaviour:
@@ -391,6 +391,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetDetector: {fileID: 4824390864896373759}
   aiData: {fileID: 1973026866333830563}
+  _isFacingRight: 1
   _RoamingState: {fileID: 8590596822911330240}
   _AttackState: {fileID: 882954334406922406}
 --- !u!114 &882954334406922406
@@ -408,6 +409,7 @@ MonoBehaviour:
   _isFacingRight: 1
   _Attack: {fileID: 3129251674102394757}
   _AttackDistance: 1
+  _FleeDistance: 0
   roamingState: {fileID: 8590596822911330240}
   chasingState: {fileID: 1144679914414735443}
   targetDetector: {fileID: 4824390864896373759}
@@ -491,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roaming: 0
-  targetDetectionRange: 8
+  targetDetectionRange: 25
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 320

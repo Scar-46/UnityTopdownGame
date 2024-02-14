@@ -16,15 +16,17 @@ public class ChaseState : State
 
     Animator _Animator;
 
+    public bool _isFacingRight = true;
+
     //States
     [SerializeField]
-    State _RoamingState;
+    RoamingState _RoamingState;
 
     [SerializeField]
     AttackState _AttackState;
 
-
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;

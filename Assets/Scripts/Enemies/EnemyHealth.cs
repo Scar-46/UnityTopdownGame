@@ -54,19 +54,6 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void DealDamage(float damage)
-    {
-        health -= damage;
-        CheckDeath();
-        if (CurrentHealth)
-        {
-            healthbar.SetActive(true);
-            enemyName.text = enemyStringName;
-            healthText.text = Mathf.Ceil(health).ToString() + " / " + maxHealth.ToString();
-            CurrentHealth.value = CalculateHealthPercentage();
-        }
-    }
-
     public void DealDamage(float damage, Vector2 knockback)
     {
         StopAllCoroutines();
@@ -75,9 +62,13 @@ public class EnemyHealth : MonoBehaviour
         if (CurrentHealth)
         {
             healthbar.SetActive(true);
-            enemyName.text = enemyStringName;
-            healthText.text = Mathf.Ceil(health).ToString() + " / " + maxHealth.ToString();
+            if (enemyName)
+            {
+                enemyName.text = enemyStringName;
+                healthText.text = Mathf.Ceil(health).ToString() + " / " + maxHealth.ToString();
+            }
             CurrentHealth.value = CalculateHealthPercentage();
+            Debug.Log(CurrentHealth.value);
         }
 
         rb2D.AddForce(knockback, ForceMode2D.Impulse);

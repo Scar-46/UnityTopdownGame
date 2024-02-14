@@ -27,11 +27,10 @@ public class RoomTemplates : MonoBehaviour
     {
         meshSurface = GameObject.FindGameObjectWithTag("NavMesh").GetComponent<NavMeshSurface>();
         Instantiate(origin, transform.position, Quaternion.identity);
-        InvokeRepeating("check", 0.5f, 0.5f);
+        InvokeRepeating("check", 0.7f, 0.7f);
     }
     private void check()
     {
-        Debug.Log("Checking");
         if((lastCounter == roomCounter && roomCounter < maxRooms) || roomCounter >= maxRooms && bossDestroy || roomCounter >= maxRooms && bossSpawned == false)
         {
             GameObject[] rooms = GameObject.FindGameObjectsWithTag("Rooms");
@@ -49,7 +48,12 @@ public class RoomTemplates : MonoBehaviour
             GameObject[] rooms = GameObject.FindGameObjectsWithTag("Rooms");
             foreach (var room in rooms)
             {
-                room.GetComponent<TilemapSize>().enabled = false;
+                TilemapSize tilemapSize = room.GetComponent<TilemapSize>();
+                if (tilemapSize != null)
+                {
+                    tilemapSize.RemoveDoors();
+                    tilemapSize.enabled = false;
+                }
             }
             Destroy(gameObject);
         }

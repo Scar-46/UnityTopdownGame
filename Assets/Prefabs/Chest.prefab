@@ -339,9 +339,9 @@ MonoBehaviour:
   isStore: 0
   needKey: 1
   price: 1
-  priceBox: {fileID: 9079645252725881427}
+  priceBox: {fileID: 0}
   priceText: {fileID: 9029717797044123715}
-  loot: {fileID: 2363467159463234499, guid: 129894fc2b5a0764fbfa471fd32c75e9, type: 3}
+  loot: {fileID: 8647983590489109049, guid: b407604d114b575418958eef7fccaa8b, type: 3}
 --- !u!58 &7232736350515480214
 CircleCollider2D:
   m_ObjectHideFlags: 0

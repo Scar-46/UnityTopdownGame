@@ -44,7 +44,6 @@ public class MeleeAttack : MonoBehaviour
             {
                 float damage = Random.Range(minDamage, maxDamage);
                 Vector2 knockback = (collider.transform.position - transform.position).normalized * knockbackForce;
-                Debug.Log(knockback);
                 collider.GetComponent<EnemyHealth>().DealDamage(damage,knockback);
             }
         }

@@ -356,7 +356,7 @@ MonoBehaviour:
   healthText: {fileID: 0}
   CurrentHealth: {fileID: 0}
   lootDroop:
-  - {fileID: 6064273492368158087, guid: b920c7f8ee50fe448ad354e485cb1bcb, type: 3}
+  - {fileID: 2656771539911642357, guid: d402f29de850a8e4d99e3e85d1c6cba4, type: 3}
   start: 1
 --- !u!114 &2658567441632286021
 MonoBehaviour:
@@ -440,6 +440,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetDetector: {fileID: 6383934356786913865}
   aiData: {fileID: 5660226355965902702}
+  _isFacingRight: 1
   _RoamingState: {fileID: 7965643118744447302}
   _AttackState: {fileID: 7896179947017326398}
 --- !u!114 &7896179947017326398
@@ -457,6 +458,7 @@ MonoBehaviour:
   _isFacingRight: 1
   _Attack: {fileID: 2658567441632286021}
   _AttackDistance: 0.6
+  _FleeDistance: 0
   roamingState: {fileID: 7965643118744447302}
   chasingState: {fileID: 7326911063329172000}
   targetDetector: {fileID: 6383934356786913865}

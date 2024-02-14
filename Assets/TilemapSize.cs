@@ -1,18 +1,13 @@
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public enum Entry
-{
-    TOP,
-    BOTTOM,
-    LEFT,
-    RIGHT,
-    NONE
-}
 public class TilemapSize : MonoBehaviour
 {
-    public Entry[] spawns;
-    public Entry previous;
+    public Vector2Int[] spawns;
+    public bool[] nextSpawned;
+
+    public Vector2Int previous;
 
     private Tilemap currentTilemap;
     private RoomTemplates roomTemplates;
@@ -22,16 +17,41 @@ public class TilemapSize : MonoBehaviour
     public bool spawned = false;
     public bool bossRoom = false;
 
+
+    //Close Doors
+
+    public int startX = 0;
+    public int startY = 0;
+
+    public Tilemap upperWalls;
+    public Tilemap lowerWalls;
+    public Tilemap floor;
+
+    public TileBase LTile;
+    public TileBase RTile;
+    public TileBase DTile;
+    public TileBase T1Tile;
+    public TileBase T2Tile;
+
     void Awake()
     {
         //Get all the posible rooms.
         roomTemplates = GameObject.FindGameObjectWithTag("RoomSpawner").GetComponent<RoomTemplates>();
         currentTilemap = gameObject.GetComponentInChildren<Tilemap>();
         currentTilemap.CompressBounds();
+        nextSpawned = new bool[spawns.Length];
     }
 
     private void Start()
     {
+        for (int i = 0; i < spawns.Length; i++)
+        {
+            if (spawns[i] == previous)
+            {
+                nextSpawned[i] = true;
+            }
+        }
+
         Invoke("Spawn", 0.1f);
     }
 
@@ -39,41 +59,42 @@ public class TilemapSize : MonoBehaviour
     {
         spawned = true;
         int nextRoom;
+
+        if (oldRoom != null)
+        {
+            oldRoom.GetComponent<TilemapSize>().SetSpawnsTrue(previous);
+        }
+
         foreach (var room in spawns)
         {
             if (roomTemplates.roomCounter <= roomTemplates.maxRooms && room != previous)
             {
-                switch (room)
+
+                if (room == Vector2Int.up)
                 {
-                    case Entry.TOP:
-
-                        nextRoom = Random.Range(0, roomTemplates.bottomRooms.Length - 1);
-                        GetNextRoom(roomTemplates.bottomRooms, nextRoom, 1, room);
-                        newRoom.GetComponent<TilemapSize>().previous = Entry.BOTTOM;
-                        break;
-
-                    case Entry.BOTTOM:
-
-                        nextRoom = Random.Range(0, roomTemplates.topRooms.Length - 1);
-
-                        GetNextRoom(roomTemplates.topRooms, nextRoom, -1, room);
-                        newRoom.GetComponent<TilemapSize>().previous = Entry.TOP;
-                        break;
-
-                    case Entry.LEFT:
-
-                        nextRoom = Random.Range(0, roomTemplates.rightRooms.Length - 1);
-                        GetNextRoom(roomTemplates.rightRooms, nextRoom, -1, room);
-                        newRoom.GetComponent<TilemapSize>().previous = Entry.RIGHT;
-                        break;
-
-                    case Entry.RIGHT:
-
-                        nextRoom = Random.Range(0, roomTemplates.leftRooms.Length - 1);
-                        GetNextRoom(roomTemplates.leftRooms, nextRoom, 1, room);
-                        newRoom.GetComponent<TilemapSize>().previous = Entry.LEFT;
-                        break;
+                    nextRoom = Random.Range(0, roomTemplates.bottomRooms.Length - 1);
+                    GetNextRoom(roomTemplates.bottomRooms, nextRoom, room);
+                    newRoom.GetComponent<TilemapSize>().previous = Vector2Int.down;
                 }
+                else if (room == Vector2Int.down)
+                {
+                    nextRoom = Random.Range(0, roomTemplates.topRooms.Length - 1);
+                    GetNextRoom(roomTemplates.topRooms, nextRoom, room);
+                    newRoom.GetComponent<TilemapSize>().previous = Vector2Int.up;
+                }
+                else if (room == Vector2Int.right)
+                {
+                    nextRoom = Random.Range(0, roomTemplates.leftRooms.Length - 1);
+                    GetNextRoom(roomTemplates.leftRooms, nextRoom, room);
+                    newRoom.GetComponent<TilemapSize>().previous = Vector2Int.left;
+                }
+                else if (room == Vector2Int.left)
+                {
+                    nextRoom = Random.Range(0, roomTemplates.rightRooms.Length - 1);
+                    GetNextRoom(roomTemplates.rightRooms, nextRoom, room);
+                    newRoom.GetComponent<TilemapSize>().previous = Vector2Int.right;
+                }
+
                 newRoom.GetComponent<TilemapSize>().oldRoom = gameObject;
                 roomTemplates.roomCounter++;
             }
@@ -83,64 +104,59 @@ public class TilemapSize : MonoBehaviour
                 {
                     SpawnBoss(room);
                 }
-                else
-                {
-                    CloseRoom();
-                }
 
             }
         }
     }
-    private void SpawnBoss(Entry room)
+
+    private void SpawnBoss(Vector2Int room)
     {
         roomTemplates.bossSpawned = true;
-        Debug.Log("Boss");
-        switch (room)
+
+        if (room == Vector2Int.up)
         {
-            case Entry.TOP:
-
-                GetNextRoom(roomTemplates.bossRooms, 0, 1, room);
-                break;
-
-            case Entry.BOTTOM:
-
-                GetNextRoom(roomTemplates.bossRooms, 1, -1, room);
-                break;
-
-            case Entry.LEFT:
-
-                GetNextRoom(roomTemplates.bossRooms, 2, -1, room);
-                break;
-
-            case Entry.RIGHT:
-
-                GetNextRoom(roomTemplates.bossRooms, 3, 1, room);
-                break;
+            GetNextRoom(roomTemplates.bossRooms, 0, room);
         }
+        else if (room == Vector2Int.down)
+        {
+            GetNextRoom(roomTemplates.bossRooms, 1, room);
+        }
+        else if (room == Vector2Int.left)
+        {
+            GetNextRoom(roomTemplates.bossRooms, 2, room);
+        }
+        else if (room == Vector2Int.right)
+        {
+            GetNextRoom(roomTemplates.bossRooms, 3, room);
+        }
+
+        Vector2Int inverseRoom = new Vector2Int(-room.x, -room.y);
+        SetSpawnsTrue(inverseRoom);
     }
 
-    private void GetNextRoom(GameObject[] rooms, int index, int sign, Entry TB)
+    private void GetNextRoom(GameObject[] rooms, int index, Vector2Int direction)
     {
         Tilemap nextTilemap = rooms[index].GetComponentInChildren<Tilemap>();
         nextTilemap.CompressBounds();
         Vector3 nextPosition = this.transform.position;
-        if (TB == Entry.BOTTOM)
+
+        if (direction == Vector2Int.up)
         {
-            nextPosition.y = nextPosition.y + ((nextTilemap.size.y + 1) * sign);
+            nextPosition.y = nextPosition.y + ((currentTilemap.size.y + 1) * direction.y);
             nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2);
         }
-        else if (TB == Entry.TOP)
+        else if (direction == Vector2Int.down)
         {
-            nextPosition.y = nextPosition.y + ((currentTilemap.size.y + 1) * sign);
+            nextPosition.y = nextPosition.y + ((nextTilemap.size.y + 1) * direction.y);
             nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2);
         }
-        else if (TB == Entry.LEFT)
+        else if (direction == Vector2Int.right)
         {
-            nextPosition.x = nextPosition.x + (currentTilemap.size.x * sign);
+            nextPosition.x = nextPosition.x + (nextTilemap.size.x * direction.x);
         }
-        else if(TB == Entry.RIGHT)
+        else if (direction == Vector2Int.left)
         {
-            nextPosition.x = nextPosition.x + (nextTilemap.size.x * sign);
+            nextPosition.x = nextPosition.x + (currentTilemap.size.x * direction.x);
         }
         newRoom = Instantiate(rooms[index], nextPosition, Quaternion.identity);
     }
@@ -153,55 +169,100 @@ public class TilemapSize : MonoBehaviour
             if (collision.GetComponent<TilemapSize>().spawned == true || (collision.GetComponent<TilemapSize>().spawned == false && spawned == false))
             {
                 roomTemplates.roomCounter--;
-                if(oldRoom != null)
-                {
-                    //oldRoom.GetComponent<TilemapSize>().CloseRoom();
-                }
-
                 if (bossRoom)
                 {
                     roomTemplates.bossDestroy = true;
                 }
-
                 Destroy(gameObject);
             }
         }
     }
 
-    public void CloseRoom()
+    public void RemoveDoors()
     {
-        Debug.Log("ChangigRoom");
-        switch (previous)
+        for (int i = 0; i < spawns.Length; i++)
         {
-            case Entry.TOP:
-                Debug.Log("T" + (roomTemplates.topRooms.Length - 1));
-                newRoom = Instantiate(roomTemplates.topRooms[roomTemplates.topRooms.Length - 1], transform.position, Quaternion.identity);
-                newRoom.GetComponent<TilemapSize>().spawned = true;
-                Destroy(gameObject);
-                break;
+            Vector3Int position;
+            if (nextSpawned[i] == false)
+            {
+                if (spawns[i] == Vector2Int.up)
+                {
+                    for (int j = 0; j < 2; j++)
+                    {
+                        position = new Vector3Int(-10 - j, startY, 0);
+                        floor.SetTile(position, null);
+                        upperWalls.SetTile(position, T1Tile);
+                        position = new Vector3Int(-10 - j, startY + 1, 0);
+                        upperWalls.SetTile(position, T2Tile);
+                    }
+                    Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (T)");
 
+                    if (door != null)
+                    {
+                        Destroy(door.gameObject);
+                    }
+                }
+                else if (spawns[i] == Vector2Int.down)
+                {
+                    for (int j = 0; j < 2; j++)
+                    {
+                        position = new Vector3Int(-10 - j, 0, 0);
+                        floor.SetTile(position, null);
+                        lowerWalls.SetTile(position, DTile);
+                    }
+                    Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (B)");
 
-            case Entry.BOTTOM:
-                Debug.Log("B" + (roomTemplates.bottomRooms.Length - 1));
-                newRoom = Instantiate(roomTemplates.bottomRooms[roomTemplates.bottomRooms.Length - 1], transform.position, Quaternion.identity);
-                newRoom.GetComponent<TilemapSize>().spawned = true;
-                Destroy(gameObject);
-                break;
+                    if (door != null)
+                    {
+                        Destroy(door.gameObject);
+                    }
+                }
+                else if (spawns[i] == Vector2Int.right)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        position = new Vector3Int(-1, 4 + j, 0);
+                        floor.SetTile(position, null);
+                        lowerWalls.SetTile(position, null);
+                        upperWalls.SetTile(position, null);
+                        upperWalls.SetTile(position, RTile);
+                    }
+                    Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (R)");
 
+                    if (door != null)
+                    {
+                        Destroy(door.gameObject);
+                    }
+                }
+                else if (spawns[i] == Vector2Int.left)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        position = new Vector3Int(-startX, 4 + j, 0);
+                        floor.SetTile(position, null);
+                        lowerWalls.SetTile(position, null);
+                        upperWalls.SetTile(position, LTile);
+                    }
+                    Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (L)");
 
-            case Entry.LEFT:
-                Debug.Log("L" + (roomTemplates.leftRooms.Length - 1));
-                newRoom = Instantiate(roomTemplates.leftRooms[roomTemplates.leftRooms.Length - 1], transform.position, Quaternion.identity);
-                newRoom.GetComponent<TilemapSize>().spawned = true;
-                Destroy(gameObject);
-                break;
+                    if (door != null)
+                    {
+                        Destroy(door.gameObject);
+                    }
 
-            case Entry.RIGHT:
-                Debug.Log("R" + (roomTemplates.rightRooms.Length - 1) );
-                newRoom = Instantiate(roomTemplates.rightRooms[roomTemplates.rightRooms.Length - 1], transform.position, Quaternion.identity);
-                newRoom.GetComponent<TilemapSize>().spawned = true;
-                Destroy(gameObject);
-                break;
+                }
+            }
+        }
+    }
+    
+    public void SetSpawnsTrue( Vector2Int direction)
+    {
+        for (int i = 0; i < spawns.Length; i++)
+        {
+            if (spawns[i] == new Vector2Int(-direction.x, -direction.y))
+            {
+                nextSpawned[i] = true;
+            }
         }
     }
 }

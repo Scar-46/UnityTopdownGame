@@ -22,11 +22,11 @@ public abstract class Interactable : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        if (isStore )
+        if (isStore && priceText)
         {
             priceText.text = price.ToString() + "c";
         }
-        if (needKey)
+        if (needKey && priceText)
         {
             priceText.text = price.ToString() + "k";
         }
@@ -37,7 +37,10 @@ public abstract class Interactable : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            priceBox.SetActive(true);
+            if (priceBox)
+            {
+                priceBox.SetActive(true);
+            }
             animator.SetTrigger("Shine");
             isInRange = true;
 
@@ -46,7 +49,10 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        priceBox.SetActive(false);
+        if (priceBox)
+        {
+            priceBox.SetActive(false);
+        }
         animator.SetTrigger("StopShine");
         isInRange = false;
     }

@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8913772079794296639}
   - component: {fileID: 5980736143906465437}
   m_Layer: 0
-  m_Name: Point (1)
+  m_Name: Point (R)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1370,8 +1370,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -6.0000153, y: 2.3125, z: 0}
-      m_Extent: {x: 5.9999847, y: 2.3125, z: 0}
+      m_Center: {x: -6.0000076, y: 0.5, z: 0}
+      m_Extent: {x: 5.9999924, y: 0.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -2314,10 +2314,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff6eb956af2d7d429433ac2e781d5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawns: 
-  previous: 4
+  spawns: []
+  nextSpawned: 
+  previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 0
+  startX: 0
+  startY: 0
+  upperWalls: {fileID: 0}
+  lowerWalls: {fileID: 0}
+  floor: {fileID: 0}
+  LTile: {fileID: 0}
+  RTile: {fileID: 0}
+  DTile: {fileID: 0}
+  T1Tile: {fileID: 0}
+  T2Tile: {fileID: 0}
 --- !u!61 &957911698369530014
 BoxCollider2D:
   m_ObjectHideFlags: 0

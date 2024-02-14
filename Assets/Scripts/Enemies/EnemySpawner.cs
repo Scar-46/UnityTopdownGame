@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
 
     private int spawnCounter = 0;
 
-    private float _x, _y;
     private Vector2 _spawnPosition;
 
     void Start()
@@ -22,10 +21,6 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-
-        _x = Random.Range(-1, 1); // Spawn in diferent points
-        _y = Random.Range(-1, 1);
-
         _spawnPosition = this.transform.position;
 
         int enemyIndex = Random.Range(0, Enemies.Count);
@@ -43,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
             roamingState.tilemap = floorTilemap;
         }
         spawnCounter++;
-        Debug.Log(enemy.transform.rotation.eulerAngles);
+
         yield return new WaitForSeconds(spawnRate);
 
         if (spawnCounter < spawnMax) {

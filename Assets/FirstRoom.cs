@@ -11,7 +11,6 @@ public class FirstRoom : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Hello");
         foreach (var light in lights)
         {
             light.enabled = true;

@@ -405,7 +405,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 0.2
   m_BaseOffset: 0.1
-  m_WalkableMask: 5
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &7269772491091116238
 MonoBehaviour:
@@ -420,7 +420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 1000
+  maxHealth: 3000
+  knockbackDelay: 0
   enemyName: {fileID: 0}
   enemyStringName: SoloTie
   healthbar: {fileID: 0}
@@ -488,7 +489,8 @@ MonoBehaviour:
   target: {fileID: 0}
   targetDetector: {fileID: 3393893427784605458}
   aiData: {fileID: 5272691661702062198}
-  _RoamingState: {fileID: 4635106547880957300}
+  _isFacingRight: 1
+  _RoamingState: {fileID: 0}
   _AttackState: {fileID: 7130829841634709866}
 --- !u!114 &7130829841634709866
 MonoBehaviour:
@@ -505,6 +507,7 @@ MonoBehaviour:
   _isFacingRight: 1
   _Attack: {fileID: 0}
   _AttackDistance: 12
+  _FleeDistance: 0
   roamingState: {fileID: 4635106547880957300}
   chasingState: {fileID: 4408136373825555890}
   targetDetector: {fileID: 3393893427784605458}

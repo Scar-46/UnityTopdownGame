@@ -598,8 +598,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -6.0000153, y: 2.3125, z: 0}
-      m_Extent: {x: 5.9999847, y: 2.3125, z: 0}
+      m_Center: {x: -6.0000076, y: 0.5, z: 0}
+      m_Extent: {x: 5.9999924, y: 0.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 856809742388757266}
   - component: {fileID: 877661591120091596}
   m_Layer: 0
-  m_Name: Point (1)
+  m_Name: Point (L)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,7 +1345,8 @@ Transform:
   m_LocalPosition: {x: -12, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3082476250331861927}
   m_Father: {fileID: 4495614524769807730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5418127395098817146
@@ -1505,10 +1506,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff6eb956af2d7d429433ac2e781d5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawns: 
-  previous: 4
+  spawns: []
+  nextSpawned: 
+  previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 0
+  startX: 0
+  startY: 0
+  upperWalls: {fileID: 0}
+  lowerWalls: {fileID: 0}
+  floor: {fileID: 0}
+  LTile: {fileID: 0}
+  RTile: {fileID: 0}
+  DTile: {fileID: 0}
+  T1Tile: {fileID: 0}
+  T2Tile: {fileID: 0}
 --- !u!61 &6089916888749371158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1611,7 +1623,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3082476250331861927}
   - {fileID: 763807381640137269}
   - {fileID: 9099722445618798237}
   - {fileID: 2933735696496589068}
@@ -4694,19 +4705,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8366921768212113659}
+    m_TransformParent: {fileID: 5269727343679727474}
     m_Modifications:
     - target: {fileID: 5700321836336130800, guid: 4c6dc1057e2eca64c808f80e4b7e4ff4, type: 3}
       propertyPath: m_Name
-      value: DoorL (1)
+      value: DoorL
       objectReference: {fileID: 0}
     - target: {fileID: 6195373853381832124, guid: 4c6dc1057e2eca64c808f80e4b7e4ff4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6195373853381832124, guid: 4c6dc1057e2eca64c808f80e4b7e4ff4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 0.010000229
       objectReference: {fileID: 0}
     - target: {fileID: 6195373853381832124, guid: 4c6dc1057e2eca64c808f80e4b7e4ff4, type: 3}
       propertyPath: m_LocalPosition.z
