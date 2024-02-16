@@ -427,5 +427,5 @@ MonoBehaviour:
   price: 0
   priceBox: {fileID: 0}
   priceText: {fileID: 1327538899977242688}
-  health: 100
-  mana: 0
+  potion: {fileID: 5988113978473802504, guid: de4f29562dfd5094ba20d5fb0fbb4998, type: 3}
+  position: {fileID: 0}

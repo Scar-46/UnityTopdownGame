@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class PotionInteractable : Interactable
 {
+    public GameObject potion;
+    public Transform position;
 
-    public int health;
-    public int mana;
-
+    private void Awake()
+    {
+        position = GameObject.Find("UIOverlay").GetComponent<Transform>().Find("Slot");
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isInRange)
         {
-
-            if (PlayerStats.Instance.WithdrawCoins(price))
-            {
-                PlayerStats.Instance.HealCaracter(health);
-                PlayerStats.Instance.recoverMagic(mana);
-                Destroy(gameObject);
-            }
+            Instantiate(potion, position);
+            Destroy(gameObject);
         }
     }
 }
