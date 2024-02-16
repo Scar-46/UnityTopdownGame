@@ -281,7 +281,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.382754, y: 5.345, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4315595591656143386}
@@ -400,7 +400,7 @@ BoxCollider2D:
   m_Offset: {x: 0.029358923, y: -0.6925355}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5075083, y: 0.30500284}
     oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -422,10 +422,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  isStore: 1
+  isStore: 0
   needKey: 0
   price: 0
-  priceBox: {fileID: 6187034849769789418}
-  priceText: {fileID: 1327538899977242688}
-  health: 100
-  mana: 0
+  priceBox: {fileID: 0}
+  priceText: {fileID: 0}
+  slotItem: {fileID: 5988113978473802504, guid: de4f29562dfd5094ba20d5fb0fbb4998, type: 3}
+  slot: {fileID: 0}

@@ -397,17 +397,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.029358923, y: -0.6925355}
+  m_Offset: {x: 0.004383728, y: 0.086769044}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5075083, y: 0.30500284}
     oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.58710575, y: 0.654929}
+  m_Size: {x: 0.5371554, y: 0.71462893}
   m_EdgeRadius: 0
 --- !u!114 &4025553813053588665
 MonoBehaviour:
@@ -427,5 +427,5 @@ MonoBehaviour:
   price: 0
   priceBox: {fileID: 0}
   priceText: {fileID: 1327538899977242688}
-  potion: {fileID: 5988113978473802504, guid: de4f29562dfd5094ba20d5fb0fbb4998, type: 3}
-  position: {fileID: 0}
+  slotItem: {fileID: 0}
+  slot: {fileID: 0}

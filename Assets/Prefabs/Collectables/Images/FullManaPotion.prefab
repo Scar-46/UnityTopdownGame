@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8544959376704347415}
   - component: {fileID: 3453425416720881088}
   - component: {fileID: 5612395300374504644}
-  - component: {fileID: 2774628860828815642}
+  - component: {fileID: 8369909850082385623}
   m_Layer: 5
   m_Name: FullManaPotion
   m_TagString: Untagged
@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.7, y: 51.8}
+  m_AnchoredPosition: {x: -2, y: 52}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3453425416720881088
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2774628860828815642
+--- !u!114 &8369909850082385623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,8 +85,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5988113978473802504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3fc7b2dce2c194ebefccbb17f1b2de, type: 3}
+  m_Script: {fileID: 11500000, guid: dd747cde78a2d5a49bf6c8f17619a374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickable: {fileID: 2656771539911642357, guid: d402f29de850a8e4d99e3e85d1c6cba4, type: 3}
   health: 0
   mana: 100

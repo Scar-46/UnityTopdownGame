@@ -145,7 +145,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.511225, y: 5.293334, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2160643200092370955}
@@ -261,17 +261,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.029358923, y: -0.6925355}
+  m_Offset: {x: 0.004383728, y: 0.086769044}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5075083, y: 0.3050028}
     oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.58710575, y: 0.654929}
+  m_Size: {x: 0.5371554, y: 0.71462893}
   m_EdgeRadius: 0
 --- !u!114 &5510371816437557812
 MonoBehaviour:
@@ -286,13 +286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  isStore: 1
+  isStore: 0
   needKey: 0
   price: 0
   priceBox: {fileID: 0}
   priceText: {fileID: 5839870187397282907}
-  potion: {fileID: 5988113978473802504, guid: 22bb4c1680a9c064984edaa7a513a872, type: 3}
-  position: {fileID: 0}
+  slotItem: {fileID: 5988113978473802504, guid: 22bb4c1680a9c064984edaa7a513a872, type: 3}
+  slot: {fileID: 0}
 --- !u!1 &6639228733106160384
 GameObject:
   m_ObjectHideFlags: 0

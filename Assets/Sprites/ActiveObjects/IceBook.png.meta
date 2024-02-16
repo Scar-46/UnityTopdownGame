@@ -122,12 +122,12 @@ TextureImporter:
       name: IceBook_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 20
-        width: 15
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.524, y: 0.4918751}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +143,12 @@ TextureImporter:
       name: IceBook_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 64
         y: 0
-        width: 66
+        width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.524, y: 0.4918751}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: IceBook_2
       rect:
         serializedVersion: 2
-        x: 153
-        y: 24
-        width: 15
-        height: 15
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,10 +181,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: IceBook_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b521014fd9aeacd458dcf39b0e37b74d
+      internalID: -1326612237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 14f85f8fd5f46024eae78ab21111684e
     internalID: 0
     vertices: []
     indices: 
@@ -195,6 +216,7 @@ TextureImporter:
       IceBook_0: -2934339642633931456
       IceBook_1: 9024967459706688861
       IceBook_2: 3913228681042323712
+      IceBook_3: -1326612237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -29,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 2272252686341815350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 7.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1686142641656623779}
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -232691087
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9024967459706688861, guid: bfe7da6a040264149bc35dfdcf8492c0, type: 3}
+  m_Sprite: {fileID: 3913228681042323712, guid: bfe7da6a040264149bc35dfdcf8492c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   maxDamage: 1
   knockbackForce: 0
   attackDelay: 0.5
-  manaConsumption: 10
+  manaConsumption: 1
   consumptionRate: 1
 --- !u!1 &3933539066991967098
 GameObject:
@@ -1644,7 +1644,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 3913228681042323712, guid: bfe7da6a040264149bc35dfdcf8492c0, type: 3}
+    - sprite: {fileID: -1326612237, guid: bfe7da6a040264149bc35dfdcf8492c0, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
