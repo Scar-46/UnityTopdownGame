@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 895686103322935882}
   - component: {fileID: 3863386866412298363}
   m_Layer: 10
-  m_Name: IceBook
+  m_Name: IceSpell
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
