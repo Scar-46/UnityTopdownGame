@@ -18,27 +18,25 @@ public class MinimapController : MonoBehaviour
     public float scrollSensitivity = 10f;
     public float dragSpeed = 2f;
     public float zoomSmoothSpeed = 5f;
-    public float zoomTransitionDuration = 0.5f;
 
     private bool isMinimapFullscreen = false;
     private Vector3 dragOrigin;
-    private float scrollValue = 0f;
     private float targetFOV;
 
-    void Update()
+    private void Update()
     {
         HandleInput();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         HandleZoom();
         HandleDrag();
     }
 
-    void HandleInput()
+    private void HandleInput()
     {
-        scrollValue = Input.GetAxis("Mouse ScrollWheel");
+        float scrollValue = Input.GetAxis("Mouse ScrollWheel");
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -51,56 +49,51 @@ public class MinimapController : MonoBehaviour
             StartDragging();
         }
 
-        if (Input.GetMouseButtonUp(0)) 
+        if (Input.GetMouseButtonUp(0))
         {
             StopDragging();
         }
-
     }
 
-    void ToggleMinimapSize()
+    private void ToggleMinimapSize()
     {
         isMinimapFullscreen = !isMinimapFullscreen;
         minimapCanvas.SetActive(!isMinimapFullscreen);
         minimapFullscreenCanvas.SetActive(isMinimapFullscreen);
         overlayPanel.enabled = isMinimapFullscreen;
 
-        if (isMinimapFullscreen)
-        {
-            Time.timeScale = 0.5f;
-            targetFOV = largeMaxFOV;
-            largeMinimapCamera.transform.localPosition = Vector3.zero;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-            targetFOV = smallFOV;
-        }
+        Time.timeScale = isMinimapFullscreen ? 0.5f : 1f;
+        targetFOV = isMinimapFullscreen ? largeMaxFOV : smallFOV;
+        largeMinimapCamera.transform.localPosition = isMinimapFullscreen ? Vector3.zero : Vector3.back * 10f;
     }
 
-    void StartDragging()
+    private void StartDragging()
     {
         dragOrigin = Input.mousePosition;
         Cursor.visible = false;
     }
 
-    void StopDragging()
+    private void StopDragging()
     {
         Cursor.visible = true;
     }
 
-    void HandleZoom()
+    private void HandleZoom()
     {
-        if (isMinimapFullscreen && scrollValue != 0)
+        if (isMinimapFullscreen)
         {
-            targetFOV = Mathf.Clamp(targetFOV + scrollValue * scrollSensitivity, largeMinFOV, largeMaxFOV);
-        }
+            float scrollValue = Input.GetAxis("Mouse ScrollWheel");
+            if (scrollValue != 0)
+            {
+                targetFOV = Mathf.Clamp(targetFOV + scrollValue * scrollSensitivity, largeMinFOV, largeMaxFOV);
+            }
 
-        float newFOV = Mathf.Lerp(largeMinimapCamera.fieldOfView, targetFOV, zoomSmoothSpeed * Time.deltaTime);
-        largeMinimapCamera.fieldOfView = newFOV;
+            float newFOV = Mathf.Lerp(largeMinimapCamera.fieldOfView, targetFOV, zoomSmoothSpeed * Time.deltaTime);
+            largeMinimapCamera.fieldOfView = newFOV;
+        }
     }
 
-    void HandleDrag()
+    private void HandleDrag()
     {
         if (isMinimapFullscreen && Input.GetMouseButton(0))
         {
@@ -110,9 +103,8 @@ public class MinimapController : MonoBehaviour
         }
     }
 
-    void ToggleSlotVisibility()
+    private void ToggleSlotVisibility()
     {
         slot.SetActive(!isMinimapFullscreen);
     }
-
 }
