@@ -8,11 +8,6 @@ public class Slot : MonoBehaviour
     public bool isOccupied = false;
     private GameObject currentImage;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void setItem(GameObject image)
     {
         if (!isOccupied)

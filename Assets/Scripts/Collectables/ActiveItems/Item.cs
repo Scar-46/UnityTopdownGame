@@ -12,7 +12,7 @@ public abstract class Item : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").transform.Find("Spell").gameObject;
+        player = GameObject.Find("Player");
     }
 
     void Update()

@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6195373853381832124}
   - component: {fileID: 7385129334506264085}
   - component: {fileID: 7886109973563911138}
-  - component: {fileID: 2125721688498473351}
   - component: {fileID: 3662223381583190734}
   - component: {fileID: 3392434615017935875}
   - component: {fileID: 1397981259838273337}
+  - component: {fileID: 2825643597762134748}
+  - component: {fileID: 2125721688498473351}
   m_Layer: 8
   m_Name: DoorL
   m_TagString: Untagged
@@ -113,20 +114,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2125721688498473351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5700321836336130800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a71a817c35f4e4381aacea31a4f8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needKey: 0
-  stopper: {fileID: 3392434615017935875}
 --- !u!50 &3662223381583190734
 Rigidbody2D:
   serializedVersion: 4
@@ -246,3 +233,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.6896992, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2825643597762134748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700321836336130800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &2125721688498473351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700321836336130800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a71a817c35f4e4381aacea31a4f8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needKey: 0
+  stopper: {fileID: 3392434615017935875}

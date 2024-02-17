@@ -30,7 +30,6 @@ public class EnemyMeleeRange : EnemyAttack
 
     public int rangeBurst = 6;
     public int rangeBurstCounter = 0;
-    private int timer = 0;
 
     // Start is called before the first frame update
     protected override void Start()
