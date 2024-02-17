@@ -10,6 +10,7 @@ public class MinimapController : MonoBehaviour
     public GameObject minimapFullscreenCanvas;
     public Image overlayPanel;
     public Camera largeMinimapCamera;
+    public GameObject slot;
 
     public float largeMaxFOV = 60f;
     public float largeMinFOV = 20f;
@@ -42,6 +43,7 @@ public class MinimapController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleMinimapSize();
+            ToggleSlotVisibility();
         }
 
         if (isMinimapFullscreen && Input.GetMouseButtonDown(0))
@@ -106,6 +108,11 @@ public class MinimapController : MonoBehaviour
             Vector3 move = new Vector3(-pos.x * dragSpeed, -pos.y * dragSpeed, 0);
             largeMinimapCamera.transform.Translate(move, Space.World);
         }
+    }
+
+    void ToggleSlotVisibility()
+    {
+        slot.SetActive(!isMinimapFullscreen);
     }
 
 }

@@ -1243,6 +1243,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1230124318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8630378723101233673, guid: 73b431b4036dd3d4a83b7069b0163e38, type: 3}
+  m_PrefabInstance: {fileID: 7489647232022797055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1348600987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7243045296724983608, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
@@ -1985,6 +1990,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIOverlay
       objectReference: {fileID: 0}
+    - target: {fileID: 2597806377912810162, guid: 73b431b4036dd3d4a83b7069b0163e38, type: 3}
+      propertyPath: slot
+      value: 
+      objectReference: {fileID: 1230124318}
     - target: {fileID: 2597806377912810162, guid: 73b431b4036dd3d4a83b7069b0163e38, type: 3}
       propertyPath: zoomSmoothSpeed
       value: 15
