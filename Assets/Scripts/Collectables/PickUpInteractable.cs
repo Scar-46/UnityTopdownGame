@@ -10,7 +10,7 @@ public class PickUpInteractable : Interactable
 
     private void Awake()
     {
-        slot = GameObject.Find("UIOverlay").GetComponent<Transform>().Find("Slot").GetComponent<Slot>();
+        slot = GameObject.Find("UIOverlay").GetComponent<Transform>().Find("Panel").GetComponent<Transform>().Find("Slot").GetComponent<Slot>();
     }
 
     private void Update()

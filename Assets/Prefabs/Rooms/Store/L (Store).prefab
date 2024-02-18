@@ -598,8 +598,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -6.0000076, y: 0.5, z: 0}
-      m_Extent: {x: 5.9999924, y: 0.5, z: 0}
+      m_Center: {x: -6.0000153, y: 2.3125, z: 0}
+      m_Extent: {x: 5.9999847, y: 2.3125, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -4023,11 +4023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4530,7 +4530,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

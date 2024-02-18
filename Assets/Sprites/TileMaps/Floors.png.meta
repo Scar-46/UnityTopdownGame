@@ -102,7 +102,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -167,10 +167,10 @@ TextureImporter:
       name: Floors_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 288
-        width: 16
-        height: 16
+        x: 32
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: Floors_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 288
-        width: 16
-        height: 16
+        x: 96
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: Floors_2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 288
-        width: 16
-        height: 16
+        x: 160
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +230,10 @@ TextureImporter:
       name: Floors_3
       rect:
         serializedVersion: 2
-        x: 112
-        y: 288
-        width: 16
-        height: 16
+        x: 224
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +251,10 @@ TextureImporter:
       name: Floors_4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 288
-        width: 16
-        height: 16
+        x: 288
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,10 +272,10 @@ TextureImporter:
       name: Floors_5
       rect:
         serializedVersion: 2
-        x: 176
-        y: 288
-        width: 16
-        height: 16
+        x: 352
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +293,10 @@ TextureImporter:
       name: Floors_6
       rect:
         serializedVersion: 2
-        x: 208
-        y: 288
-        width: 16
-        height: 16
+        x: 416
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: Floors_7
       rect:
         serializedVersion: 2
-        x: 240
-        y: 288
-        width: 16
-        height: 16
+        x: 480
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,10 +335,10 @@ TextureImporter:
       name: Floors_8
       rect:
         serializedVersion: 2
-        x: 272
-        y: 288
-        width: 16
-        height: 16
+        x: 544
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,10 +356,10 @@ TextureImporter:
       name: Floors_9
       rect:
         serializedVersion: 2
-        x: 304
-        y: 288
-        width: 16
-        height: 16
+        x: 608
+        y: 576
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -377,10 +377,10 @@ TextureImporter:
       name: Floors_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 256
-        width: 16
-        height: 16
+        x: 32
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +398,10 @@ TextureImporter:
       name: Floors_11
       rect:
         serializedVersion: 2
-        x: 48
-        y: 256
-        width: 16
-        height: 16
+        x: 96
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,10 +419,10 @@ TextureImporter:
       name: Floors_12
       rect:
         serializedVersion: 2
-        x: 80
-        y: 256
-        width: 16
-        height: 16
+        x: 160
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,10 +440,10 @@ TextureImporter:
       name: Floors_13
       rect:
         serializedVersion: 2
-        x: 112
-        y: 256
-        width: 16
-        height: 16
+        x: 224
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,10 +461,10 @@ TextureImporter:
       name: Floors_14
       rect:
         serializedVersion: 2
-        x: 144
-        y: 256
-        width: 16
-        height: 16
+        x: 288
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -482,10 +482,10 @@ TextureImporter:
       name: Floors_15
       rect:
         serializedVersion: 2
-        x: 176
-        y: 256
-        width: 16
-        height: 16
+        x: 352
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -503,10 +503,10 @@ TextureImporter:
       name: Floors_16
       rect:
         serializedVersion: 2
-        x: 208
-        y: 256
-        width: 16
-        height: 16
+        x: 416
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,10 +524,10 @@ TextureImporter:
       name: Floors_17
       rect:
         serializedVersion: 2
-        x: 240
-        y: 256
-        width: 16
-        height: 16
+        x: 480
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -545,10 +545,10 @@ TextureImporter:
       name: Floors_18
       rect:
         serializedVersion: 2
-        x: 272
-        y: 256
-        width: 16
-        height: 16
+        x: 544
+        y: 512
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

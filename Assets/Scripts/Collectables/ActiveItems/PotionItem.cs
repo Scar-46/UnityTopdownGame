@@ -10,7 +10,7 @@ public class PotionItem : Item
 
     private void Awake()
     {
-        slot = GameObject.Find("UIOverlay").GetComponent<Transform>().Find("Slot").GetComponent<Slot>();
+        slot = GameObject.Find("UIOverlay").GetComponent<Transform>().Find("Panel").GetComponent<Transform>().Find("Slot").GetComponent<Slot>();
     }
 
     public override void UseItem()

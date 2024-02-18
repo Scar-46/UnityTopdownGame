@@ -4055,6 +4055,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520372294501085361, guid: 1ca3b3540a64dbb4f95a2206d2df7139, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520372294501085361, guid: 1ca3b3540a64dbb4f95a2206d2df7139, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520372294501085361, guid: 1ca3b3540a64dbb4f95a2206d2df7139, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520372294501085361, guid: 1ca3b3540a64dbb4f95a2206d2df7139, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.71
       objectReference: {fileID: 0}
@@ -4174,7 +4186,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4446,14 +4458,6 @@ PrefabInstance:
     - target: {fileID: 873063108240355678, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_Name
       value: Barrel (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.x

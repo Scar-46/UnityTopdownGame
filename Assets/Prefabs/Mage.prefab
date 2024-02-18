@@ -330,7 +330,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2874341622295264873}
@@ -477,7 +477,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.097
+  m_Radius: 0.3
 --- !u!195 &2852198495245525675
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -487,7 +487,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7713606973205670275}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.3
   m_Speed: 2
   m_Acceleration: 100
   avoidancePriority: 50
