@@ -547,7 +547,6 @@ GameObject:
   - component: {fileID: 317110004}
   - component: {fileID: 317110003}
   - component: {fileID: 317110005}
-  - component: {fileID: 317110006}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -620,18 +619,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c0cef8ef02615e42b382d300823e1b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &317110006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317110002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &320872522
@@ -832,7 +819,6 @@ GameObject:
   - component: {fileID: 511811794}
   - component: {fileID: 511811798}
   - component: {fileID: 511811800}
-  - component: {fileID: 511811801}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -883,7 +869,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -994,30 +980,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &511811801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511811793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
-  m_AssetsPPU: 32
-  m_RefResolutionX: 512
-  m_RefResolutionY: 512
-  m_CropFrame: 0
-  m_GridSnapping: 0
-  m_FilterMode: 0
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!1 &583655448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,14 +2023,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -6507332520658807836, guid: 5eee84781a27ceb4782d589b7061e6de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2255,11 +2217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1159445108839026167, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.76
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1159445108839026167, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.31
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1159445108839026167, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2528,7 +2490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1220517918, guid: 5eee84781a27ceb4782d589b7061e6de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3899,7 +3861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300, y: -200}
+  m_AnchoredPosition: {x: -290, y: -160}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7169950213224799264
@@ -4135,7 +4097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1220517918, guid: 5eee84781a27ceb4782d589b7061e6de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

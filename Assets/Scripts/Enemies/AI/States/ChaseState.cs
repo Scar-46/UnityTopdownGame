@@ -16,8 +16,6 @@ public class ChaseState : State
 
     Animator _Animator;
 
-    public bool _isFacingRight = true;
-
     //States
     [SerializeField]
     RoamingState _RoamingState;
