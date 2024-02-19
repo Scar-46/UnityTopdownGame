@@ -191,7 +191,10 @@ TextureImporter:
     nameFileIdTable:
       MinmapBorder_0: -6187831210322840779
       MinmapBorder_1: -6507332520658807836
+<<<<<<< Updated upstream
       MinmapBorder_2: 1220517918
+=======
+>>>>>>> Stashed changes
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
