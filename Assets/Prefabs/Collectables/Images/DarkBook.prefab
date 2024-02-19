@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickable: {fileID: 3784215926138723190, guid: deaaaf07cb3e85840814c8b5b528a84b, type: 3}
   drop: 0
-  DarkSpell: {fileID: 5043858143449881472, guid: 5e797b8d93bf12a409e0cba89ef6e8eb, type: 3}
+  DarkSpell: {fileID: 5043858143449881472, guid: e2a6d67c36569e546ba64aad17b50c8d, type: 3}
   damage: 20
   magicConsumed: 15
   attackBloked: 0
