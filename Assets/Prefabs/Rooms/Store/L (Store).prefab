@@ -522,9 +522,9 @@ CompositeCollider2D:
   - m_Collider: {fileID: 569023796490964276}
     m_ColliderPaths:
     - - X: -110000000
-        Y: 46250000
+        Y: 46875000
       - X: -120000000
-        Y: 46250000
+        Y: 46875000
       - X: -120000000
         Y: 40000000
       - X: -110000000
@@ -534,9 +534,9 @@ CompositeCollider2D:
       - X: -10000000
         Y: 10000000
       - X: -10000000
-        Y: 6250000
+        Y: 6875000
       - X: -110000000
-        Y: 6250000
+        Y: 6875000
       - X: -110000000
         Y: 10000000
       - X: -120000000
@@ -548,14 +548,14 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths:
     - - {x: -11.00003, y: 4}
-      - {x: -11.00003, y: 4.625}
-      - {x: -12, y: 4.624971}
+      - {x: -11.00003, y: 4.6875}
+      - {x: -12, y: 4.687471}
       - {x: -11.99997, y: 4}
     - - {x: -0.000029300001, y: 0}
       - {x: -0.000029300001, y: 1}
       - {x: -1, y: 0.99997073}
-      - {x: -1.0000294, y: 0.625}
-      - {x: -11, y: 0.6250294}
+      - {x: -1.0000294, y: 0.6875}
+      - {x: -11, y: 0.6875294}
       - {x: -11.00003, y: 1}
       - {x: -12, y: 0.99997073}
       - {x: -11.99997, y: 0}
@@ -598,8 +598,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -6.0000153, y: 2.3125, z: 0}
-      m_Extent: {x: 5.9999847, y: 2.3125, z: 0}
+      m_Center: {x: -6.0000153, y: 2.34375, z: 0}
+      m_Extent: {x: 5.9999847, y: 2.34375, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -3899,11 +3899,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.49
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.748
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4022,20 +4022,12 @@ PrefabInstance:
       value: Barrel (6)
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.404
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.748
+      value: 9.3
       objectReference: {fileID: 0}
     - target: {fileID: 4255295213980182305, guid: c020180ec8369814b9bc2d1b8b10b10e, type: 3}
       propertyPath: m_LocalPosition.z

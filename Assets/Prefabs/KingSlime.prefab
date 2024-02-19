@@ -552,7 +552,6 @@ MonoBehaviour:
   target: {fileID: 0}
   targetDetector: {fileID: 2171704129168819683}
   aiData: {fileID: 7196768444999488517}
-  _isFacingRight: 1
   _RoamingState: {fileID: 4228314772390463950}
   _AttackState: {fileID: 5600203004978911799}
 --- !u!114 &5600203004978911799
@@ -825,7 +824,7 @@ RectTransform:
   m_GameObject: {fileID: 8368743042662228681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -17.86, y: -5.3579926, z: -44.87276}
+  m_LocalScale: {x: -45.87, y: -13.76098, z: -115.24711}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5125179903303323553}
@@ -835,7 +834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -234}
+  m_AnchoredPosition: {x: 0, y: -1300}
   m_SizeDelta: {x: 91.92, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5269209634516221182
