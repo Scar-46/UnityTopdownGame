@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileDamage : MonoBehaviour
 {
     public float damage;
+    public int heal = 0;
     public Vector2 knockback;
     public float knockbackforce;
 
@@ -17,6 +18,7 @@ public class ProjectileDamage : MonoBehaviour
                 knockback = (collision.transform.position - transform.position).normalized * knockbackforce;
                 Debug.Log(knockback);
                 collision.GetComponent<EnemyHealth>().DealDamage(damage, knockback);
+                PlayerStats.Instance.HealCaracter(heal);
             }
             Destroy(gameObject);
         }

@@ -91,3 +91,4 @@ MonoBehaviour:
   pickable: {fileID: 6807330138275900501, guid: 87911a0d4bab9ab41acf5a8eb1de7ae1, type: 3}
   drop: 0
   iceSpell: {fileID: 8160786439582618274, guid: aaed8ad9e5510e44a9dc8da75e2cc345, type: 3}
+  magicConsumed: 10

@@ -467,7 +467,7 @@ MonoBehaviour:
   healthText: {fileID: 0}
   CurrentHealth: {fileID: 5269209634516221182}
   lootDroop:
-  - {fileID: 6064273492368158087, guid: b920c7f8ee50fe448ad354e485cb1bcb, type: 3}
+  - {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
   - {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
   start: 1
 --- !u!114 &6175988166050187556
