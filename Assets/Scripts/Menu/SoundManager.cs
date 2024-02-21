@@ -27,11 +27,11 @@ public class SoundManager : MonoBehaviour
 
     public void CheckMute()
     {
-        if (sliderValue == 0)
+        if (sliderValue == 0 && imageMute)
         {
             imageMute.enabled = true;
         }
-        else
+        else if (imageMute)
         {
             imageMute.enabled= false;
         }
