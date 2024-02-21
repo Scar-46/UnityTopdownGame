@@ -16,7 +16,7 @@ public class PauseController : MonoBehaviour
 
     public void SettingsGame()
     {
-        settingsMenu.SetActive(true);
+        //settingsMenu.SetActive(true);
     }
 
     public void ReturnMenu()
