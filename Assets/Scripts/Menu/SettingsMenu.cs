@@ -5,17 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public void StartGame()
+    void Update()
     {
-        SceneManager.LoadScene("Level01");
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnToMainMenu();
+        }
     }
 
-    public void GameSettings()
-    {
-
-    }
-
-    public void Return()
+    public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
