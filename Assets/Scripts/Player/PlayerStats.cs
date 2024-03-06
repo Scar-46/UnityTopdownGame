@@ -66,6 +66,8 @@ public class PlayerStats : MonoBehaviour
         magic = maxMagic;
         CurrentMagic.value = 1;
         magicText.text = Mathf.Ceil(health).ToString() + " / " + maxMagic.ToString();
+
+        DontDestroyOnLoad(gameObject);
     }
 
 
