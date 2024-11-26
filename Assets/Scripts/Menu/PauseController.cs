@@ -49,7 +49,7 @@ public class PauseController : MonoBehaviour
         if (isEnableCurrent)
         {
             currentMenu.SetActive(true);
-            Time.timeScale = 1f;
+            Time.timeScale = 0f;
         }
         else
         {
