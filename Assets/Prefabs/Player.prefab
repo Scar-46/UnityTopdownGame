@@ -368,8 +368,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.03}
-  m_Radius: 0.2
+  m_Offset: {x: 0, y: 0.13}
+  m_Radius: 0.18
 --- !u!70 &8143142856237734379
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -404,8 +404,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.12, y: -0.03}
-  m_Size: {x: 0.59, y: 0.37}
+  m_Offset: {x: -0.09, y: 0.13}
+  m_Size: {x: 0.57, y: 0.37}
   m_Direction: 1
 --- !u!114 &2465920792210089538
 MonoBehaviour:
