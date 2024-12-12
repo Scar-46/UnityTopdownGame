@@ -1019,6 +1019,7 @@ MonoBehaviour:
   startX: 0
   startY: 0
   upperWalls: {fileID: 0}
+  middleWalls: {fileID: 0}
   lowerWalls: {fileID: 0}
   floor: {fileID: 0}
   LTile: {fileID: 0}
