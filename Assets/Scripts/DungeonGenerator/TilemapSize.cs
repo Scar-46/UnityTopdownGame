@@ -24,6 +24,7 @@ public class TilemapSize : MonoBehaviour
     public int startY = 0;
 
     public Tilemap upperWalls;
+    public Tilemap middleWalls;
     public Tilemap lowerWalls;
     public Tilemap floor;
 
@@ -142,12 +143,12 @@ public class TilemapSize : MonoBehaviour
 
         if (direction == Vector2Int.up)
         {
-            nextPosition.y = nextPosition.y + ((currentTilemap.size.y + 1) * direction.y);
+            nextPosition.y = nextPosition.y + ((currentTilemap.size.y) * direction.y);
             nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2);
         }
         else if (direction == Vector2Int.down)
         {
-            nextPosition.y = nextPosition.y + ((nextTilemap.size.y + 1) * direction.y);
+            nextPosition.y = nextPosition.y + ((nextTilemap.size.y) * direction.y);
             nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2);
         }
         else if (direction == Vector2Int.right)
@@ -190,10 +191,11 @@ public class TilemapSize : MonoBehaviour
                     for (int j = 0; j < 2; j++)
                     {
                         position = new Vector3Int(-10 - j, startY, 0);
-                        floor.SetTile(position, null);
                         upperWalls.SetTile(position, T1Tile);
                         position = new Vector3Int(-10 - j, startY + 1, 0);
                         upperWalls.SetTile(position, T2Tile);
+                        floor.SetTile(position, null);
+                        middleWalls.SetTile(position, null);
                     }
                     Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (T)");
 
@@ -224,8 +226,8 @@ public class TilemapSize : MonoBehaviour
                         position = new Vector3Int(-1, 4 + j, 0);
                         floor.SetTile(position, null);
                         lowerWalls.SetTile(position, null);
-                        upperWalls.SetTile(position, null);
-                        upperWalls.SetTile(position, RTile);
+                        lowerWalls.SetTile(position, null);
+                        lowerWalls.SetTile(position, RTile);
                     }
                     Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (R)");
 
@@ -241,7 +243,7 @@ public class TilemapSize : MonoBehaviour
                         position = new Vector3Int(-startX, 4 + j, 0);
                         floor.SetTile(position, null);
                         lowerWalls.SetTile(position, null);
-                        upperWalls.SetTile(position, LTile);
+                        lowerWalls.SetTile(position, LTile);
                     }
                     Transform door = gameObject.transform.Find("StartPoints").transform.Find("Point (L)");
 
