@@ -44,7 +44,6 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-
     public void ToggleMenu()
     {
         isEnableCurrent = !isEnableCurrent;
@@ -59,9 +58,5 @@ public class PauseController : MonoBehaviour
             currentMenu = pauseMenu;
             Time.timeScale = 1f;
         }
-    }
-
-    public void DisablePlayer()
-    {
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -23,13 +24,14 @@ public class PlayerStats : MonoBehaviour
     public Slider? CurrentMagic;
     public TextMeshProUGUI magicText;
 
-
     //Damage
     public CameraShake cameraShake;
     public float cameraShakeTime;
     public float cameraShakeForce;
     public Animator playerAnimator;
 
+    //Death
+    public static event Action OnPlayerDeath;
 
     private int coins;
     public TextMeshProUGUI coinsCounter;
@@ -111,11 +113,18 @@ public class PlayerStats : MonoBehaviour
                 if((comp is SpellAttack || comp is MeleeAttack))
                 Destroy(comp);
             }
+            StartCoroutine(DelayedDeath(0.5f));
         }
         else
         {
             playerAnimator.SetTrigger("Damage");
         }
+    }
+
+    IEnumerator DelayedDeath(float _delay = 0)
+    {
+        yield return new WaitForSeconds(_delay);
+        OnPlayerDeath?.Invoke();
     }
 
     private void SetHealthUI()
