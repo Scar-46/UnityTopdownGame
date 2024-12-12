@@ -1,18 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpellAttack : MonoBehaviour
+public class SpellAttack : PlayerAttack
 {
     public GameObject projectile;
-    public float minDamage;
-    public float maxDamage;
     public float projectileForce;
-    public float knockbackForce = 16;
     public float magicConsumed = 0;
 
-    public Animator animator;
-    public bool attackBloked = false;
-    public float attackDelay = 0f;
+    private void Start()
+    {
+        knockbackForce = 16;
+    }
 
     private void Update()
     {
@@ -48,10 +46,5 @@ public class SpellAttack : MonoBehaviour
             //Consume magic
             PlayerStats.Instance.UseMagic(magicConsumed);
         }
-    }
-    private IEnumerator DelayAttack()
-    {
-        yield return new WaitForSeconds(attackDelay);
-        attackBloked = false;
     }
 }

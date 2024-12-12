@@ -3,12 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
+    //Menus
     public GameObject settingsMenu;
     public GameObject pauseMenu;
-
     public GameObject currentMenu;
 
     public bool isEnableCurrent = false;
+
+    public GameObject player;
 
     //Set the current menu
     private void Start()
@@ -57,5 +59,9 @@ public class PauseController : MonoBehaviour
             currentMenu = pauseMenu;
             Time.timeScale = 1f;
         }
+    }
+
+    public void DisablePlayer()
+    {
     }
 }

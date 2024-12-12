@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 584126cf633842d4dade44cc067158e1
+guid: bc488230ef007774492e81a729bdc401
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5261992394389525642
-    second: DialogueBox_0
+      213: 6991849013916550155
+    second: Death_0
   - first:
-      213: 4833402455760112517
-    second: DialogueBox_1
+      213: -276728812324164698
+    second: Death_1
   - first:
-      213: 1985244466137632497
-    second: DialogueBox_2
+      213: 3156895337291164288
+    second: Death_2
+  - first:
+      213: 1400002288684528572
+    second: Death_3
+  - first:
+      213: -1891625820773287384
+    second: Death_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,85 +125,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DialogueBox_0
+      name: Death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.4376501, y: 0.4353063}
+      pivot: {x: 0.5065986, y: 0.3505185}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67bea99ebc5a9f6b0800000000000000
-      internalID: -5261992394389525642
+      spriteID: b0449ad32a9080160800000000000000
+      internalID: 6991849013916550155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DialogueBox_1
+      name: Death_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5065986, y: 0.3505185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab6d428c9cd82cf0800000000000000
+      internalID: -276728812324164698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 128
-        height: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.4376501, y: 0.4353063}
+      pivot: {x: 0.5065986, y: 0.3505185}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58b0510dce1b31340800000000000000
-      internalID: 4833402455760112517
+      spriteID: 08aa354559b8fcb20800000000000000
+      internalID: 3156895337291164288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DialogueBox_2
+      name: Death_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5065986, y: 0.3505185}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb376cdf9aecd6310800000000000000
+      internalID: 1400002288684528572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Death_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 128
-        height: 128
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.4376501, y: 0.4353063}
+      pivot: {x: 0.5065986, y: 0.3505185}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fe817cd2510d8b10800000000000000
-      internalID: 1985244466137632497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DialogueBox_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.37227416, y: 0.40988976}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f95c5726d509c9b4f9573c3f585f3e45
-      internalID: -1182901808
+      spriteID: 82af9d896589fb5e0800000000000000
+      internalID: -1891625820773287384
       vertices: []
       indices: 
       edges: []
@@ -205,7 +232,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 751533b287db6234e86827b49358791f
+    spriteID: 198c7dec943868e459f78a2ef5bae29e
     internalID: 0
     vertices: []
     indices: 
@@ -213,10 +240,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DialogueBox_0: -5261992394389525642
-      DialogueBox_1: 4833402455760112517
-      DialogueBox_2: 1985244466137632497
-      DialogueBox_3: -1182901808
+      Death_0: 6991849013916550155
+      Death_1: -276728812324164698
+      Death_2: 3156895337291164288
+      Death_3: 1400002288684528572
+      Death_4: -1891625820773287384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

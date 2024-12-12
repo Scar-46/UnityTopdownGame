@@ -33,7 +33,6 @@ public class StartRoom : MonoBehaviour
     {
         if (collision.transform.name == "Player" && start)
         {
-            Debug.Log(collision.name);
             ActivateLights();
             ActivateSpawns();
             start = false;

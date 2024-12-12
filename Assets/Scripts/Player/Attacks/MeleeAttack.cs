@@ -2,25 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : MonoBehaviour
+public class MeleeAttack : PlayerAttack
 {
 
     public static MeleeAttack Instance;
-
-    public float minDamage;
-    public float maxDamage;
-
-    public Animator animator;
-
     public bool isAttacking = false;
-    public bool attackBloked = false;
-    public float attackDelay = 0f;
     public float radius = 0.2f;
-    public float knockbackForce = 0.1f;
 
     private void Awake()
     {
         MeleeAttack.Instance = this;
+        knockbackForce = 0.1f;
     }
 
     private void Update()
@@ -48,18 +40,5 @@ public class MeleeAttack : MonoBehaviour
             }
         }
         StartCoroutine(DelayAttack());
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Vector3 position = this.transform == null ? Vector3.zero : this.transform.position;
-        Gizmos.DrawWireSphere(position, radius);
-    }
-
-    private IEnumerator DelayAttack()
-    {
-        yield return new WaitForSeconds(attackDelay);
-        attackBloked = false;
     }
 }

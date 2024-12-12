@@ -106,7 +106,11 @@ public class PlayerStats : MonoBehaviour
                     Destroy(comp);
                 }
             }
-            //Destroy(player);
+            foreach (var comp in player.GetComponentsInChildren<Component>())
+            {
+                if((comp is SpellAttack || comp is MeleeAttack))
+                Destroy(comp);
+            }
         }
         else
         {
@@ -191,6 +195,5 @@ public class PlayerStats : MonoBehaviour
         else { return false;}
 
     }
-
  }
 #nullable disable

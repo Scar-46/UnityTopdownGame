@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    [Header("Movement settings")]
     public float speed;
     private Rigidbody2D _rigidbody;
     private Vector2 _playerInput;
@@ -19,10 +20,16 @@ public class PlayerMovement : MonoBehaviour
     private bool _isDashing;
     private bool _canDash;
 
+    public GameObject minimapIcon;
+
+    public GameObject weapon;
+    public GameObject camera;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        minimapIcon.SetActive(true);
         _canDash = true;
     }
 
@@ -58,17 +65,11 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
-
-
     }
 
     private void SetAnimation(Vector2 direction)
     {
-
         _animator.SetFloat("Speed", direction.sqrMagnitude);
-
-
-
     }
 
     private IEnumerator Dash()
@@ -89,5 +90,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _isFacingRight = !_isFacingRight;
         this.transform.Rotate(0, 180, 0);
+    }
+
+    public void DisableMovement(bool activate)
+    {
+        foreach (var comp in weapon.GetComponents<PlayerAttack>())
+        {
+            comp.attackBloked = activate;
+        }
+        camera.SetActive(activate);
     }
 }
