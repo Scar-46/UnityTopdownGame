@@ -22,20 +22,20 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 8208270978804853502, guid: 6ba1f6303f4a4ef4ca205734aa7a8403, type: 3}
-    - time: 0.1
+    - time: 0.083333336
       value: {fileID: 6136327500665522839, guid: 6ba1f6303f4a4ef4ca205734aa7a8403, type: 3}
-    - time: 0.2
+    - time: 0.25
       value: {fileID: 5970288980717055161, guid: 6ba1f6303f4a4ef4ca205734aa7a8403, type: 3}
-    - time: 0.3
+    - time: 0.33333334
       value: {fileID: 5890377819349913679, guid: 6ba1f6303f4a4ef4ca205734aa7a8403, type: 3}
-    - time: 0.4
+    - time: 0.41666666
       value: {fileID: 121273896049731177, guid: 6ba1f6303f4a4ef4ca205734aa7a8403, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 10
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
