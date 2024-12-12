@@ -204,8 +204,8 @@ GameObject:
   - component: {fileID: 5267553014641009391}
   - component: {fileID: 7335605636436995244}
   - component: {fileID: 8462717575548758231}
-  - component: {fileID: 2465920792210089538}
   - component: {fileID: 8143142856237734379}
+  - component: {fileID: 2465920792210089538}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -370,24 +370,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.010000005, y: -0.010957055}
   m_Radius: 0.07904295
---- !u!114 &2465920792210089538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7083253695672458044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fecc62857c74974cae6bbe3dff1b229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  dashSpeed: 10
-  _dashCooldown: 0.5
-  minimapIcon: {fileID: 0}
-  weapon: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!70 &8143142856237734379
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -425,3 +407,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.013197184, y: 0.29896304}
   m_Size: {x: 2, y: 2}
   m_Direction: 0
+--- !u!114 &2465920792210089538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083253695672458044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fecc62857c74974cae6bbe3dff1b229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  dashSpeed: 10
+  _dashCooldown: 0.5
+  minimapIcon: {fileID: 0}
+  weapon: {fileID: 0}
+  camera: {fileID: 0}
