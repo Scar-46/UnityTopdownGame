@@ -12,6 +12,8 @@ public class PauseController : MonoBehaviour
 
     public GameObject player;
 
+    public static bool blockMenu;
+
     //Set the current menu
     private void Start()
     {
@@ -20,7 +22,7 @@ public class PauseController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape) && !blockMenu)
         {
             ToggleMenu();
         }

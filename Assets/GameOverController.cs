@@ -20,10 +20,12 @@ public class GameOverController : MonoBehaviour
     public void EnableGameOverMenu()
     {
         gameOverMenu.SetActive(true);
+        PauseController.blockMenu = true;
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PauseController.blockMenu = false;
     }
 }
