@@ -12,7 +12,6 @@ public class MeleeAttack : PlayerAttack
     private void Awake()
     {
         MeleeAttack.Instance = this;
-        knockbackForce = 0.1f;
     }
 
     private void Update()
@@ -36,9 +35,16 @@ public class MeleeAttack : PlayerAttack
             {
                 float damage = Random.Range(minDamage, maxDamage);
                 Vector2 knockback = (collider.transform.position - transform.position).normalized * knockbackForce;
-                collider.GetComponent<EnemyHealth>().DealDamage(damage,knockback);
+                Debug.Log("knockback:" + knockback);
+                collider.GetComponent<EnemyHealth>().DealDamage(damage, knockback);
             }
         }
         StartCoroutine(DelayAttack());
+    }
+    private void OnDrawGizmos()
+    {
+        // Visualize the attack radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, radius);
     }
 }
