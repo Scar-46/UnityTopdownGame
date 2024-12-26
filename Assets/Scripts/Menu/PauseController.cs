@@ -10,8 +10,6 @@ public class PauseController : MonoBehaviour
 
     public bool isEnableCurrent = false;
 
-    public GameObject player;
-
     public static bool blockMenu;
 
     //Set the current menu
