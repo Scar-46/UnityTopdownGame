@@ -10,9 +10,9 @@ public abstract class Item : MonoBehaviour
 
     public bool drop = false;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()

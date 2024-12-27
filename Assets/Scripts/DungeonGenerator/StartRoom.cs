@@ -7,6 +7,7 @@ public class StartRoom : MonoBehaviour
     public GameObject[] spawners;
 
     private bool start = true;
+
     public void ActivateSpawns()
     {
         foreach (var spawn in spawners)

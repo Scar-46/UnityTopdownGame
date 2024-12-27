@@ -119,6 +119,33 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &110426392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6204345804916822707, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+  m_PrefabInstance: {fileID: 1135669536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &110426394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5172158934319911925, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+  m_PrefabInstance: {fileID: 1135669536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &110426395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5985243534597796186, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+  m_PrefabInstance: {fileID: 1135669536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357204322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1186,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4496005815621071117, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+      propertyPath: textBox
+      value: 
+      objectReference: {fileID: 110426392}
+    - target: {fileID: 4496005815621071117, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+      propertyPath: actorName
+      value: 
+      objectReference: {fileID: 110426395}
+    - target: {fileID: 4496005815621071117, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+      propertyPath: messageText
+      value: 
+      objectReference: {fileID: 110426394}
+    - target: {fileID: 6204345804916822707, guid: e992dd336c8403d49894d54013ed748b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1966,6 +2009,10 @@ PrefabInstance:
     - target: {fileID: 5501335194774293114, guid: 29f77d3a1ee6a934d9207efe339f0234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619533357872952244, guid: 29f77d3a1ee6a934d9207efe339f0234, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

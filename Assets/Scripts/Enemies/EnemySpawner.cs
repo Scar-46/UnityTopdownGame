@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector2 _spawnPosition;
 
-    void Start()
+    void Awake()
     {
         StartCoroutine(SpawnEnemy());
     }
