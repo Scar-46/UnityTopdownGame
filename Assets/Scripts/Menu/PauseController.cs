@@ -28,10 +28,7 @@ public class PauseController : MonoBehaviour
 
     public void ResumeGame()
     {
-        if (!blockMenu)
-        {
-            ToggleMenu();
-        }
+        ToggleMenu();
     }
 
     public void SettingsGame()
