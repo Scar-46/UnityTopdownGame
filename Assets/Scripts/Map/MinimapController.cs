@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -35,6 +36,24 @@ public class MinimapController : MonoBehaviour
         {
             MinimapController.Instance = this;
             DontDestroyOnLoad(this);
+        }
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from the sceneLoaded event to avoid memory leaks
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindCamera();
+    }
+
+    private void FindCamera()
+    {
+        largeMinimapCamera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>();
+        if (largeMinimapCamera == null)
+        {
+            Debug.LogWarning("No Map Camera found in the scene.");
         }
     }
 

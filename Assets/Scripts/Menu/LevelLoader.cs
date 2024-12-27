@@ -10,6 +10,7 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public GameObject overlay;
     public GameObject gameOverMenu;
+    public GameObject bossHealthBar;
 
     [Header("Player Settings")]
     public GameObject playerPrefab;
@@ -65,6 +66,7 @@ public class LevelLoader : MonoBehaviour
         PlayerStats.Instance?.InitializePlayer();
         PlayerStats.Instance?.ResetGameState();
         gameOverMenu?.SetActive(false);
+        bossHealthBar?.SetActive(false);
     }
 
     private void LoadLevel(object level, bool instantiatePlayer)
