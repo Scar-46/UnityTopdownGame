@@ -1,196 +1,231 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 #nullable enable
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance;
-    public GameObject player;
+    private GameObject? player;
 
-    //Health
+    // Health
     private float health;
-    private float maxHealth = 100;
+    private float maxHealth = 100f;
     public Slider? CurrentHealth;
-    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI? healthText;
 
-    //Magic
-    public float magic; // TODO: make this private.
-    private float maxMagic = 100;
+    // Magic
+    public float magic;
+    private float maxMagic = 100f;
     public Slider? CurrentMagic;
-    public TextMeshProUGUI magicText;
+    public TextMeshProUGUI? magicText;
 
-    //Damage
-    public CameraShake cameraShake;
-    public float cameraShakeTime;
-    public float cameraShakeForce;
-    public Animator playerAnimator;
+    // Damage
+    public CameraShake? cameraShake;
+    public float cameraShakeTime = 0.1f;
+    public float cameraShakeForce = 1.0f;
+    private Animator? playerAnimator;
 
-    //Death
-    public static event Action OnPlayerDeath;
+    // Death
+    public static event Action? OnPlayerDeath;
 
+    // Currency
     private int coins;
-    public TextMeshProUGUI coinsCounter;
+    public TextMeshProUGUI? coinsCounter;
 
     private int keys;
-    public TextMeshProUGUI keysCounter;
-
+    public TextMeshProUGUI? keysCounter;
 
     private void Awake()
     {
-        if (Instance is not null )
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-           PlayerStats.Instance = this;
-           DontDestroyOnLoad(this);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        //Set Player
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerAnimator = player.GetComponent<Animator>();
-
-        //Set health
-        health = maxHealth;
-        CurrentHealth.value = 1;
-        healthText.text = Mathf.Ceil(health).ToString() + " / " + maxHealth.ToString();
-
-        //Set magic
-        magic = maxMagic;
-        CurrentMagic.value = 1;
-        magicText.text = Mathf.Ceil(health).ToString() + " / " + maxMagic.ToString();
+        InitializeUI();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-    //------------Health------------//
-    public void HealCaracter(float heal)
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            InitializePlayer();
+        }
+        else
+        {
+            Debug.LogWarning("Player not found in the scene. Skipping initialization.");
+        }
+    }
+
+    public void InitializePlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerAnimator = player.GetComponent<Animator>();
+            Debug.Log("Player successfully initialized.");
+        }
+    }
+
+    private void InitializeUI()
+    {
+        InitializeHealthUI();
+        InitializeMagicUI();
+        UpdateCurrencyUI();
+    }
+
+    private void InitializeHealthUI()
+    {
+        health = maxHealth;
+        if (CurrentHealth != null)
+            CurrentHealth.value = 1f;
+        if (healthText != null)
+            healthText.text = $"{Mathf.Ceil(health)} / {maxHealth}";
+    }
+
+    private void InitializeMagicUI()
+    {
+        magic = maxMagic;
+        if (CurrentMagic != null)
+            CurrentMagic.value = 1f;
+        if (magicText != null)
+            magicText.text = $"{Mathf.Ceil(magic)} / {maxMagic}";
+    }
+
+    private void UpdateCurrencyUI()
+    {
+        if (coinsCounter != null)
+            coinsCounter.text = $"Coins: {coins}";
+        if (keysCounter != null)
+            keysCounter.text = $"Keys: {keys}";
+    }
+
+    // Health
+    public void HealCharacter(float heal)
     {
         health += heal;
-        CheckOverheal();
+        health = Mathf.Min(health, maxHealth);
         SetHealthUI();
-    }
-
-    private void CheckOverheal()
-    {
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        }
     }
 
     public void DealDamage(float damage)
     {
-        cameraShake.Shake(cameraShakeForce, cameraShakeTime);
-        health -= damage;
-        CheckDeath();
-        SetHealthUI();
-    }
+        if (cameraShake != null)
+            cameraShake.Shake(cameraShakeForce, cameraShakeTime);
 
-    private void CheckDeath()
-    {
+        health -= damage;
         if (health <= 0)
         {
             health = 0;
-            playerAnimator.SetTrigger("Death");
-            foreach (var comp in player.GetComponents<Component>())
-            {
-                if (!(comp is Transform || comp is Animator || comp is SpriteRenderer))
-                {
-                    Destroy(comp);
-                }
-            }
-            foreach (var comp in player.GetComponentsInChildren<Component>())
-            {
-                if((comp is SpellAttack || comp is MeleeAttack))
-                Destroy(comp);
-            }
-            StartCoroutine(DelayedDeath(0.5f));
+            HandlePlayerDeath();
         }
         else
         {
-            playerAnimator.SetTrigger("Damage");
+            playerAnimator?.SetTrigger("Damage");
         }
+        SetHealthUI();
     }
 
-    IEnumerator DelayedDeath(float _delay = 0)
+    private void HandlePlayerDeath()
     {
-        yield return new WaitForSeconds(_delay);
+        playerAnimator?.SetTrigger("Death");
+        if (player != null)
+        {
+            foreach (var comp in player.GetComponents<Component>())
+            {
+                if (!(comp is Transform || comp is Animator || comp is SpriteRenderer))
+                    Destroy(comp);
+            }
+            foreach (var comp in player.GetComponentsInChildren<Component>())
+            {
+                if (comp is SpellAttack || comp is MeleeAttack)
+                    Destroy(comp);
+            }
+        }
+        StartCoroutine(DelayedDeath(0.5f));
+    }
+
+    private IEnumerator DelayedDeath(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         OnPlayerDeath?.Invoke();
     }
 
     private void SetHealthUI()
     {
-        CurrentHealth.value = CalculateHealthPercentage();
-        healthText.text = Mathf.Ceil(health).ToString() + " / " + maxHealth.ToString();
-    }
-    private float CalculateHealthPercentage()
-    {
-        return (health / maxHealth);
+        if (CurrentHealth != null)
+            CurrentHealth.value = health / maxHealth;
+        if (healthText != null)
+            healthText.text = $"{Mathf.Ceil(health)} / {maxHealth}";
     }
 
-    //------------Magic------------//
+    // Magic
     public void UseMagic(float magicUsed)
     {
         magic -= magicUsed;
+        magic = Mathf.Max(magic, 0);
         SetMagicUI();
     }
 
-    public void recoverMagic(float amount)
+    public void RecoverMagic(float amount)
     {
         magic += amount;
-        CheckOvermagic();
+        magic = Mathf.Min(magic, maxMagic);
         SetMagicUI();
-    }
-
-    private void CheckOvermagic()
-    {
-        if (magic > maxMagic)
-        {
-            magic = maxMagic;
-        }
     }
 
     private void SetMagicUI()
     {
-        CurrentMagic.value = CalculateMagicPercentage();
-        magicText.text = Mathf.Ceil(magic).ToString() + " / " + maxMagic.ToString();
+        if (CurrentMagic != null)
+            CurrentMagic.value = magic / maxMagic;
+        if (magicText != null)
+            magicText.text = $"{Mathf.Ceil(magic)} / {maxMagic}";
     }
 
-    private float CalculateMagicPercentage()
-    {
-        return (magic / maxMagic);
-    }
-
-    //------------Currency------------//
+    // Currency
     public void AddCoins(int amount)
     {
         coins += amount;
-        coinsCounter.text = "Coins: " + coins.ToString();
+        UpdateCurrencyUI();
     }
 
     public bool WithdrawCoins(int amount)
     {
-        if (coins >= amount) { 
+        if (coins >= amount)
+        {
             coins -= amount;
-            coinsCounter.text = "Coins: " + coins.ToString();
+            UpdateCurrencyUI();
             return true;
         }
-        else { return false; }
+        return false;
     }
 
     public void AddKeys(int amount)
     {
         keys += amount;
-        keysCounter.text = "Keys: " + keys.ToString();
+        UpdateCurrencyUI();
     }
 
     public bool RemoveKeys(int amount)
@@ -198,11 +233,26 @@ public class PlayerStats : MonoBehaviour
         if (keys >= amount)
         {
             keys -= amount;
-            keysCounter.text = "Keys: " + keys.ToString();
+            UpdateCurrencyUI();
             return true;
         }
-        else { return false;}
-
+        return false;
     }
- }
+
+    public void ResetGameState()
+    {
+        // Reset halth
+        health = maxHealth;
+        SetHealthUI();
+
+        // Reset magic
+        magic = maxMagic;
+        SetMagicUI();
+
+        // Reset currency
+        coins = 0;
+        keys = 0;
+        UpdateCurrencyUI();
+    }
+}
 #nullable disable

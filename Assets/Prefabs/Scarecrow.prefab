@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roaming: 0
-  targetDetectionRange: 25
+  targetDetectionRange: 30
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 320
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8708f8c9c267ed14e8f66f69f9a254f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 3000
   maxHealth: 3000
   knockbackDelay: 0
   enemyName: {fileID: 0}
@@ -471,8 +471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFacingRight: 0
   attackState: {fileID: 7130829841634709866}
-  _Animator: {fileID: 0}
-  _Health: {fileID: 0}
+  _Animator: {fileID: 4909424662777772351}
+  _Health: {fileID: 7269772491091116238}
 --- !u!114 &4408136373825555890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,10 +486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  target: {fileID: 0}
   targetDetector: {fileID: 3393893427784605458}
   aiData: {fileID: 5272691661702062198}
-  _isFacingRight: 1
   _RoamingState: {fileID: 0}
   _AttackState: {fileID: 7130829841634709866}
 --- !u!114 &7130829841634709866

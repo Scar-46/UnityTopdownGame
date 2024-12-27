@@ -23,6 +23,21 @@ public class MinimapController : MonoBehaviour
     private Vector3 dragOrigin;
     private float targetFOV;
 
+    public static MinimapController Instance;
+
+    private void Awake()
+    {
+        if (Instance is not null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            MinimapController.Instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
     private void Update()
     {
         HandleInput();

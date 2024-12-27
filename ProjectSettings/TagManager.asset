@@ -10,6 +10,9 @@ TagManager:
   - RoomSpawner
   - NavMesh
   - IconPlayer
+  - Camera
+  - SpawnPoint
+  - GameOver
   layers:
   - Default
   - TransparentFX

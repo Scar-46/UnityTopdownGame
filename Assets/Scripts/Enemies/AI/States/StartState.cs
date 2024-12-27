@@ -21,8 +21,9 @@ public class StartState : State
 
     public override State RunState()
     {
-       if(_Health.health < _Health.maxHealth)
+       if (_Health.health < _Health.maxHealth)
         {
+            Debug.Log("Intro");
             _Animator.SetTrigger("Intro");
             _Health.enabled = false;
         }

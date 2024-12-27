@@ -17,7 +17,7 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player" && needKey)
+        if (collision.tag == "Player" && needKey)
         {
             if (PlayerStats.Instance.RemoveKeys(1))
             {
@@ -25,7 +25,7 @@ public class OpenDoor : MonoBehaviour
                 needKey = false;
             }
         }
-        else if (collision.name == "Player")
+        else if (collision.tag == "Player")
         {
             _Animator.SetTrigger("Open");
         }
@@ -42,7 +42,7 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.name == "Player" && !needKey)
+        if (collision.tag == "Player" && !needKey)
         {
             _Animator.SetTrigger("Close");
         }

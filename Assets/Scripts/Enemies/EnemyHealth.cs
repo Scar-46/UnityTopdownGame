@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
     }
 
-    public void HealCaracter(float heal)
+    public void HealCharacter(float heal)
     {
         health += heal;
         CheckOverheal();
@@ -77,6 +77,7 @@ public class EnemyHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(knockbackDelay);
         rb2D.velocity = Vector2.zero;
+        yield return new WaitForSeconds(knockbackDelay);
     }
 
     public void DestroyEnemy()

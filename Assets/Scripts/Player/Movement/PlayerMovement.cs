@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,10 +19,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _isDashing;
     private bool _canDash;
 
+    private GameObject camera;
     public GameObject minimapIcon;
-
     public GameObject weapon;
-    public GameObject camera;
 
     private void Start()
     {
@@ -31,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         minimapIcon.SetActive(true);
         _canDash = true;
+        camera = GameObject.FindGameObjectWithTag("Camera");
     }
 
     private void Update()

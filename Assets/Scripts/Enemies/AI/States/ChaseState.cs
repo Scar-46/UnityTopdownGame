@@ -4,9 +4,6 @@ using UnityEngine.AI;
 public class ChaseState : State
 {
     [SerializeField]
-    Transform target;
-
-    [SerializeField]
     TargetDetector targetDetector;
 
     [SerializeField]

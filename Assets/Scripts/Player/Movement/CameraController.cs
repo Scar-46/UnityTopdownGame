@@ -1,29 +1,29 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
     public Transform player;
-    public float theashold;
+    public float threshold;
     private bool playerDead = false;
     public float smoothSpeed = 6f; // Speed of the camera centering
 
-    private void Awake()
-    {
-        transform.position = player.position;
-    }
-    void OnEnable()
+    private void OnEnable()
     {
         PlayerStats.OnPlayerDeath += HandlePlayerDeath;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         PlayerStats.OnPlayerDeath -= HandlePlayerDeath;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void Update()
+    private void Update()
     {
-        if (!playerDead)
+        if (player != null && !playerDead)
         {
             // Get the mouse position in world space
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -32,13 +32,13 @@ public class CameraController : MonoBehaviour
             Vector3 midpoint = (player.position + mousePos) / 2f;
 
             // Clamp the midpoint to keep it within a certain range relative to the player
-            midpoint.x = Mathf.Clamp(midpoint.x, -theashold + player.position.x, theashold + player.position.x);
-            midpoint.y = Mathf.Clamp(midpoint.y, -theashold + player.position.y, theashold + player.position.y);
+            midpoint.x = Mathf.Clamp(midpoint.x, -threshold + player.position.x, threshold + player.position.x);
+            midpoint.y = Mathf.Clamp(midpoint.y, -threshold + player.position.y, threshold + player.position.y);
 
             // Smoothly move the camera to the midpoint
             transform.position = Vector3.Lerp(transform.position, midpoint, Time.deltaTime * smoothSpeed);
         }
-        else
+        else if (player != null)
         {
             // Smoothly center the camera on the player
             Vector3 targetPosition = player.position;
@@ -49,5 +49,26 @@ public class CameraController : MonoBehaviour
     private void HandlePlayerDeath()
     {
         playerDead = true;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartCoroutine(FindPlayer());
+    }
+
+    private IEnumerator FindPlayer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+            playerDead = false;
+            transform.position = player.position;
+        }
+        else
+        {
+            Debug.LogWarning("Player not found in the scene. Ensure the player object is tagged 'Player'.");
+        }
     }
 }

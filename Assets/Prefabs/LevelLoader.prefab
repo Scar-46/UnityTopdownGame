@@ -450,6 +450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9009543012914450848}
   - component: {fileID: 1608510904544526505}
+  - component: {fileID: 813404231234625029}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -487,8 +488,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 3870648336757815958}
+  overlay: {fileID: 0}
   gameOverMenu: {fileID: 0}
+  playerPrefab: {fileID: 7083253695672458044, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
   transitionTime: 2
+--- !u!114 &813404231234625029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451497365237854342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28602d700fdbcdd49a48036877fe6ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentHealth: {fileID: 0}
+  healthText: {fileID: 0}
+  magic: 0
+  CurrentMagic: {fileID: 0}
+  magicText: {fileID: 0}
+  cameraShake: {fileID: 0}
+  cameraShakeTime: 0.15
+  cameraShakeForce: 2
+  coinsCounter: {fileID: 0}
+  keysCounter: {fileID: 0}
 --- !u!1 &8117664860072869695
 GameObject:
   m_ObjectHideFlags: 0

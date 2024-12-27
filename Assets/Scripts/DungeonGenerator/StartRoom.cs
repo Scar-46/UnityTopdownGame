@@ -31,7 +31,7 @@ public class StartRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.name == "Player" && start)
+        if (collision.transform.tag == "Player" && start)
         {
             ActivateLights();
             ActivateSpawns();

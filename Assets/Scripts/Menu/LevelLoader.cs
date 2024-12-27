@@ -1,30 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Cinemachine.DocumentationSortingAttribute;
+using static System.TimeZoneInfo;
 
 public class LevelLoader : MonoBehaviour
 {
-
+    [Header("UI Elements")]
     public Animator transition;
+    public GameObject overlay;
     public GameObject gameOverMenu;
 
+    [Header("Player Settings")]
+    public GameObject playerPrefab;
+
+    [Header("Transition Settings")]
     public float transitionTime = 1f;
-    public void StartGame()
-    {
-        StartCoroutine(LoadLevel("Level02"));
-    }
 
-    public void GameSettings()
-    {
-        StartCoroutine(LoadLevel("SettingsMenu"));
-    }
-
-    public void ExitGame()
-    {
-        Debug.Log("Exit");
-        Application.Quit();
-    }
 
     private void OnEnable()
     {
@@ -36,33 +28,92 @@ public class LevelLoader : MonoBehaviour
         PlayerStats.OnPlayerDeath -= EnableGameOverMenu;
     }
 
-    public void EnableGameOverMenu()
+    public void StartGame()
     {
-        gameOverMenu.SetActive(true);
-        PauseController.blockMenu = true;
+        LoadLevel("Level02", true);
+        StartCoroutine(EnableOverlay());
+    }
+
+    public void GameSettings()
+    {
+        LoadLevel("SettingsMenu", false);
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Exiting game...");
+        Application.Quit();
+    }
+
+    private void EnableGameOverMenu()
+    {
+        if (gameOverMenu != null)
+        {
+            gameOverMenu.SetActive(true);
+            PauseController.blockMenu = true;
+        }
+        else
+        {
+            Debug.LogError("Game Over Menu is not assigned!");
+        }
     }
 
     public void RestartLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+        LoadLevel(SceneManager.GetActiveScene().buildIndex, true);
         PauseController.blockMenu = false;
+        PlayerStats.Instance?.InitializePlayer();
+        PlayerStats.Instance?.ResetGameState();
+        gameOverMenu?.SetActive(false);
     }
 
-    IEnumerator LoadLevel(int level)
+    private void LoadLevel(object level, bool instantiatePlayer)
     {
-        transition.SetTrigger("Start");
+        if (transition == null)
+        {
+            Debug.LogError("Transition Animator is not assigned!");
+            return;
+        }
 
-        yield return new WaitForSeconds(transitionTime);
-
-        SceneManager.LoadScene(level);
+        StartCoroutine(LoadLevelCoroutine(level, instantiatePlayer));
     }
 
-    IEnumerator LoadLevel(string level)
+    private IEnumerator EnableOverlay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        overlay.SetActive(true);
+    }
+
+    private IEnumerator LoadLevelCoroutine(object level, bool instantiatePlayer)
     {
         transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(level);
+        if (level is string levelName)
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        else if (level is int levelIndex)
+        {
+            SceneManager.LoadScene(levelIndex);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (instantiatePlayer)
+        {
+            GameObject spawnPoint = GameObject.FindWithTag("SpawnPoint");
+            if (spawnPoint != null)
+            {
+                Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+                PlayerStats.Instance?.InitializePlayer();
+            }
+            else
+            {
+                Debug.LogError("Spawn point not found!");
+            }
+        }
+        yield return new WaitForSeconds(1f);
+        transition.SetTrigger("End");
     }
 }
