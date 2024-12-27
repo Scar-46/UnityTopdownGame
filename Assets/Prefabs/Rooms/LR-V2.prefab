@@ -233,12 +233,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823459320632819524}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef74ba62bb5e16b4fb0151668e7d83fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies: []
+  Enemies:
+  - {fileID: 5773349443380493275, guid: e723fe18eb20a45469d8a238c0f15b67, type: 3}
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 8817251191247033449}

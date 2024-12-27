@@ -20,8 +20,7 @@ public class ChaseState : State
     [SerializeField]
     AttackState _AttackState;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;

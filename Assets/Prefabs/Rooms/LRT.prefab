@@ -1115,7 +1115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6738786620399188507
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 4754670742393332027, guid: c9bc1b894a896f74a886e4441eb4a96b, type: 3}
+  - {fileID: 5773349443380493275, guid: e723fe18eb20a45469d8a238c0f15b67, type: 3}
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 238598189652952238}
@@ -5238,8 +5238,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -10.000008, y: 2.34375, z: 0}
-      m_Extent: {x: 9.999992, y: 2.34375, z: 0}
+      m_Center: {x: -10.000015, y: 5.5, z: 0}
+      m_Extent: {x: 9.999985, y: 5.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0

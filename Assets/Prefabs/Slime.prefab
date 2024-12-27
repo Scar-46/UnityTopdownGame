@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8708f8c9c267ed14e8f66f69f9a254f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
   maxHealth: 100
   knockbackDelay: 0.2
   enemyName: {fileID: 0}
@@ -437,10 +437,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  target: {fileID: 0}
   targetDetector: {fileID: 6383934356786913865}
   aiData: {fileID: 5660226355965902702}
-  _isFacingRight: 1
   _RoamingState: {fileID: 7965643118744447302}
   _AttackState: {fileID: 7896179947017326398}
 --- !u!114 &7896179947017326398
