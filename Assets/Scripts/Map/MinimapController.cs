@@ -37,6 +37,8 @@ public class MinimapController : MonoBehaviour
             MinimapController.Instance = this;
             DontDestroyOnLoad(this);
         }
+
+        this.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {

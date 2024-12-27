@@ -3691,7 +3691,6 @@ MonoBehaviour:
   settingsMenu: {fileID: 948798380}
   pauseMenu: {fileID: 431035791}
   currentMenu: {fileID: 0}
-  isEnableCurrent: 0
 --- !u!114 &1356676753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5846,27 +5845,11 @@ PrefabInstance:
       objectReference: {fileID: 243253381}
     - target: {fileID: 2592518619132422964, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2798515085010698182, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_LocalScale.y
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332591656752749800, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: minDamage
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332591656752749800, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: knockbackForce
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4854268200273813930, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.299
-      objectReference: {fileID: 0}
-    - target: {fileID: 4854268200273813930, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.252
       objectReference: {fileID: 0}
     - target: {fileID: 5267553014641009391, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_Size.x
@@ -5875,22 +5858,6 @@ PrefabInstance:
     - target: {fileID: 5267553014641009391, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_Size.y
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5323209329599713600, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: maxDamage
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5323209329599713600, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: minDamage
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5323209329599713600, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 1842283657040942082, guid: ba9d68aa383e65243b2b6839677b4ebb, type: 3}
-    - target: {fileID: 5323209329599713600, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
-      propertyPath: attackDelay
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5470160602700285087, guid: d42d0cdeed5959c468ba459be95893d1, type: 3}
       propertyPath: m_SortingLayer

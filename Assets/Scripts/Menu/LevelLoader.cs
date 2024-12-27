@@ -6,6 +6,8 @@ using static System.TimeZoneInfo;
 
 public class LevelLoader : MonoBehaviour
 {
+    public static LevelLoader Instance;
+
     [Header("UI Elements")]
     public Animator transition;
     public GameObject overlay;
@@ -18,6 +20,19 @@ public class LevelLoader : MonoBehaviour
     [Header("Transition Settings")]
     public float transitionTime = 1f;
 
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -45,6 +60,27 @@ public class LevelLoader : MonoBehaviour
         Debug.Log("Exiting game...");
         Application.Quit();
     }
+    
+    public void RestartLevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex, true);
+        PauseController.blockMenu = false;
+        PlayerStats.Instance?.InitializePlayer();
+        PlayerStats.Instance?.ResetGameState();
+        gameOverMenu?.SetActive(false);
+        bossHealthBar?.SetActive(false);
+    }
+
+    public void ReturnToMenu()
+    {
+        LoadLevel("MainMenu", false);
+        PauseController.blockMenu = false;
+        PlayerStats.Instance?.ResetGameState();
+        gameOverMenu?.SetActive(false);
+        overlay?.SetActive(false);
+        bossHealthBar?.SetActive(false);
+
+    }
 
     private void EnableGameOverMenu()
     {
@@ -59,14 +95,10 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
+    private IEnumerator EnableOverlay()
     {
-        LoadLevel(SceneManager.GetActiveScene().buildIndex, true);
-        PauseController.blockMenu = false;
-        PlayerStats.Instance?.InitializePlayer();
-        PlayerStats.Instance?.ResetGameState();
-        gameOverMenu?.SetActive(false);
-        bossHealthBar?.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        overlay.SetActive(true);
     }
 
     private void LoadLevel(object level, bool instantiatePlayer)
@@ -80,19 +112,14 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevelCoroutine(level, instantiatePlayer));
     }
 
-    private IEnumerator EnableOverlay()
-    {
-        yield return new WaitForSeconds(0.5f);
-        overlay.SetActive(true);
-    }
 
     private IEnumerator LoadLevelCoroutine(object level, bool instantiatePlayer)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
-
         if (level is string levelName)
         {
+            Debug.Log(levelName);
             SceneManager.LoadScene(levelName);
         }
         else if (level is int levelIndex)
