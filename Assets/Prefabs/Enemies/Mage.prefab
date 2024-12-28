@@ -427,7 +427,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 2500
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -607,10 +607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  target: {fileID: 0}
   targetDetector: {fileID: 4693668167619331877}
   aiData: {fileID: 6408599967917525329}
-  _isFacingRight: 1
   _RoamingState: {fileID: 895221914509123595}
   _AttackState: {fileID: 7487829692091469792}
 --- !u!114 &7487829692091469792
