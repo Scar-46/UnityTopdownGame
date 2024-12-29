@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  agentColliderSize: 0.6
+  agentColliderSize: 2
   showGizmo: 1
 --- !u!1 &1491190972404224558
 GameObject:

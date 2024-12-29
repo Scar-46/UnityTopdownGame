@@ -588,8 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5886c6df9d214ec48bd5394dd5bccb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
-  agentColliderSize: 0.6
+  radius: 50000
+  agentColliderSize: 5
   showGizmo: 0
 --- !u!1 &8684114138040271842
 GameObject:
