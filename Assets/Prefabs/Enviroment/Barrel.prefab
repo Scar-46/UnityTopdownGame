@@ -205,5 +205,6 @@ MonoBehaviour:
   healthbar: {fileID: 0}
   healthText: {fileID: 0}
   CurrentHealth: {fileID: 0}
-  lootDroop: []
+  lootDroop:
+  - {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
   start: 1
