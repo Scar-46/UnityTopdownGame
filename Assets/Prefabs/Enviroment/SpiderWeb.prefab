@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiderWeb
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 3b6a8222ed3a8e343a6af84105dd748a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3b6a8222ed3a8e343a6af84105dd748a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18

@@ -3,11 +3,26 @@ using UnityEngine.Rendering.Universal;
 
 public class StartRoom : MonoBehaviour
 {
-    public Light2D[] lights;
+    private Light2D[] lights;
+    private GameObject enviroment;
     public GameObject[] spawners;
 
     private bool start = true;
 
+    private void Awake()
+    {
+        enviroment = transform.parent.parent.Find("Enviroment")?.gameObject;
+
+        Debug.Log(transform.parent.name);
+        if (enviroment != null)
+        {
+            lights = enviroment.GetComponentsInChildren<Light2D>();
+        }
+        else
+        {
+            Debug.LogError("Enviroment GameObject not found as a sibling!");
+        }
+    }
     public void ActivateSpawns()
     {
         foreach (var spawn in spawners)

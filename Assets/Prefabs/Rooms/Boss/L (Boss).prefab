@@ -1112,7 +1112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
   spawners:
   - {fileID: 4231938101668450871}
 --- !u!1 &2077499920825747322
@@ -11229,14 +11228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 8377995597004750498}
-  - {fileID: 5378089957714577955}
-  - {fileID: 2812981071000601653}
-  - {fileID: 5370637735527696228}
-  - {fileID: 3710291493061498963}
-  - {fileID: 8159555233546656330}
-  - {fileID: 5492519407806192964}
   spawners:
   - {fileID: 4231938101668450871}
 --- !u!1 &4231938101668450871
