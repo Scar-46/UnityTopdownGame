@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 685731296441051223, guid: 085a1ad35cd05694ba0f6e43bb58583e, type: 3}
   - {fileID: 6289866866050868276, guid: d8d51ce2e355bf34ca37f2b58f9feaa3, type: 3}
   - {fileID: 6835815152703875219, guid: 36c6a2beb4fb18e479769614de60a798, type: 3}
+  - {fileID: 6496840432467468969, guid: 04ebbf08a7d2ef846a1dc1224cccdf68, type: 3}
   - {fileID: 7952506662847746660, guid: a06295e3873c7bb48946ac0a01bccb83, type: 3}
   topRooms:
   - {fileID: 6649617466711997649, guid: a712a7afc36d97b49a77c2e86b135c3b, type: 3}
@@ -60,6 +61,7 @@ MonoBehaviour:
   - {fileID: 6289866866050868276, guid: d8d51ce2e355bf34ca37f2b58f9feaa3, type: 3}
   - {fileID: 4884428379827712507, guid: 6ae30c40bc0c2bd459db2565efdb47b0, type: 3}
   - {fileID: 6422986185024700737, guid: d5580f36b097b194c923206da642eb4e, type: 3}
+  - {fileID: 6496840432467468969, guid: 04ebbf08a7d2ef846a1dc1224cccdf68, type: 3}
   - {fileID: 5558606894130319148, guid: bae829cef44d16842bfae295318327f4, type: 3}
   leftRooms:
   - {fileID: 5089517958589726782, guid: 6c21268cac6973c44a98055b157c907a, type: 3}
@@ -69,6 +71,7 @@ MonoBehaviour:
   - {fileID: 4884428379827712507, guid: 6ae30c40bc0c2bd459db2565efdb47b0, type: 3}
   - {fileID: 6835815152703875219, guid: 36c6a2beb4fb18e479769614de60a798, type: 3}
   - {fileID: 6422986185024700737, guid: d5580f36b097b194c923206da642eb4e, type: 3}
+  - {fileID: 6496840432467468969, guid: 04ebbf08a7d2ef846a1dc1224cccdf68, type: 3}
   - {fileID: 7952506662847746660, guid: a06295e3873c7bb48946ac0a01bccb83, type: 3}
   rightRooms:
   - {fileID: 7528072483982491482, guid: 8e88e60774437844984ec6b1662ea816, type: 3}

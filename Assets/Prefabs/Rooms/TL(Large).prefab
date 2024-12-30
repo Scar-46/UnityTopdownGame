@@ -6674,6 +6674,7 @@ MonoBehaviour:
   startX: 20
   startY: 22
   upperWalls: {fileID: 1494181014925930608}
+  middleWalls: {fileID: 0}
   lowerWalls: {fileID: 2824888424885685129}
   floor: {fileID: 8952822597294092123}
   LTile: {fileID: 11400000, guid: 12e4e4ec8dcb78847818d0444d867033, type: 2}
@@ -7995,7 +7996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5072334998977223121, guid: 671c007c7d5833a4dbabcd9df4ac2878, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5072334998977223121, guid: 671c007c7d5833a4dbabcd9df4ac2878, type: 3}
       propertyPath: m_LocalPosition.z

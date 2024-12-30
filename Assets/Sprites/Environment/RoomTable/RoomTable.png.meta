@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: e41c8bd276144ff469bd1b43cdb93d92
+guid: 26c6e861cba912c469ece3dce6ef572b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 497600754102043572
-    second: Table_0
+      213: -2790264755731814391
+    second: Table2_0
+  - first:
+      213: -3969506549777714891
+    second: Table2_1
+  - first:
+      213: -681939574255680184
+    second: Table2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,34 +119,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Table_0
+      name: RoomTable_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 26
-        width: 124
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 34
+        y: 32
+        width: 62
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.23809524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4b3083cdf35d7e600800000000000000
-      internalID: 497600754102043572
+      spriteID: d42f2ffe24657674bbcaa2c0fb8ddcaa
+      internalID: 1094235323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Table_1
+      name: RoomTable_1
       rect:
         serializedVersion: 2
-        x: 170
-        y: 28
-        width: 44
-        height: 60
+        x: 176
+        y: 26
+        width: 32
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,8 +154,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b54f2e5e170bfa74f8be88daa7b54551
-      internalID: 1104824767
+      spriteID: 5c870212c04ad8d4c9ff2824e02632af
+      internalID: 1416453183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoomTable_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 38
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90378c7a4700b2c4ba955a7dafe64114
+      internalID: 3943572
       vertices: []
       indices: 
       edges: []
@@ -157,7 +184,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ee8fcf43d66e8a744b959401ca107759
+    spriteID: cc576c0dbffe2bc40978046830da894e
     internalID: 0
     vertices: []
     indices: 
@@ -165,8 +192,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Table_0: 497600754102043572
-      Table_1: 1104824767
+      RoomTable_0: 1094235323
+      RoomTable_1: 1416453183
+      RoomTable_2: 3943572
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
