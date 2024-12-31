@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3b6a8222ed3a8e343a6af84105dd748a
+guid: 804372d467fcbd942b420fa4800b8fb7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638710913459767775
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: SpiderWeb
+  - name: Frame_0
     originalName: 
-    pivot: {x: 1, y: -2}
+    pivot: {x: 0.11805556, y: -0.8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
-    spriteID: eb0764c616cde2e40a3a1bbec253c797
+      width: 288
+      height: 40
+    spriteID: 8e6bc26e840305b419d78ef0110cfdda
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,19 +141,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: -26, y: -28}
   - name: Frame_1
     originalName: 
-    pivot: {x: 1.0666667, y: -2}
+    pivot: {x: 1.1538461, y: -1.1428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 84
-      width: 30
-      height: 32
-    spriteID: 022a8f2b35ee1af47a01313931e322ed
+      x: 392
+      y: 4
+      width: 26
+      height: 28
+    spriteID: 68cd572ed5fe6cb4093e56ca96d27f67
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,19 +161,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 84}
+    uvTransform: {x: 392, y: 4}
   - name: Frame_2
     originalName: 
-    pivot: {x: 1, y: -2}
+    pivot: {x: 1.0769231, y: -1.2307693}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 44
-      width: 32
-      height: 32
-    spriteID: 680bcfb16b42f8146904542a9f8d614d
+      x: 426
+      y: 4
+      width: 26
+      height: 26
+    spriteID: 397bd6a7469fbd7478685e42b0eacadd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,12 +181,52 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 44}
+    uvTransform: {x: 426, y: 4}
+  - name: Frame_3
+    originalName: 
+    pivot: {x: 0.8947368, y: -0.9411765}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 346
+      y: 4
+      width: 38
+      height: 34
+    spriteID: 8fe2feb1f398cc944878771c67830fce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 346, y: 4}
+  - name: Frame_4
+    originalName: 
+    pivot: {x: 0.94736844, y: -0.5714286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 300
+      y: 4
+      width: 38
+      height: 42
+    spriteID: 406e90aaaf353924a8d5879cd9cb090b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 300, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 918284205
-    name: SpiderWeb
+    guid: -2101225897
+    name: Cement Debris
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -195,29 +235,47 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      spriteId: eb0764c616cde2e40a3a1bbec253c797
+        x: 0
+        y: 0
+        width: 384
+        height: 128
+      spriteId: 8e6bc26e840305b419d78ef0110cfdda
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 64
-        width: 30
-        height: 32
-      spriteId: 022a8f2b35ee1af47a01313931e322ed
+        x: 34
+        y: 32
+        width: 26
+        height: 28
+      spriteId: 68cd572ed5fe6cb4093e56ca96d27f67
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      spriteId: 680bcfb16b42f8146904542a9f8d614d
+        x: 36
+        y: 32
+        width: 26
+        height: 26
+      spriteId: 397bd6a7469fbd7478685e42b0eacadd
+    - name: Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 30
+        y: 32
+        width: 38
+        height: 34
+      spriteId: 8fe2feb1f398cc944878771c67830fce
+    - name: Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 28
+        y: 24
+        width: 38
+        height: 42
+      spriteId: 406e90aaaf353924a8d5879cd9cb090b
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -233,44 +291,8 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Android
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 128, y: 128}
-  previousTextureSize: {x: 64, y: 128}
+  previousTextureSize: {x: 512, y: 64}
