@@ -200,6 +200,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PuertasLateral_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc02ed72ce1f19c46b694cb1ee5803df
+      internalID: 872245856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -214,6 +235,7 @@ TextureImporter:
       PuertasLateral_0: -5995522421682782680
       PuertasLateral_1: -7270433087180985652
       PuertasLateral_2: -4879472378965010779
+      PuertasLateral_3: 872245856
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,6 +8,7 @@ public class OpenDoor : MonoBehaviour
     private Animator _Animator;
     public bool needKey = true;
     public Collider2D stopper;
+    public GameObject LowerDoor;
 
 
     private void Start()
@@ -33,11 +34,21 @@ public class OpenDoor : MonoBehaviour
     public void UnlockDoor()
     {
         stopper.enabled = false;
+
+        if (LowerDoor != null)
+        {
+            LowerDoor.SetActive(true);
+        }
     }
 
     public void LockDoor()
     {
         stopper.enabled = true;
+
+        if (LowerDoor != null)
+        {
+            LowerDoor.SetActive(false);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
