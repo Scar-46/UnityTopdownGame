@@ -223,7 +223,7 @@ public class TilemapSize : MonoBehaviour
                 {
                     for (int j = 0; j < 4; j++)
                     {
-                        position = new Vector3Int(-1, 4 + j, 0);
+                        position = new Vector3Int(-1, 5 + j, 0);
                         floor.SetTile(position, null);
                         lowerWalls.SetTile(position, null);
                         lowerWalls.SetTile(position, null);
@@ -240,7 +240,7 @@ public class TilemapSize : MonoBehaviour
                 {
                     for (int j = 0; j < 4; j++)
                     {
-                        position = new Vector3Int(-startX, 4 + j, 0);
+                        position = new Vector3Int(-startX, 5 + j, 0);
                         floor.SetTile(position, null);
                         lowerWalls.SetTile(position, null);
                         lowerWalls.SetTile(position, LTile);

@@ -15245,13 +15245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 4672584962189887376}
-  - {fileID: 8547776472977355252}
-  - {fileID: 3211672690475933906}
-  - {fileID: 5618281656356745920}
-  - {fileID: 927584087163027580}
-  - {fileID: 572190625508436452}
   spawners:
   - {fileID: 7624036318680467976}
 --- !u!1 &7220067814343907710
@@ -15585,7 +15578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
   spawners:
   - {fileID: 7624036318680467976}
 --- !u!1 &7283955263145049499

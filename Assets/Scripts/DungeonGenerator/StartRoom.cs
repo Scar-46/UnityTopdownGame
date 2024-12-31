@@ -11,16 +11,22 @@ public class StartRoom : MonoBehaviour
 
     private void Awake()
     {
-        enviroment = transform.parent.parent.Find("Enviroment")?.gameObject;
-
-        Debug.Log(transform.parent.name);
-        if (enviroment != null)
+        if (transform.parent != null && transform.parent.parent != null)
         {
-            lights = enviroment.GetComponentsInChildren<Light2D>();
+            enviroment = transform.parent.parent.Find("Enviroment")?.gameObject;
+
+            if (enviroment != null)
+            {
+                lights = enviroment.GetComponentsInChildren<Light2D>();
+            }
+            else
+            {
+                Debug.Log("Enviroment GameObject not found!");
+            }
         }
         else
         {
-            Debug.LogError("Enviroment GameObject not found as a sibling!");
+            Debug.Log("Parent or parent's parent is missing!");
         }
     }
     public void ActivateSpawns()
