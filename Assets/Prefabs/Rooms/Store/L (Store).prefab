@@ -4045,10 +4045,6 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7475749828202706928, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7915073754930829435, guid: 720238e0de2cc4b4bb551480e31eaff1, type: 3}
-    - target: {fileID: 7475749828202706928, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
@@ -4401,6 +4397,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1961373640768614929, guid: c7cf93f8cd29f5f4ba613ecd8578229e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2484134874335582864, guid: a34d9da09a6bc2f4d96cce2fd0229f8c, type: 3}
     - target: {fileID: 9219177058248786435, guid: c7cf93f8cd29f5f4ba613ecd8578229e, type: 3}
       propertyPath: m_Name
       value: StoreTable (1)
@@ -4541,10 +4541,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 7475749828202706928, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7915073754930829435, guid: 720238e0de2cc4b4bb551480e31eaff1, type: 3}
     - target: {fileID: 7475749828202706928, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
       propertyPath: m_SortingOrder
       value: 0

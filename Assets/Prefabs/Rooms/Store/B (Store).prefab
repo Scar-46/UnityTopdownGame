@@ -4041,10 +4041,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 7475749828202706928, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7915073754930829435, guid: 720238e0de2cc4b4bb551480e31eaff1, type: 3}
     - target: {fileID: 8598874980427046884, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
       propertyPath: m_Name
       value: Crate (16)
@@ -4556,10 +4552,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 7475749828202706928, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7915073754930829435, guid: 720238e0de2cc4b4bb551480e31eaff1, type: 3}
     - target: {fileID: 8598874980427046884, guid: c32811de1ae22ba49b3ca579fa0cc5e5, type: 3}
       propertyPath: m_Name
       value: Crate (17)
