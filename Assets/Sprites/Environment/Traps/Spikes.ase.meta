@@ -7,12 +7,12 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: idle
-    second: {fileID: 7400000, guid: 80e2746a3b576684c8f20f074ad7c00b, type: 2}
+    second: {fileID: 7400000, guid: 8d2a0129ace38894faef398aaff7a218, type: 2}
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: lauch
-    second: {fileID: 7400000, guid: 8d44dce31718877479bfaeef5e8ffbfa, type: 2}
+    second: {fileID: 7400000, guid: 415ecb66e7986ab4f8b988b39d2f188a, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -108,7 +108,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638710833993008231
+  platformSettingsDirtyTick: 638712619614199202
   textureAssetName: 
   singleSpriteImportData:
   - name: 

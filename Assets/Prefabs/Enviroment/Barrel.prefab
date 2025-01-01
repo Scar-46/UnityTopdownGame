@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1090124241230894226}
   - component: {fileID: 3110979724473975508}
   - component: {fileID: 7636612959320417151}
+  - component: {fileID: -3975373313214990936}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -208,3 +209,19 @@ MonoBehaviour:
   lootDroop:
   - {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
   start: 1
+--- !u!114 &-3975373313214990936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873063108240355678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
