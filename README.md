@@ -37,6 +37,6 @@ Players navigate procedurally generated dungeons, battle enemies, and collect. T
 
 ## Acknowledgments
 - Unity for providing a robust game development platform.
-- Open-source pixel art creators for inspiring and contributing to the game’s visuals.
+- Open-source pixel art creators for inspiring the game’s visuals.
 - The game development community for their tutorials and support.
 
