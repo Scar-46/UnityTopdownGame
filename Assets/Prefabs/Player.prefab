@@ -156,10 +156,10 @@ MonoBehaviour:
   maxDamage: 50
   knockbackForce: 5000
   attackBloked: 0
-  attackDelay: 2
+  attackDelay: 1.5
   animator: {fileID: 8939396987066594548}
   isAttacking: 0
-  radius: 0.8
+  radius: 1
 --- !u!1 &6433867718623440146
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.98, y: 5.57, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4854268200273813930}
@@ -295,7 +295,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 470484783931029153, guid: 8074bf7c3b701404d87d98833ff52870, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -404,8 +404,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09, y: 0.13}
-  m_Size: {x: 0.54, y: 0.34}
+  m_Offset: {x: -0.048766367, y: 0.13000004}
+  m_Size: {x: 0.4575368, y: 0.34000236}
   m_Direction: 1
 --- !u!114 &2465920792210089538
 MonoBehaviour:
@@ -419,8 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fecc62857c74974cae6bbe3dff1b229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  dashSpeed: 10
+  speed: 5
+  dashSpeed: 15
   _dashCooldown: 0.5
   minimapIcon: {fileID: 2592518619132422964}
   weapon: {fileID: 5080283097965907416}

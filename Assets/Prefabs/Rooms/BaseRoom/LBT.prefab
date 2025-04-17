@@ -830,7 +830,7 @@ MonoBehaviour:
   m_CastsShadows: 1
   m_SelfShadows: 0
   m_AlphaCutoff: 0.1
-  m_ApplyToSortingLayers: 
+  m_ApplyToSortingLayers: 716a21f2cd6b0b97cd681645
   m_ShapePath:
   - {x: -28, y: -4, z: 0}
   - {x: -28, y: 37, z: 0}
@@ -838,15 +838,15 @@ MonoBehaviour:
   - {x: 17, y: -4, z: 0}
   m_ShapePathHash: 0
   m_InstanceId: 0
-  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DComponent: {fileID: 6527902618769593113}
   m_ShadowShape2DProvider:
-    rid: -2
-  m_ShadowCastingSource: 0
+    rid: 6472586737208524996
+  m_ShadowCastingSource: 2
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -6.0000153, y: 10.5, z: 0}
+      m_Extent: {x: 5.9999847, y: 3.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -855,13 +855,14 @@ MonoBehaviour:
   m_CastingOption: 1
   m_PreviousTrimEdge: 0
   m_PreviousEdgeProcessing: 1
-  m_PreviousShadowCastingSource: 0
-  m_PreviousShadowShape2DSource: {fileID: 0}
+  m_PreviousShadowCastingSource: 2
+  m_PreviousShadowShape2DSource: {fileID: 6527902618769593113}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 6472586737208524996
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1 &3941196577338264664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,9 +1803,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -232691087
-  m_SortingLayer: -2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2014,7 +2015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
-  m_Priority: 1
+  m_Priority: 0
   m_ComponentVersion: 5
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
@@ -5259,7 +5260,7 @@ MonoBehaviour:
   m_CastsShadows: 1
   m_SelfShadows: 0
   m_AlphaCutoff: 0.1
-  m_ApplyToSortingLayers: 00000000716a21f2cd6b0b97cd681645
+  m_ApplyToSortingLayers: 716a21f2cd6b0b97cd681645
   m_ShapePath:
   - {x: -5, y: -4, z: 0}
   - {x: -5, y: 4, z: 0}
@@ -5274,8 +5275,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -4.6875076, y: 2.84375, z: 0}
-      m_Extent: {x: 4.6874924, y: 2.84375, z: 0}
+      m_Center: {x: -10.000015, y: 3.5, z: 0}
+      m_Extent: {x: 9.999985, y: 3.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -5842,11 +5843,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2310676666012329656, guid: a3d0564d25c4bac418f29e3cafc7d41d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 2310676666012329656, guid: a3d0564d25c4bac418f29e3cafc7d41d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 2310676666012329656, guid: a3d0564d25c4bac418f29e3cafc7d41d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6199,11 +6200,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2310676666012329656, guid: a3d0564d25c4bac418f29e3cafc7d41d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2310676666012329656, guid: a3d0564d25c4bac418f29e3cafc7d41d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 2310676666012329656, guid: a3d0564d25c4bac418f29e3cafc7d41d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6389,7 +6390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.5
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7137,7 +7138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.5
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.z

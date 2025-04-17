@@ -73,18 +73,10 @@ public class PlayerStats : MonoBehaviour
         {
             InitializePlayer();
         }
-        else
-        {
-            Debug.LogWarning("Player not found in the scene. Skipping initialization.");
-        }
 
         if (GameObject.FindGameObjectWithTag("VCamera") != null)
         {
             cameraShake = GameObject.FindGameObjectWithTag("VCamera").GetComponent<CameraShake>();
-        }
-        else
-        {
-            Debug.LogWarning("Virtual Camera not found in the scene.");
         }
     }
 
