@@ -751,6 +751,8 @@ MonoBehaviour:
   previous: {x: 0, y: 0}
   spawned: 1
   bossRoom: 0
+  xOffset: 0
+  yOffset: 0
   startX: 20
   startY: 12
   upperWalls: {fileID: 6213125597978373900}

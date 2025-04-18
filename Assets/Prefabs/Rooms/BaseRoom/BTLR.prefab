@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 8408979724008588964}
 --- !u!1 &3350803357577298073
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 8408979724008588964}
 --- !u!1 &3941196577338264664
@@ -427,6 +429,8 @@ MonoBehaviour:
   previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 0
+  offsetX: 0
+  offsetY: 0
   startX: 20
   startY: 12
   upperWalls: {fileID: 6213125597978373900}
@@ -593,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 8408979724008588964}
 --- !u!1 &6119430684148857778
@@ -2129,6 +2134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 8408979724008588964}
 --- !u!1 &6964546979405955339

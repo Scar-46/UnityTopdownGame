@@ -1,5 +1,7 @@
 
+using NUnit.Framework.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Tilemaps;
 
 public class TilemapSize : MonoBehaviour
@@ -17,6 +19,8 @@ public class TilemapSize : MonoBehaviour
     public bool spawned = false;
     public bool bossRoom = false;
 
+    public float offsetX = 0f;
+    public float offsetY = 0f;
 
     //Close Doors
 
@@ -140,24 +144,28 @@ public class TilemapSize : MonoBehaviour
         Tilemap nextTilemap = rooms[index].GetComponentInChildren<Tilemap>();
         nextTilemap.CompressBounds();
         Vector3 nextPosition = this.transform.position;
+        float newOffsetY = rooms[index].GetComponent<TilemapSize>().offsetY;
+        float newOffsetX = rooms[index].GetComponent<TilemapSize>().offsetX;
 
         if (direction == Vector2Int.up)
         {
-            nextPosition.y = nextPosition.y + ((currentTilemap.size.y) * direction.y);
-            nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2);
+            nextPosition.y = nextPosition.y + ((currentTilemap.size.y) * direction.y) + newOffsetY;
+            nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2) + newOffsetX;
         }
         else if (direction == Vector2Int.down)
         {
-            nextPosition.y = nextPosition.y + ((nextTilemap.size.y) * direction.y);
-            nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2);
+            nextPosition.y = nextPosition.y + ((nextTilemap.size.y) * direction.y)+ newOffsetY;
+            nextPosition.x = nextPosition.x + Mathf.Floor((nextTilemap.size.x - currentTilemap.size.x) / 2) + newOffsetX;
         }
         else if (direction == Vector2Int.right)
         {
-            nextPosition.x = nextPosition.x + (nextTilemap.size.x * direction.x);
+            nextPosition.y += newOffsetY;
+            nextPosition.x = nextPosition.x + (nextTilemap.size.x * direction.x) + newOffsetX;
         }
         else if (direction == Vector2Int.left)
         {
-            nextPosition.x = nextPosition.x + (currentTilemap.size.x * direction.x);
+            nextPosition.y += newOffsetY;
+            nextPosition.x = nextPosition.x + (currentTilemap.size.x * direction.x) + newOffsetX;
         }
         newRoom = Instantiate(rooms[index], nextPosition, Quaternion.identity);
     }

@@ -121,10 +121,10 @@ TextureImporter:
       name: VerticalTable_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 48
+        y: 26
+        width: 32
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: VerticalTable_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 176
+        y: 26
+        width: 32
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: VerticalTable_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 304
+        y: 26
+        width: 32
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: VerticalTable_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 430
+        y: 26
+        width: 34
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: VerticalTable_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        x: 558
+        y: 26
+        width: 34
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,34 +223,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: VerticalTable_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2690f179bad195a0800000000000000
-      internalID: -6516186695812999634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: VerticalTable_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
+        x: 686
+        y: 30
+        width: 36
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,6 +239,27 @@ TextureImporter:
       bones: []
       spriteID: bb9d394bcf6751e20800000000000000
       internalID: 3320691127989033403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VerticalTable_8
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 38
+        width: 36
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca7a5808d786b642a3f3a9cba1a4b8f
+      internalID: 306169770
       vertices: []
       indices: 
       edges: []
@@ -277,11 +277,15 @@ TextureImporter:
     nameFileIdTable:
       VerticalTable_0: -4431752811619699872
       VerticalTable_1: 6790432513885183745
+      VerticalTable_10: -200240445
       VerticalTable_2: 8517183450918204990
       VerticalTable_3: -1170620061062720128
       VerticalTable_4: -6627693767643244665
       VerticalTable_5: -6516186695812999634
       VerticalTable_6: 3320691127989033403
+      VerticalTable_7: 1276935519
+      VerticalTable_8: 306169770
+      VerticalTable_9: 2051586373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
