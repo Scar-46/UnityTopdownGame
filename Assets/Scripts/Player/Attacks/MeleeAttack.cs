@@ -35,7 +35,6 @@ public class MeleeAttack : PlayerAttack
             {
                 float damage = Random.Range(minDamage, maxDamage);
                 Vector2 knockback = (collider.transform.position - transform.position).normalized * knockbackForce;
-                Debug.Log("knockback:" + knockback);
                 collider.GetComponent<EnemyHealth>().DealDamage(damage, knockback);
                 AudioManager.Instance.Stop("Miss");
                 AudioManager.Instance.Play("Attack");
