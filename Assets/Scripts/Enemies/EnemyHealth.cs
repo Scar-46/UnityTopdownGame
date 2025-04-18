@@ -122,8 +122,6 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (start)
         {
-            AudioManager.Instance.Stop("Miss");
-            AudioManager.Instance.Play("Attack");
             animator.SetTrigger("Damage");
         }
     }

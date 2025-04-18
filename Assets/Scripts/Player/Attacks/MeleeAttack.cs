@@ -37,6 +37,8 @@ public class MeleeAttack : PlayerAttack
                 Vector2 knockback = (collider.transform.position - transform.position).normalized * knockbackForce;
                 Debug.Log("knockback:" + knockback);
                 collider.GetComponent<EnemyHealth>().DealDamage(damage, knockback);
+                AudioManager.Instance.Stop("Miss");
+                AudioManager.Instance.Play("Attack");
             }
         }
         StartCoroutine(DelayAttack());
