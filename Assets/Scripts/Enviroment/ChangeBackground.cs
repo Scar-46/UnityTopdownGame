@@ -13,7 +13,7 @@ public class ChangeBackground : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player")
+        if (collision.tag == "Player")
         {
             AudioManager.Instance.Stop(currentSong);
             AudioManager.Instance.Play(nextSong);

@@ -1008,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6043233443305760467, guid: dcb2e6901a02f014b83b1421f44ffe0c, type: 3}
       propertyPath: orthographic size
-      value: 8.4375
+      value: 10.3671875
       objectReference: {fileID: 0}
     - target: {fileID: 6043233443305760467, guid: dcb2e6901a02f014b83b1421f44ffe0c, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -1079,6 +1079,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8510550371628810778, guid: 39a17a0c9dda1b04ba45785abcc1e649, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c3c78780b3f495948bfb6129384ed490, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

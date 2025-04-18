@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    public List<SoundGroup> soundGroups;
 
     public static AudioManager Instance;
 
@@ -17,40 +16,67 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            AudioManager.Instance = this;
-            DontDestroyOnLoad(this);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        foreach (var sound in sounds)
+        foreach (var group in soundGroups)
         {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
+            foreach (var sound in group.sounds)
+            {
+                sound.source = gameObject.AddComponent<AudioSource>();
+                sound.source.clip = sound.clip;
 
-            sound.source.volume = sound.volume;
-            sound.source.pitch = sound.pitch;
-            sound.source.loop = sound.loop;
+                sound.source.volume = sound.volume;
+                sound.source.pitch = sound.pitch;
+                sound.source.loop = sound.loop;
+            }
         }
 
         Play("Background");
     }
 
-    // Update is called once per frame
-    public void Play(string name)
-    {
-        Sound findSound = Array.Find(sounds, sound => sound.name == name);
-        if (findSound == null)
-            return;
-        findSound.source.Play();
-    }
-
     public void Stop(string name)
     {
-        Sound findSound = Array.Find(sounds, sound => sound.name == name);
-        if (findSound == null)
-            return;
-        findSound.source.Stop();
+        Sound sound = FindSoundByName(name);
+        if (sound != null)
+        {
+            sound.source.Stop();
+        }
+    }
+
+public void Play(string groupName)
+{
+    var group = soundGroups.Find(g => g.groupName == groupName);
+    if (group == null || group.sounds.Count == 0) return;
+
+    int randomIndex = UnityEngine.Random.Range(0, group.sounds.Count);
+    var randomSound = group.sounds[randomIndex];
+
+    randomSound.source.Play();
+}
+
+    public void StopGroup(string groupName)
+    {
+        var group = soundGroups.Find(g => g.groupName == groupName);
+        if (group == null) return;
+
+        foreach (var sound in group.sounds)
+        {
+            sound.source.Stop();
+        }
+    }
+
+    private Sound FindSoundByName(string name)
+    {
+        foreach (var group in soundGroups)
+        {
+            var sound = group.sounds.Find(s => s.name == name);
+            if (sound != null) return sound;
+        }
+        return null;
     }
 }

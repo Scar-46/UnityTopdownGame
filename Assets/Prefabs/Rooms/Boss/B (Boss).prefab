@@ -5102,6 +5102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 8703930597949906392}
 --- !u!1 &5222327234166169456
@@ -5996,6 +5997,7 @@ Transform:
   - {fileID: 4347165207754730379}
   - {fileID: 5642798014370772806}
   - {fileID: 4912833274706472019}
+  - {fileID: 7400874265704802999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &2684297706674797689
@@ -6027,6 +6029,8 @@ MonoBehaviour:
   previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 1
+  offsetX: 0
+  offsetY: 0
   startX: 0
   startY: 0
   upperWalls: {fileID: 0}
@@ -6317,7 +6321,6 @@ Transform:
   - {fileID: 8970237869758807692}
   - {fileID: 5911486817299043595}
   - {fileID: 5932359097048169911}
-  - {fileID: 7400874265704802999}
   m_Father: {fileID: 2228587426618981730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7564163056020513028
@@ -6434,7 +6437,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1981595501858682057}
-  m_Father: {fileID: 4912833274706472019}
+  m_Father: {fileID: 2228587426618981730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8703930597949906392
 GameObject:
