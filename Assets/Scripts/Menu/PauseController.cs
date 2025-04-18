@@ -53,12 +53,14 @@ public class PauseController : MonoBehaviour
         if (isMenuActive)
         {
             currentMenu.SetActive(true);
+            AudioManager.Instance.Play("Pause");
             Time.timeScale = 0f;
         }
         else
         {
-            Time.timeScale = 1f;
             currentMenu.SetActive(false);
+            AudioManager.Instance.Play("Unpause");
+            Time.timeScale = 1f;
             currentMenu = pauseMenu;
         }
     }

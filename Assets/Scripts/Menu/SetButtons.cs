@@ -32,6 +32,7 @@ public class SetButtons : MonoBehaviour
 
         if (method != null)
         {
+            AudioManager.Instance.Play("Button");
             method.Invoke(LevelLoader.Instance.GetComponent<MonoBehaviour>(), null);
         }
         else

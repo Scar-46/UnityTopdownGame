@@ -47,6 +47,8 @@ public class LevelLoader : MonoBehaviour
     public void StartGame()
     {
         LoadLevel("Level02", true);
+        AudioManager.Instance.Play("Background");
+        AudioManager.Instance.Stop("Menu");
         StartCoroutine(EnableOverlay());
     }
 
