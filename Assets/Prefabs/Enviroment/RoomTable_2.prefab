@@ -217,6 +217,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 1
   knockbackDelay: 0
+  isObject: 1
   enemyName: {fileID: 0}
   enemyStringName: 
   healthbar: {fileID: 0}

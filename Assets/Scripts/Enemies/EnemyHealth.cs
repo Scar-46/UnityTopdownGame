@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public float health;
     public float maxHealth = 100;
     public float knockbackDelay = 0;
+    public bool isObject = false;
 
     public TextMeshProUGUI enemyName;
     public string enemyStringName;
@@ -90,23 +92,38 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             animator.SetTrigger("Death");
-            foreach (var comp in gameObject.GetComponents<Component>())
-            {
-                if (!(comp is Transform || comp is Animator || comp is SpriteRenderer))
-                {
-                    Destroy(comp);
-                }
-            }
-            if (lootDroop is not null)
+
+            AudioManager.Instance.Play(isObject ? "Attack" : "EnemyDeath");
+
+            // Drop loot if available
+            if (lootDroop != null)
             {
                 foreach (var loot in lootDroop)
                 {
                     Instantiate(loot, transform.position, Quaternion.identity);
                 }
             }
+
+            // Destroy all non-essential components
+            var components = gameObject.GetComponents<Component>();
+            foreach (var comp in components)
+            {
+                if (!(comp is Transform || comp is Animator || comp is SpriteRenderer))
+                {
+                    Destroy(comp);
+                }
+            }
+
+            // Destroy all child objects to reduce overhead
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
         }
         else if (start)
         {
+            AudioManager.Instance.Stop("Miss");
+            AudioManager.Instance.Play("Attack");
             animator.SetTrigger("Damage");
         }
     }

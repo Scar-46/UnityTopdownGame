@@ -238,7 +238,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 643941201, guid: 1afa44070666ec942a8b3be56516be87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -350,6 +350,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   knockbackDelay: 0.2
+  isObject: 0
   enemyName: {fileID: 0}
   enemyStringName: 
   healthbar: {fileID: 0}

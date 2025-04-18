@@ -225,12 +225,28 @@ PrefabInstance:
       value: CameraMinimap
       objectReference: {fileID: 0}
     - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 5a03670f928fb6141bb6a0c4489c3a86, type: 2}
     - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
       propertyPath: orthographic size
       value: 12.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2894559163085169455, guid: 5ae572c6a8ef85746983e6c48d219fa9, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -351,12 +367,28 @@ PrefabInstance:
       value: Camera
       objectReference: {fileID: 0}
     - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 0eb7acf00944d0947a4b666ae534891d, type: 2}
     - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
       propertyPath: orthographic size
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7895918401609145576, guid: 606eea4754e55144e8d41ec4a874ebc4, type: 3}
       propertyPath: m_CullingMask.m_Bits

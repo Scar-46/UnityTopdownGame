@@ -15,7 +15,7 @@ public class IdleTransition : StateMachineBehaviour
     {
         if(MeleeAttack.Instance.attackBloked)
         {
-            AudioManager.Instance.Play("Attack");
+            AudioManager.Instance.Play("Miss");
             MeleeAttack.Instance.animator.Play("MeleeAttack");
             MeleeAttack.Instance.DealDamage();
         }

@@ -310,7 +310,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1801634875, guid: a495c7c221ba60441822042555891950, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -422,6 +422,7 @@ MonoBehaviour:
   health: 3000
   maxHealth: 3000
   knockbackDelay: 0
+  isObject: 0
   enemyName: {fileID: 0}
   enemyStringName: SoloTie
   healthbar: {fileID: 0}

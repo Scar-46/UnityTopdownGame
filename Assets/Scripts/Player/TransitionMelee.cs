@@ -16,7 +16,7 @@ public class TransitionMelee : StateMachineBehaviour
     {
         if (MeleeAttack.Instance.attackBloked)
         {
-            AudioManager.Instance.Play("Attack");
+            AudioManager.Instance.Play("Miss");
             MeleeAttack.Instance.animator.Play("MeleeAttack2");
             MeleeAttack.Instance.DealDamage();
         }

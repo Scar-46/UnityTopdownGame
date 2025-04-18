@@ -39,15 +39,6 @@ public class AudioManager : MonoBehaviour
         Play("Background");
     }
 
-    public void Stop(string name)
-    {
-        Sound sound = FindSoundByName(name);
-        if (sound != null)
-        {
-            sound.source.Stop();
-        }
-    }
-
 public void Play(string groupName)
 {
     var group = soundGroups.Find(g => g.groupName == groupName);
@@ -59,7 +50,7 @@ public void Play(string groupName)
     randomSound.source.Play();
 }
 
-    public void StopGroup(string groupName)
+    public void Stop(string groupName)
     {
         var group = soundGroups.Find(g => g.groupName == groupName);
         if (group == null) return;
