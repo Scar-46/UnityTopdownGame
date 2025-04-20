@@ -14,7 +14,31 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector2 _spawnPosition;
 
-    void Awake()
+    public int StartSpawn()
+    {
+        for (int i = 0; i < spawnMax; i++)
+        {
+            _spawnPosition = this.transform.position;
+
+            int enemyIndex = Random.Range(0, Enemies.Count);
+            GameObject enemy = Instantiate(Enemies[enemyIndex], _spawnPosition, Quaternion.identity);
+
+            EnemySpawner children = enemy.GetComponent<EnemySpawner>();
+
+            if (children != null)
+            {
+                children.floorTilemap = floorTilemap;
+            }
+            RoamingState roamingState = enemy.GetComponent<RoamingState>();
+            if (roamingState != null)
+            {
+                roamingState.tilemap = floorTilemap;
+            }
+        }
+        return spawnMax;
+    }
+
+    public void Spawn()
     {
         StartCoroutine(SpawnEnemy());
     }
@@ -27,11 +51,11 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = Instantiate(Enemies[enemyIndex], _spawnPosition, Quaternion.identity);
 
         EnemySpawner children = enemy.GetComponent<EnemySpawner>();
-
         if (children != null)
         {
             children.floorTilemap = floorTilemap;
         }
+
         RoamingState roamingState = enemy.GetComponent<RoamingState>();
         if (roamingState != null)
         {

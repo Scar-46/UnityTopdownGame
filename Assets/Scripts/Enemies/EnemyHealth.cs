@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +21,8 @@ public class EnemyHealth : MonoBehaviour
     public Slider? CurrentHealth;
 
     public List<GameObject>? lootDroop = null;
+
+    public static event Action? OnEnemyDeath;
 
     private Rigidbody2D rb2D;
     private Animator animator;
@@ -92,6 +94,11 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             animator.SetTrigger("Death");
+
+            if (!isObject)
+            {
+                OnEnemyDeath?.Invoke();
+            }
 
             AudioManager.Instance.Play(isObject ? "Attack" : "EnemyDeath");
 
