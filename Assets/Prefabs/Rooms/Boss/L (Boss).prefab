@@ -925,8 +925,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -11.000008, y: 0.5, z: 0}
-      m_Extent: {x: 10.999992, y: 0.5, z: 0}
+      m_Center: {x: -11.000008, y: 8, z: 0}
+      m_Extent: {x: 10.999992, y: 8, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -1194,6 +1194,8 @@ MonoBehaviour:
   previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 1
+  offsetX: 0
+  offsetY: 0
   startX: 0
   startY: 0
   upperWalls: {fileID: 0}
@@ -1290,6 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 4231938101668450871}
 --- !u!1 &2077499920825747322
@@ -11406,6 +11409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
   spawners:
   - {fileID: 4231938101668450871}
 --- !u!1 &4231938101668450871

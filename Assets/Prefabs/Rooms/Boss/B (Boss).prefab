@@ -988,8 +988,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -5.1875076, y: 8, z: 0}
-      m_Extent: {x: 5.1874924, y: 8, z: 0}
+      m_Center: {x: -11.000015, y: 8, z: 0}
+      m_Extent: {x: 10.999985, y: 8, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -5971,6 +5971,7 @@ GameObject:
   - component: {fileID: 4567674296436094129}
   - component: {fileID: 5869515199754274394}
   - component: {fileID: 5170508784176383725}
+  - component: {fileID: 6610884763240182172}
   m_Layer: 0
   m_Name: B (Boss)
   m_TagString: Rooms
@@ -6115,6 +6116,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6610884763240182172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5787680815525414254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 6387707400977458630}
+  - {fileID: 5985545606692503843}
+  - {fileID: 1334208560882243767}
+  - {fileID: 1747921325263255318}
+  spawners:
+  - {fileID: 8703930597949906392}
 --- !u!1 &6118168157233313915
 GameObject:
   m_ObjectHideFlags: 0

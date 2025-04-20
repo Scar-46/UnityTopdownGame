@@ -12493,8 +12493,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -11.000015, y: 2.3125, z: 0}
-      m_Extent: {x: 10.999985, y: 2.3125, z: 0}
+      m_Center: {x: -11.000008, y: 8, z: 0}
+      m_Extent: {x: 10.999992, y: 8, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0

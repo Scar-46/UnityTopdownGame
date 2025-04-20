@@ -118,9 +118,9 @@ public class PlayerStats : MonoBehaviour
     private void UpdateCurrencyUI()
     {
         if (coinsCounter != null)
-            coinsCounter.text = $"Coins: {coins}";
+            coinsCounter.text = coins.ToString();
         if (keysCounter != null)
-            keysCounter.text = $"Keys: {keys}";
+            keysCounter.text = keys.ToString();
     }
 
     // Health

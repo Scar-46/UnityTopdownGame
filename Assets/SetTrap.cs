@@ -9,6 +9,8 @@ public class SetTrap : MonoBehaviour
     [SerializeField]
     private float damage;
 
+    [SerializeField]
+    private float timer;
 
     Animator _Animator;
 
