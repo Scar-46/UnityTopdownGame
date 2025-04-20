@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class EnemyRoomSpawner : MonoBehaviour
     [SerializeField]
     private float delayBetweenWaves = 0;
 
+    public static event Action? OnRoomClean;
 
     void Start()
     {
@@ -48,6 +50,7 @@ public class EnemyRoomSpawner : MonoBehaviour
             StartCoroutine(SpawnNextWaveWithDelay());
         }
         else if ((_currentWave >= _waves) && (_enemiesAlive <= 0)){
+            OnRoomClean?.Invoke();
             Destroy(this);
         }
     }

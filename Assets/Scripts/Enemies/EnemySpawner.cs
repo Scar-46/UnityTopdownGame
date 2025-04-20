@@ -14,6 +14,11 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector2 _spawnPosition;
 
+    private void Awake()
+    {
+        floorTilemap = transform.parent.parent.Find("Floor")?.gameObject.GetComponent<Tilemap>();
+    }
+
     public int StartSpawn()
     {
         for (int i = 0; i < spawnMax; i++)

@@ -4818,7 +4818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
   spawners:
   - {fileID: 4828726347238853458}
 --- !u!1 &7846469487890766680
@@ -6215,7 +6214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
   spawners:
   - {fileID: 4828726347238853458}
 --- !u!1001 &1543858392006517733
@@ -6418,6 +6416,10 @@ PrefabInstance:
       propertyPath: spawnMax
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8453876106373989648, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      propertyPath: floorTilemap
+      value: 
+      objectReference: {fileID: 7561677062375351925}
     - target: {fileID: 8453876106373989648, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       propertyPath: Enemies.Array.size
       value: 2

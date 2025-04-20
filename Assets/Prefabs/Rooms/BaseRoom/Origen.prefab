@@ -568,8 +568,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
+      m_Center: {x: -10.000015, y: 10.5, z: 0}
+      m_Extent: {x: 9.999985, y: 3.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -4803,8 +4803,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -4.6875076, y: 2.84375, z: 0}
-      m_Extent: {x: 4.6874924, y: 2.84375, z: 0}
+      m_Center: {x: -10.000015, y: 2.84375, z: 0}
+      m_Extent: {x: 9.999985, y: 2.84375, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -5307,6 +5307,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4981953749740889886}
     m_Modifications:
+    - target: {fileID: 505554346835596294, guid: 289043962b1dc024a8c7595e169a4a00, type: 3}
+      propertyPath: roomIsClean
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1653050316336902049, guid: 289043962b1dc024a8c7595e169a4a00, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -5636,6 +5640,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4981953749740889886}
     m_Modifications:
+    - target: {fileID: 2125721688498473351, guid: 4c6dc1057e2eca64c808f80e4b7e4ff4, type: 3}
+      propertyPath: roomIsClean
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5700321836336130800, guid: 4c6dc1057e2eca64c808f80e4b7e4ff4, type: 3}
       propertyPath: m_Name
       value: DoorL
