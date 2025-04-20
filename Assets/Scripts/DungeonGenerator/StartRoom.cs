@@ -3,7 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public class StartRoom : MonoBehaviour
 {
-    public Light2D[] lights;
+    private Light2D[] lights;
     private GameObject enviroment;
     public GameObject[] spawners;
 

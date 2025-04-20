@@ -11,7 +11,6 @@ public class EnemyRoomSpawner : MonoBehaviour
     private GameObject[] spawns;
 
     private int _enemiesAlive = 0;
-    private bool _roomIsLocked = true;
     private bool _isSpawning = false;
 
     [SerializeField]
@@ -39,19 +38,17 @@ public class EnemyRoomSpawner : MonoBehaviour
                 _enemiesAlive += spawn.GetComponent<EnemySpawner>().StartSpawn();
             }
         }
-        else
-        {
-            _roomIsLocked = false;
-            Destroy(this);
-        }
     }
 
     private void HandleEnemyDeath()
     {
         _enemiesAlive--;
-        if (_enemiesAlive <= 0 && !_isSpawning && _roomIsLocked)
+        if (_enemiesAlive <= 0 && !_isSpawning && (_currentWave < _waves))
         {
             StartCoroutine(SpawnNextWaveWithDelay());
+        }
+        else if ((_currentWave >= _waves) && (_enemiesAlive <= 0)){
+            Destroy(this);
         }
     }
 
