@@ -17,12 +17,12 @@ public class SpellAttack : PlayerAttack
         if (Input.GetMouseButtonDown(1))
         {
 
-            if (PlayerStats.Instance.magic <= 0 || attackBloked)
+            if (PlayerStats.Instance.magic <= 0 || attackBlocked)
                 return;
 
             AudioManager.Instance.Play("MagicAttack");
             animator.SetTrigger("MagicAttack");
-            attackBloked = true;
+            attackBlocked = true;
             StartCoroutine(DelayAttack());
 
             // Instantiate proyectile.

@@ -1,19 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Tilemaps;
 
 public class SetTrap : MonoBehaviour
 {
     [SerializeField]
-    private float damage;
+    private float damage = 10f;
 
     [SerializeField]
-    private float timer;
+    private float timer = 0.25f;
 
-    Animator _Animator;
-
+    private Animator _Animator;
+    private HashSet<Collider2D> objectsInside = new HashSet<Collider2D>();
+    private bool isCountingDown = false;
 
     private void Awake()
     {
@@ -22,17 +21,54 @@ public class SetTrap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Step");
+        // Track object
+        if ((collider.CompareTag("Enemy") || collider.CompareTag("Player")) && !objectsInside.Contains(collider))
+        {
+            objectsInside.Add(collider);
+        }
+
+        // Start countdown only once
+        if (!isCountingDown)
+        {
+            StartCoroutine(TrapCountdown());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        // Remove object when it leaves
+        if (objectsInside.Contains(collider))
+        {
+            objectsInside.Remove(collider);
+        }
+    }
+
+    private IEnumerator TrapCountdown()
+    {
+        isCountingDown = true;
+
+        yield return new WaitForSeconds(timer);
+
         _Animator.SetTrigger("Step");
 
-        if (collider.transform.tag == "Enemy")
+        foreach (var collider in objectsInside)
         {
-            collider.GetComponent<EnemyHealth>().DealDamage(damage, Vector2.zero);
+            if (collider != null)
+            {
+                if (collider.CompareTag("Enemy"))
+                {
+                    collider.GetComponent<EnemyHealth>().DealDamage(damage, Vector2.zero);
+                }
+
+                if (collider.CompareTag("Player"))
+                {
+                    PlayerStats.Instance.DealDamage(damage);
+                }
+            }
         }
 
-        if (collider.transform.tag == "Player")
-        {
-            PlayerStats.Instance.DealDamage(damage);
-        }
+        // Reset trap
+        objectsInside.Clear();
+        isCountingDown = false;
     }
 }

@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (var comp in weapon.GetComponents<PlayerAttack>())
         {
-            comp.attackBloked = activate;
+            comp.attackBlocked = activate;
         }
         camera.SetActive(activate);
     }

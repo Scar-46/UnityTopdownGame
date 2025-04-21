@@ -9,7 +9,7 @@ abstract public class PlayerAttack : MonoBehaviour
     public float maxDamage;
     public float knockbackForce = 16;
 
-    public bool attackBloked = false;
+    public bool attackBlocked = false;
     public float attackDelay = 0f;
 
     [Header("Animator")]
@@ -18,6 +18,6 @@ abstract public class PlayerAttack : MonoBehaviour
     protected IEnumerator DelayAttack()
     {
         yield return new WaitForSeconds(attackDelay);
-        attackBloked = false;
+        attackBlocked = false;
     }
 }

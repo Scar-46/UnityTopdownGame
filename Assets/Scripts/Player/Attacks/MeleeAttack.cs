@@ -21,9 +21,9 @@ public class MeleeAttack : PlayerAttack
 
     public void Attack()
     {
-        if (Input.GetMouseButtonDown(0) && !attackBloked)
+        if (Input.GetMouseButtonDown(0) && !attackBlocked)
         {
-            attackBloked = true;
+            attackBlocked = true;
         }
     }
 
