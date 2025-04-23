@@ -1036,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6043233443305760467, guid: dcb2e6901a02f014b83b1421f44ffe0c, type: 3}
       propertyPath: orthographic size
-      value: 10.3671875
+      value: 8.4375
       objectReference: {fileID: 0}
     - target: {fileID: 6043233443305760467, guid: dcb2e6901a02f014b83b1421f44ffe0c, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -7038,7 +7038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6619533357872952244, guid: 29f77d3a1ee6a934d9207efe339f0234, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

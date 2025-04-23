@@ -11,7 +11,7 @@ public class EnemyRoomSpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] spawns;
 
-    private int _enemiesAlive = 0;
+    public int _enemiesAlive = 0;
     private bool _isSpawning = false;
 
     [SerializeField]
@@ -51,7 +51,6 @@ public class EnemyRoomSpawner : MonoBehaviour
         }
         else if ((_currentWave >= _waves) && (_enemiesAlive <= 0)){
             OnRoomClean?.Invoke();
-            Destroy(this);
         }
     }
 

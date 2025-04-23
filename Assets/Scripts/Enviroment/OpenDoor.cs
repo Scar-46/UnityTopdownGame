@@ -11,16 +11,23 @@ public class OpenDoor : MonoBehaviour
     public GameObject LowerDoor;
 
     [SerializeField]
-    private bool roomIsClean = false;
+    private bool roomIsClean = true;
 
     private void Start()
     {
         _Animator = GetComponent<Animator>();
         EnemyRoomSpawner.OnRoomClean += OnRoomClean;
+        StartRoom.OnRoomStarted += OnRoomStarted;
     }
     private void OnDestroy()
     {
         EnemyRoomSpawner.OnRoomClean -= OnRoomClean;
+        StartRoom.OnRoomStarted -= OnRoomStarted;
+    }
+
+    private void OnRoomStarted()
+    {
+        roomIsClean = false;
     }
 
     private void OnRoomClean()
@@ -30,7 +37,7 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (!roomIsClean) return; // Don't open unless room is clean
+        if (!roomIsClean) return; // Don't open unless room is clean
 
         if (collision.tag == "Player" && needKey)
         {
@@ -48,7 +55,7 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if (!roomIsClean) return;
+        if (!roomIsClean) return;
 
         if (collision.tag == "Player" && !needKey)
         {

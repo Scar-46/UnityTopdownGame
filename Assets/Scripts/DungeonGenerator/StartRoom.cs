@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -8,6 +9,8 @@ public class StartRoom : MonoBehaviour
     public GameObject[] spawners;
 
     private bool start = true;
+
+    public static event Action? OnRoomStarted;
 
     private void Awake()
     {
@@ -55,6 +58,7 @@ public class StartRoom : MonoBehaviour
     {
         if (collision.transform.tag == "Player" && start)
         {
+            OnRoomStarted.Invoke();
             ActivateLights();
             ActivateSpawns();
             start = false;

@@ -265,6 +265,7 @@ MonoBehaviour:
   needKey: 0
   stopper: {fileID: 3392434615017935875}
   LowerDoor: {fileID: 7237024664350521551}
+  roomIsClean: 1
 --- !u!1 &7237024664350521551
 GameObject:
   m_ObjectHideFlags: 0

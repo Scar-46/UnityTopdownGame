@@ -129,6 +129,7 @@ MonoBehaviour:
   needKey: 0
   stopper: {fileID: 3312984747974141401}
   LowerDoor: {fileID: 0}
+  roomIsClean: 1
 --- !u!61 &3661550243501425644
 BoxCollider2D:
   m_ObjectHideFlags: 0
