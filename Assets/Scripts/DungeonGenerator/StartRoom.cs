@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -7,6 +8,7 @@ public class StartRoom : MonoBehaviour
     private Light2D[] lights;
     private GameObject enviroment;
     public GameObject[] spawners;
+    public GameObject startPoints;
 
     private bool start = true;
 
@@ -17,6 +19,7 @@ public class StartRoom : MonoBehaviour
         if (transform.parent != null && transform.parent.parent != null)
         {
             enviroment = transform.parent.parent.Find("Enviroment")?.gameObject;
+            startPoints = transform.parent.gameObject;
 
             if (enviroment != null)
             {
@@ -62,6 +65,12 @@ public class StartRoom : MonoBehaviour
             ActivateLights();
             ActivateSpawns();
             start = false;
+            foreach (var child in startPoints.GetComponentsInChildren<Transform>())
+            {
+                var childStartRoom = child.GetComponent<StartRoom>();
+                Destroy(childStartRoom);
+            }
+
         }
     }
 }
