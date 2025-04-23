@@ -46,6 +46,13 @@ public abstract class Interactable : MonoBehaviour
 
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInRange = true;
+        }
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

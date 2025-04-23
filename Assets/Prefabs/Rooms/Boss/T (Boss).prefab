@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 15.8, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4524934326329036293}
@@ -15245,13 +15245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 4672584962189887376}
-  - {fileID: 8547776472977355252}
-  - {fileID: 3211672690475933906}
-  - {fileID: 5618281656356745920}
-  - {fileID: 927584087163027580}
-  - {fileID: 572190625508436452}
   spawners:
   - {fileID: 7624036318680467976}
 --- !u!1 &7220067814343907710
@@ -15283,7 +15276,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20, y: 15.8, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5227064995292550431}
@@ -15489,9 +15482,12 @@ MonoBehaviour:
   previous: {x: 0, y: 0}
   spawned: 0
   bossRoom: 1
+  offsetX: 0
+  offsetY: 0
   startX: 0
   startY: 0
   upperWalls: {fileID: 0}
+  middleWalls: {fileID: 0}
   lowerWalls: {fileID: 0}
   floor: {fileID: 0}
   LTile: {fileID: 0}
@@ -15584,7 +15580,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34c51573ecf9c84db459dd22dbd7ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lights: []
   spawners:
   - {fileID: 7624036318680467976}
 --- !u!1 &7283955263145049499

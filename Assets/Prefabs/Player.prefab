@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2798515085010698182
 Transform:
   m_ObjectHideFlags: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2010037335
+  m_SortingLayer: 2
   m_SortingOrder: 13
   m_Sprite: {fileID: 2222263333052316145, guid: 9c073d556fa5e4046a22d1d2fca409c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 5080283097965907416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1575, y: 0.019, z: 0}
+  m_LocalPosition: {x: 0.299, y: 0.252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,15 +131,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b21a6cda983444d8191b7159ac3b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1842283657040942082, guid: ba9d68aa383e65243b2b6839677b4ebb, type: 3}
-  minDamage: 5
-  maxDamage: 10
-  projectileForce: 3
+  minDamage: 20
+  maxDamage: 30
   knockbackForce: 800
-  magicConsumed: 5
-  animator: {fileID: 8939396987066594548}
   attackBloked: 0
-  attackDelay: 1
+  attackDelay: 0.5
+  animator: {fileID: 8939396987066594548}
+  projectile: {fileID: 1842283657040942082, guid: ba9d68aa383e65243b2b6839677b4ebb, type: 3}
+  projectileForce: 6
+  magicConsumed: 5
 --- !u!114 &3332591656752749800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88617adcddb11147ad25d32d8e7a07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 20
-  maxDamage: 30
+  minDamage: 40
+  maxDamage: 50
+  knockbackForce: 5000
+  attackBloked: 0
+  attackDelay: 1.5
   animator: {fileID: 8939396987066594548}
   isAttacking: 0
-  attackBloked: 0
-  attackDelay: 2
   radius: 1
-  knockbackForce: 2500
 --- !u!1 &6433867718623440146
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 5267553014641009391}
   - component: {fileID: 7335605636436995244}
   - component: {fileID: 8462717575548758231}
+  - component: {fileID: 8143142856237734379}
   - component: {fileID: 2465920792210089538}
   m_Layer: 6
   m_Name: Player
@@ -222,7 +223,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.98, y: 5.57, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4854268200273813930}
@@ -367,8 +368,45 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.010000005, y: -0.010957055}
-  m_Radius: 0.07904295
+  m_Offset: {x: 0, y: 0.13}
+  m_Radius: 0.18
+--- !u!70 &8143142856237734379
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083253695672458044}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.048766367, y: 0.13000004}
+  m_Size: {x: 0.4575368, y: 0.34000236}
+  m_Direction: 1
 --- !u!114 &2465920792210089538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fecc62857c74974cae6bbe3dff1b229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  dashSpeed: 10
+  speed: 5
+  dashSpeed: 15
   _dashCooldown: 0.5
+  minimapIcon: {fileID: 2592518619132422964}
+  weapon: {fileID: 5080283097965907416}

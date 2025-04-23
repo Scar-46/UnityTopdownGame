@@ -8,16 +8,38 @@ public class OpenDoor : MonoBehaviour
     private Animator _Animator;
     public bool needKey = true;
     public Collider2D stopper;
+    public GameObject LowerDoor;
 
+    [SerializeField]
+    private bool roomIsClean = true;
 
     private void Start()
     {
         _Animator = GetComponent<Animator>();
+        EnemyRoomSpawner.OnRoomClean += OnRoomClean;
+        StartRoom.OnRoomStarted += OnRoomStarted;
+    }
+    private void OnDestroy()
+    {
+        EnemyRoomSpawner.OnRoomClean -= OnRoomClean;
+        StartRoom.OnRoomStarted -= OnRoomStarted;
+    }
+
+    private void OnRoomStarted()
+    {
+        roomIsClean = false;
+    }
+
+    private void OnRoomClean()
+    {
+        roomIsClean = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player" && needKey)
+        if (!roomIsClean) return; // Don't open unless room is clean
+
+        if (collision.tag == "Player" && needKey)
         {
             if (PlayerStats.Instance.RemoveKeys(1))
             {
@@ -25,26 +47,39 @@ public class OpenDoor : MonoBehaviour
                 needKey = false;
             }
         }
-        else if (collision.name == "Player")
+        else if (collision.tag == "Player")
         {
             _Animator.SetTrigger("Open");
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!roomIsClean) return;
+
+        if (collision.tag == "Player" && !needKey)
+        {
+            _Animator.SetTrigger("Close");
+        }
+    }
+
     public void UnlockDoor()
     {
         stopper.enabled = false;
+
+        if (LowerDoor != null)
+        {
+            LowerDoor.SetActive(true);
+        }
     }
 
     public void LockDoor()
     {
         stopper.enabled = true;
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.name == "Player" && !needKey)
+        if (LowerDoor != null)
         {
-            _Animator.SetTrigger("Close");
+            LowerDoor.SetActive(false);
         }
     }
 }

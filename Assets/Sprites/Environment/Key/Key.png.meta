@@ -133,10 +133,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 16
       alignment: 9
-      pivot: {x: 0.4926623, y: 0.3214505}
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: Key_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 16
       alignment: 9
-      pivot: {x: 0.4926623, y: 0.3214505}
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: Key_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 64
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 16
       alignment: 9
-      pivot: {x: 0.4926623, y: 0.3214505}
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: Key_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 96
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 16
       alignment: 9
-      pivot: {x: 0.4926623, y: 0.3214505}
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: Key_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 16
       alignment: 9
-      pivot: {x: 0.4926623, y: 0.3214505}
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,6 +228,48 @@ TextureImporter:
       bones: []
       spriteID: 1e72c46569f539f80800000000000000
       internalID: -8101026205411825695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Key_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14fe9d84678162142ac9c79c89500f03
+      internalID: -2015093343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Key_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c549874dbec668c4a8c58b6fd4ae16e7
+      internalID: -633658736
       vertices: []
       indices: 
       edges: []
@@ -248,6 +290,8 @@ TextureImporter:
       Key_2: -7993208405712638566
       Key_3: 6381051765275584983
       Key_4: -8101026205411825695
+      Key_5: -2015093343
+      Key_6: -633658736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

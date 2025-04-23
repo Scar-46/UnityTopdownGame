@@ -15,8 +15,8 @@ public class PotionItem : Item
 
     public override void UseItem()
     {
-        PlayerStats.Instance.HealCaracter(health);
-        PlayerStats.Instance.recoverMagic(mana);
+        PlayerStats.Instance.HealCharacter(health);
+        PlayerStats.Instance.RecoverMagic(mana);
         slot.isOccupied = false;
         Destroy(gameObject);
     }

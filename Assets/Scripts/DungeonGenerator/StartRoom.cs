@@ -1,12 +1,37 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class StartRoom : MonoBehaviour
 {
-    public Light2D[] lights;
+    private Light2D[] lights;
+    private GameObject enviroment;
     public GameObject[] spawners;
 
     private bool start = true;
+
+    public static event Action? OnRoomStarted;
+
+    private void Awake()
+    {
+        if (transform.parent != null && transform.parent.parent != null)
+        {
+            enviroment = transform.parent.parent.Find("Enviroment")?.gameObject;
+
+            if (enviroment != null)
+            {
+                lights = enviroment.GetComponentsInChildren<Light2D>();
+            }
+            else
+            {
+                Debug.Log("Enviroment GameObject not found!");
+            }
+        }
+        else
+        {
+            Debug.Log("Parent or parent's parent is missing!");
+        }
+    }
     public void ActivateSpawns()
     {
         foreach (var spawn in spawners)
@@ -31,9 +56,9 @@ public class StartRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.name == "Player" && start)
+        if (collision.transform.tag == "Player" && start)
         {
-            Debug.Log(collision.name);
+            OnRoomStarted.Invoke();
             ActivateLights();
             ActivateSpawns();
             start = false;

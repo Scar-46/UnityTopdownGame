@@ -41,7 +41,7 @@ public class EnemyMeleeRange : EnemyAttack
 
         if (distance <= secondAttackDistance)
         {
-            AudioManager.Instance.Play("Attack");
+            AudioManager.Instance.Play("Miss");
             animator.SetTrigger("Attack");
             float damage = Random.Range(minDamage, maxDamage);
             PlayerStats.Instance.DealDamage(damage);

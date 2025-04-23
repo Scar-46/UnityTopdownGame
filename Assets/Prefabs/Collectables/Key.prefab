@@ -335,7 +335,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -352,7 +352,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: abecb03b7e73a964196586fde1a50088, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -397,17 +397,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06483269, y: -0.004438184}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4926623, y: 0.3214505}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.125}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.546113, y: 0.29099917}
+  m_Size: {x: 0.56, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &3368117024765212322
 MonoBehaviour:

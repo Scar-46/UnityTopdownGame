@@ -3,22 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
+    //Menus
     public GameObject settingsMenu;
     public GameObject pauseMenu;
-
     public GameObject currentMenu;
 
-    public bool isEnableCurrent = false;
+    private bool isMenuActive = false;
+
+    public static bool blockMenu;
 
     //Set the current menu
-    private void Start()
+    private void Awake()
     {
         currentMenu = pauseMenu;
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape) && !blockMenu)
         {
             ToggleMenu();
         }
@@ -38,24 +40,28 @@ public class PauseController : MonoBehaviour
 
     public void ReturnMenu()
     {
-        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
+        ToggleMenu();
+        LevelLoader.Instance.ReturnToMenu();
+
     }
 
 
-    public void ToggleMenu()
+    private void ToggleMenu()
     {
-        isEnableCurrent = !isEnableCurrent;
-        if (isEnableCurrent)
+        isMenuActive = !isMenuActive;
+        if (isMenuActive)
         {
             currentMenu.SetActive(true);
-            Time.timeScale = 1f;
+            AudioManager.Instance.Play("Pause");
+            Time.timeScale = 0f;
         }
         else
         {
             currentMenu.SetActive(false);
-            currentMenu = pauseMenu;
+            AudioManager.Instance.Play("Unpause");
             Time.timeScale = 1f;
+            currentMenu = pauseMenu;
         }
     }
 }

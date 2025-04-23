@@ -13,9 +13,9 @@ public class IdleTransition : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(MeleeAttack.Instance.attackBloked)
+        if(MeleeAttack.Instance.attackBlocked)
         {
-            AudioManager.Instance.Play("Attack");
+            AudioManager.Instance.Play("Miss");
             MeleeAttack.Instance.animator.Play("MeleeAttack");
             MeleeAttack.Instance.DealDamage();
         }
@@ -24,7 +24,7 @@ public class IdleTransition : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        MeleeAttack.Instance.attackBloked = false;
+        MeleeAttack.Instance.attackBlocked = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

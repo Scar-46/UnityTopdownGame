@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -22,6 +23,41 @@ public class MinimapController : MonoBehaviour
     private bool isMinimapFullscreen = false;
     private Vector3 dragOrigin;
     private float targetFOV;
+
+    public static MinimapController Instance;
+
+    private void Awake()
+    {
+        if (Instance is not null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            MinimapController.Instance = this;
+            DontDestroyOnLoad(this);
+        }
+
+        this.gameObject.SetActive(false);
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from the sceneLoaded event to avoid memory leaks
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindCamera();
+    }
+
+    private void FindCamera()
+    {
+        largeMinimapCamera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>();
+        if (largeMinimapCamera == null)
+        {
+            Debug.LogWarning("No Map Camera found in the scene.");
+        }
+    }
 
     private void Update()
     {
