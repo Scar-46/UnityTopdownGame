@@ -13,6 +13,7 @@ public class StartRoom : MonoBehaviour
     private bool start = true;
 
     public static event Action? OnRoomStarted;
+    public bool enemyRoom = true;
 
     private void Awake()
     {
@@ -61,7 +62,11 @@ public class StartRoom : MonoBehaviour
     {
         if (collision.transform.tag == "Player" && start)
         {
-            OnRoomStarted.Invoke();
+            if (enemyRoom)
+            {
+                OnRoomStarted.Invoke();
+            }
+
             ActivateLights();
             ActivateSpawns();
             start = false;

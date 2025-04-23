@@ -1785,6 +1785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 3847887538359294333}
+  startPoints: {fileID: 0}
+  enemyRoom: 0
 --- !u!1 &4456284227644030352
 GameObject:
   m_ObjectHideFlags: 0
