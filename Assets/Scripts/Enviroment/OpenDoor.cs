@@ -12,6 +12,7 @@ public class OpenDoor : MonoBehaviour
 
     [SerializeField]
     private bool roomIsClean = true;
+    private bool startRoom = true;
 
     private void Start()
     {
@@ -55,10 +56,11 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!roomIsClean) return;
+        if (!roomIsClean && !startRoom) return;
 
         if (collision.tag == "Player" && !needKey)
         {
+            startRoom = false;
             _Animator.SetTrigger("Close");
         }
     }

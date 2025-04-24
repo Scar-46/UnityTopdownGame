@@ -20,7 +20,7 @@ public class AttackState : State
     private State roamingState;
 
     [SerializeField]
-    private ChaseState chasingState;
+    private State chasingState;
 
     Rigidbody2D _Rigidbody2;
 
