@@ -51,6 +51,8 @@ public class AttackState : State
 
     public override State RunState()
     {
+        State nextState = this;
+
         if (attacking == false)
         {
             attacking = true;
@@ -70,30 +72,25 @@ public class AttackState : State
                     agent.stoppingDistance = 0;
                     agent.SetDestination(newPos);
                     StartCoroutine(_Attack.PerformAttack());
-                    return this;
 
                 }
                 else if (distance <= _AttackDistance)
                 {
                     StartCoroutine(_Attack.PerformAttack());
-                    return this;
                 }
                 else
                 {
                     chasingState._isFacingRight = _isFacingRight;
-                    return chasingState;
+                    nextState = chasingState;
                 }
             }
             else
             {
                 roamingState._isFacingRight = _isFacingRight;
-                return roamingState;
+                nextState = roamingState;
             }
         }
-        else
-        {
-            return this;
-        }
+        return nextState;
     }
     public void Flip(Vector3 target)
     {

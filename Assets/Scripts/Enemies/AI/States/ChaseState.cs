@@ -30,6 +30,7 @@ public class ChaseState : State
 
     public override State RunState()
     {
+        State nextState = this;
         agent.stoppingDistance = _AttackState._AttackDistance;
         targetDetector.Detect(aiData);
 
@@ -41,7 +42,7 @@ public class ChaseState : State
             {
                 _AttackState._isFacingRight = _isFacingRight;
                 _AttackState.attacking = false;
-                return _AttackState;
+                nextState = _AttackState;
             }
             else
             {
@@ -49,14 +50,14 @@ public class ChaseState : State
                 agent.SetDestination(aiData.targets[0].position);
                 _Animator.SetFloat("Speed", 0.06f);
             }
-            return this;
         }
         else
         {
             _Animator.SetFloat("Speed", 0.04f);
             _RoamingState._isFacingRight = _isFacingRight;
-            return _RoamingState;
+            nextState = _RoamingState;
         }
+        return nextState;
     }
 
     public void Flip(Transform target)

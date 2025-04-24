@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
@@ -39,6 +40,8 @@ public class RoamingState : State
 
     public override State RunState()
     {
+        State nextState = this;
+
         agent.stoppingDistance = 0.5f;
 
         if (targetDetector.Detect(aiData) == false)
@@ -55,13 +58,13 @@ public class RoamingState : State
             {
                 _Animator.SetFloat("Speed", 0.4f);
             }
-            return this;
         }
         else
         {
             _ChaseState._isFacingRight = _isFacingRight;
-            return _ChaseState;
+            nextState = _ChaseState;
         }
+        return nextState;
     }
 
     public void Flip(Vector3 target)
