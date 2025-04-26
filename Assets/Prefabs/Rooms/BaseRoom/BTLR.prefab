@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 2869161181333562781}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &3350803357577298073
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 2869161181333562781}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &3941196577338264664
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +728,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 2869161181333562781}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &6119430684148857778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,6 +2266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 2869161181333562781}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &6964546979405955339
 GameObject:
   m_ObjectHideFlags: 0
