@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 #nullable enable
@@ -10,7 +11,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health;
     public float maxHealth = 100;
-    public float knockbackDelay = 0;
+    public float knockbackTime = 0.2f;
+    public float stunTime = 0.15f;
     public bool isObject = false;
 
     public TextMeshProUGUI enemyName;
@@ -26,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
 
     private Rigidbody2D rb2D;
     private Animator animator;
+    private NavMeshAgent navMeshAgent;
 
     public bool start = true;
 
@@ -33,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         health = maxHealth;
     }
 
@@ -71,17 +75,20 @@ public class EnemyHealth : MonoBehaviour
             CurrentHealth.value = CalculateHealthPercentage();
             Debug.Log(CurrentHealth.value);
         }
-
-        rb2D.AddForce(knockback, ForceMode2D.Impulse);
-        StartCoroutine(ResetKnockback());
-        
+        if (health > 0)
+        {
+            navMeshAgent.isStopped = true;
+            rb2D.AddForce(knockback, ForceMode2D.Impulse);
+            StartCoroutine(ResetKnockback());
+        }
     }
 
     private IEnumerator ResetKnockback()
     {
-        yield return new WaitForSeconds(knockbackDelay);
+        yield return new WaitForSeconds(knockbackTime);
         rb2D.velocity = Vector2.zero;
-        yield return new WaitForSeconds(knockbackDelay);
+        yield return new WaitForSeconds(stunTime);
+        navMeshAgent.isStopped = false;
     }
 
     public void DestroyEnemy()
