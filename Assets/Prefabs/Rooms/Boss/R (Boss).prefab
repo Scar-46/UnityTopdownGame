@@ -121,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 6456276308346559058}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &620120218838510693
 GameObject:
   m_ObjectHideFlags: 0
@@ -5288,6 +5290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 6456276308346559058}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &1861230441470161688
 GameObject:
   m_ObjectHideFlags: 0
@@ -11483,6 +11487,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 5254461507425593840}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!1 &4039026619553066893
 GameObject:
   m_ObjectHideFlags: 0

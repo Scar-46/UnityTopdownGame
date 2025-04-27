@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd81cb940880e934dafa05d1b9d95e08
+guid: de007c9858764e84088e56edf9ff77f7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TestPalette
+  - name: PaletaOro
     originalName: 
     pivot: {x: 1, y: 0}
     alignment: 9
@@ -133,7 +133,7 @@ ScriptedImporter:
       y: 4
       width: 7
       height: 1
-    spriteID: 2e9a91bb7324ade48b9ff7576d88ad33
+    spriteID: 3be4601ec6ed1e046a627d6a083d4241
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,13 +145,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 945888963
-    name: TestPalette
+    guid: 175972167
+    name: PaletaOro
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TestPalette
+    - name: PaletaOro
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -159,7 +159,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 1
-      spriteId: 2e9a91bb7324ade48b9ff7576d88ad33
+      spriteId: 3be4601ec6ed1e046a627d6a083d4241
     linkedCells: []
     parentIndex: -1
   platformSettings:

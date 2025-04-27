@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19069f1f559b674ca6c9473b2461e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waves: 2
+  waves: 1
   spawns:
   - {fileID: 8485866144760806795}
+  _enemiesAlive: 0
   delayBetweenWaves: 1.2
 --- !u!1 &8485866144760806795
 GameObject:
@@ -100,6 +101,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &1143316219375939319
 SpriteRenderer:
   m_ObjectHideFlags: 0

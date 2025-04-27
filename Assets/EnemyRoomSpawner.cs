@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class EnemyRoomSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private int _waves = 0;
-    private int _currentWave = 0;
+    public int waves = 0;
 
     [SerializeField]
     private GameObject[] spawns;
@@ -32,9 +30,9 @@ public class EnemyRoomSpawner : MonoBehaviour
 
     private void StartNextWave()
     {
-        if (_currentWave < _waves)
+        if (waves > 0)
         {
-            _currentWave++;
+            waves--;
             foreach (var spawn in spawns)
             {
                 _enemiesAlive += spawn.GetComponent<EnemySpawner>().StartSpawn();
@@ -45,11 +43,11 @@ public class EnemyRoomSpawner : MonoBehaviour
     private void HandleEnemyDeath()
     {
         _enemiesAlive--;
-        if (_enemiesAlive <= 0 && !_isSpawning && (_currentWave < _waves))
+        if (_enemiesAlive <= 0 && !_isSpawning && (waves > 0))
         {
             StartCoroutine(SpawnNextWaveWithDelay());
         }
-        else if ((_currentWave >= _waves) && (_enemiesAlive <= 0)){
+        else if ((waves <= 0) && (_enemiesAlive <= 0)){
             OnRoomClean?.Invoke();
         }
     }

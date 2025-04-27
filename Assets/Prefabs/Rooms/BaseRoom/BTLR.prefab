@@ -526,10 +526,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 7531244581153590692, guid: b8d1fedb76509e046a5ba9232af565c9, type: 3}
+  - {fileID: 7713606973205670275, guid: f47c6e5706cbedf4cb80a13d5831b05a, type: 3}
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &6796800554037688557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6171,6 +6173,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1284233282265278279, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      propertyPath: waves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284233282265278279, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       propertyPath: spawns.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6226,6 +6232,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8453876106373989648, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      propertyPath: 'Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7713606973205670275, guid: f47c6e5706cbedf4cb80a13d5831b05a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -5,10 +5,7 @@ using UnityEngine.AI;
 
 public class StartState : State
 {
-    private State nextState;
-
-    [SerializeField]
-    private AttackState attackState;
+    public State nextState;
 
     [SerializeField]
     private Animator _Animator;
@@ -16,26 +13,13 @@ public class StartState : State
     [SerializeField]
     private EnemyHealth _Health;
 
-    NavMeshAgent agent;
+    public bool autoStart = true;
+    public float introDuration = 1f;
 
-
-    public override State RunState()
-    {
-       if (_Health.health < _Health.maxHealth)
-        {
-            Debug.Log("Intro");
-            _Animator.SetTrigger("Intro");
-            _Health.enabled = false;
-        }
-        return nextState;
-    }
-
-    public void changeState()
-    {
-        nextState = attackState;
-        _Health.enabled = true;
-        _Health.start = true;
-    }
+    private NavMeshAgent agent;
+    private bool introStarted = false;
+    private bool introFinished = false;
+    private float introTimer = 0.5f;
 
     private void Awake()
     {
@@ -45,13 +29,49 @@ public class StartState : State
         _Animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         _Animator = GetComponent<Animator>();
         _Health = GetComponent<EnemyHealth>();
         _Health.start = false;
-        nextState = this;
     }
 
+    public override State RunState()
+    {
+        if (!autoStart)
+        {
+            if (_Health.health < _Health.maxHealth)
+            {
+                _Animator.SetTrigger("Intro");
+                _Health.enabled = false;
+            }
+            return nextState;
+        } else
+        {
+            if (!introStarted)
+            {
+                introStarted = true;
+                introTimer = 0f;
+            }
+
+            if (!introFinished)
+            {
+                introTimer += Time.deltaTime;
+                if (introTimer >= introDuration)
+                {
+                    introFinished = true;
+                    _Health.enabled = true;
+                    _Health.start = true;
+                    return nextState;
+                }
+                else
+                {
+                    return this;
+                }
+            }
+
+            return nextState;
+        }
+       
+    }
 }

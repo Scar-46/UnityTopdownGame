@@ -156,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 6390465918365432086}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &3816019702472723115
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 6390465918365432086}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &3884913995436311886
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,8 +849,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -0.5000076, y: 10, z: 0}
-      m_Extent: {x: 0.49999237, y: 3, z: 0}
+      m_Center: {x: -14.000015, y: 10.5, z: 0}
+      m_Extent: {x: 5.9999847, y: 3.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -1075,6 +1079,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 7561677062375351925}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &1365002818045715213
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1273,6 +1279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 6390465918365432086}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &6536299017919711682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5383,8 +5391,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -10.000015, y: 6.5, z: 0}
-      m_Extent: {x: 9.999985, y: 6.5, z: 0}
+      m_Center: {x: -4.6875076, y: 6.5, z: 0}
+      m_Extent: {x: 4.6874924, y: 6.5, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -6498,7 +6506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.3
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7001,6 +7009,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1284233282265278279, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      propertyPath: waves
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284233282265278279, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       propertyPath: spawns.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -7066,13 +7078,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6771101848417816472, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2198422310860459521}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7318934632937002417, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7574462789515463942}
   m_SourcePrefab: {fileID: 100100000, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+--- !u!4 &3706937089186332334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1030415035769360905, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+  m_PrefabInstance: {fileID: 4412800447332150439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6390465918365432086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7318934632937002417, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
   m_PrefabInstance: {fileID: 4412800447332150439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7574462789515463942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390465918365432086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464b201b6111a5047a917eb02ff3fb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnableObjects:
+  - prefab: {fileID: 5701899607715495341, guid: 40a8eb481c7dcf24988f2fe0b7af0bca, type: 3}
+    spawnProbability: 1
+  spawnArea: {fileID: 3706937089186332334}
+  enemyRoomSpawner: {fileID: 0}
 --- !u!4 &6974567163642618687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6771101848417816472, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
@@ -7340,7 +7377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.3
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 8214044199422884523, guid: e580dcdeb777cc843a064e72963ec8f3, type: 3}
       propertyPath: m_LocalPosition.z

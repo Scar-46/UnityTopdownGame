@@ -15,11 +15,11 @@ public class EnemyHealth : MonoBehaviour
     public float stunTime = 0.15f;
     public bool isObject = false;
 
-    public TextMeshProUGUI enemyName;
-    public string enemyStringName;
+    public TextMeshProUGUI? enemyName;
+    public string? enemyStringName;
 
     public GameObject? healthbar;
-    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI? healthText;
     public Slider? CurrentHealth;
 
     public List<GameObject>? lootDroop = null;

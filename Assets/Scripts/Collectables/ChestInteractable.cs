@@ -11,7 +11,7 @@ public class ChestInteractable : Interactable
     {
         if (Input.GetKeyDown(KeyCode.E) && isInRange)
         {
-            _x = Random.Range(-1, 1); // Spawn in diferent points
+            _x = Random.Range(-1, 1);
             _y = Random.Range(-1, 1);
 
             if (PlayerStats.Instance.RemoveKeys(price))

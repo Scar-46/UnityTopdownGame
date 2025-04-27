@@ -51,6 +51,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &6234096865626175164
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -835,6 +837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 739861072681168776}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &1895197865400412657
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +960,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 739861072681168776}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &2298448698741670604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1013,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &6180950866363187770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4582,6 +4590,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &2618210663511386217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6113,6 +6123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 739861072681168776}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1001 &2382074245473446854
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     private int spawnCounter = 0;
 
     private Vector2 _spawnPosition;
+    public float _offsetX = -0.03f;
+    public float _offsetY = 0.6f;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnMax; i++)
         {
             _spawnPosition = this.transform.position;
+            _spawnPosition.x += _offsetX;
+            _spawnPosition.y += _offsetY;
 
             int enemyIndex = Random.Range(0, Enemies.Count);
             GameObject enemy = Instantiate(Enemies[enemyIndex], _spawnPosition, Quaternion.identity);

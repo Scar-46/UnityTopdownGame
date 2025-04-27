@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 895221914509123595}
   - component: {fileID: 8021768731658357541}
   - component: {fileID: 7487829692091469792}
+  - component: {fileID: 3822310135276928887}
   m_Layer: 7
   m_Name: Mage
   m_TagString: Enemy
@@ -514,7 +515,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 150
-  knockbackDelay: 0.2
+  knockbackTime: 0.2
+  stunTime: 0.15
   isObject: 0
   enemyName: {fileID: 0}
   enemyStringName: 
@@ -573,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e1f85d2385c5446b0c78eb02b26369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 895221914509123595}
+  currentState: {fileID: 3822310135276928887}
 --- !u!114 &895221914509123595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,6 +635,24 @@ MonoBehaviour:
   targetDetector: {fileID: 4693668167619331877}
   aiData: {fileID: 6408599967917525329}
   attacking: 0
+--- !u!114 &3822310135276928887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713606973205670275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988375b516e7da344bec1e4e98d2a7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFacingRight: 0
+  nextState: {fileID: 895221914509123595}
+  _Animator: {fileID: 0}
+  _Health: {fileID: 0}
+  autoStart: 1
+  introDuration: 1
 --- !u!1 &8000130368777031397
 GameObject:
   m_ObjectHideFlags: 0

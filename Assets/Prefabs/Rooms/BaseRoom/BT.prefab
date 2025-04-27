@@ -670,6 +670,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!212 &1514213014419240879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -868,6 +870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 4000357141561698261}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &3941196577338264664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 4000357141561698261}
+  startPoints: {fileID: 0}
+  enemyRoom: 1
 --- !u!1 &6536299017919711682
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,6 +6502,10 @@ PrefabInstance:
     - target: {fileID: 1143316219375939319, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284233282265278279, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      propertyPath: waves
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1284233282265278279, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       propertyPath: spawns.Array.size

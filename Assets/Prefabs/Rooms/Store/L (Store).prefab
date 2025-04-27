@@ -806,6 +806,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: 0
+  _offsetY: 0.1
 --- !u!212 &8701840385890567642
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1400,6 +1402,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: 0
+  _offsetY: 0.1
 --- !u!212 &2821818273423906242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1565,6 +1569,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: 0
+  _offsetY: 0.1
 --- !u!212 &8696033230247225986
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1663,6 +1669,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: -0.03
+  _offsetY: 0.6
 --- !u!1 &3865817292313833162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,6 +1851,8 @@ MonoBehaviour:
   spawnRate: 0
   spawnMax: 1
   floorTilemap: {fileID: 0}
+  _offsetX: 0
+  _offsetY: 0.1
 --- !u!212 &2187093134900276424
 SpriteRenderer:
   m_ObjectHideFlags: 0
