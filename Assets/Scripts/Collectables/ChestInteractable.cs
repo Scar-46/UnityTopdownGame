@@ -1,26 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChestInteractable : Interactable
 {
-    public GameObject loot;
+    public SpawnableObject[] spawnableObjects;
     private float _x, _y;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && isInRange)
         {
-            _x = Random.Range(-1, 1);
-            _y = Random.Range(-1, 1);
+            _x = Random.Range(-1f, 1f);
+            _y = Random.Range(-1f, 1f);
 
             if (PlayerStats.Instance.RemoveKeys(price))
             {
                 animator.SetTrigger("Open");
-                
-                Vector2 postition = new Vector2(gameObject.transform.position.x + _x, gameObject.transform.position.y +_y);
 
-                Instantiate(loot, postition, Quaternion.identity);
+                Vector2 position = new Vector2(transform.position.x + _x, transform.position.y + _y);
+                LootSpawner.SpawnLoot(spawnableObjects, position);
+
                 if (priceBox != null)
                 {
                     priceBox.SetActive(false);

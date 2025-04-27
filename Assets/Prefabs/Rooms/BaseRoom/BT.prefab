@@ -6563,6 +6563,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8402621133621675131, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8453876106373989648, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
       propertyPath: 'Enemies.Array.data[0]'
       value: 

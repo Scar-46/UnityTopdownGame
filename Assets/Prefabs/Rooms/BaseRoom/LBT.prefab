@@ -7076,40 +7076,15 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6771101848417816472, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 2198422310860459521}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7318934632937002417, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7574462789515463942}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
---- !u!4 &3706937089186332334 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1030415035769360905, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
-  m_PrefabInstance: {fileID: 4412800447332150439}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6390465918365432086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7318934632937002417, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}
   m_PrefabInstance: {fileID: 4412800447332150439}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7574462789515463942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6390465918365432086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464b201b6111a5047a917eb02ff3fb2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnableObjects:
-  - prefab: {fileID: 5701899607715495341, guid: 40a8eb481c7dcf24988f2fe0b7af0bca, type: 3}
-    spawnProbability: 1
-  spawnArea: {fileID: 3706937089186332334}
-  enemyRoomSpawner: {fileID: 0}
 --- !u!4 &6974567163642618687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6771101848417816472, guid: d208f81e41a47ad499dd52e4a75df6f5, type: 3}

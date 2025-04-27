@@ -429,7 +429,7 @@ MonoBehaviour:
   price: 1
   priceBox: {fileID: 2464353410862669968}
   priceText: {fileID: 9029717797044123715}
-  loot: {fileID: 8647983590489109049, guid: b407604d114b575418958eef7fccaa8b, type: 3}
+  loot: {fileID: 3784215926138723190, guid: deaaaf07cb3e85840814c8b5b528a84b, type: 3}
 --- !u!58 &7232736350515480214
 CircleCollider2D:
   m_ObjectHideFlags: 0
