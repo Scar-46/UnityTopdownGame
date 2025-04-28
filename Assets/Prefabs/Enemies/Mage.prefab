@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 0
+  attackState: {fileID: 895221914509123595}
   nextState: {fileID: 895221914509123595}
   _Animator: {fileID: 0}
   _Health: {fileID: 0}

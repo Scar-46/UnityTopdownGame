@@ -220,7 +220,6 @@ GameObject:
   - component: {fileID: 7130829841634709866}
   - component: {fileID: 852889501039028974}
   - component: {fileID: 3634876290209436831}
-  - component: {fileID: 8868382766720845493}
   m_Layer: 7
   m_Name: Scarecrow
   m_TagString: Enemy
@@ -421,7 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3000
   maxHealth: 3000
-  knockbackDelay: 0
+  knockbackTime: 0.2
+  stunTime: 0.15
   isObject: 0
   enemyName: {fileID: 0}
   enemyStringName: SoloTie
@@ -472,8 +472,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isFacingRight: 0
   attackState: {fileID: 7130829841634709866}
+  nextState: {fileID: 4408136373825555890}
   _Animator: {fileID: 4909424662777772351}
   _Health: {fileID: 7269772491091116238}
+  autoStart: 0
+  introDuration: 3
 --- !u!114 &4408136373825555890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,18 +546,6 @@ MonoBehaviour:
   rangeBurst: 6
   rangeBurstCounter: 0
 --- !u!114 &3634876290209436831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3459446717920749261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cff3d10d4de5241ab1c10a0b76e7fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8868382766720845493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

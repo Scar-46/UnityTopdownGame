@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class StartState : State
 {
+    public State attackState;
     public State nextState;
 
     [SerializeField]
@@ -23,18 +24,16 @@ public class StartState : State
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        _Animator = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
         _Animator = GetComponent<Animator>();
         _Health = GetComponent<EnemyHealth>();
+        agent = GetComponent<NavMeshAgent>();
+
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         _Health.start = false;
+        nextState = this;
     }
+
 
     public override State RunState()
     {
@@ -62,16 +61,22 @@ public class StartState : State
                     introFinished = true;
                     _Health.enabled = true;
                     _Health.start = true;
-                    return nextState;
+                    return attackState;
                 }
                 else
                 {
-                    return this;
+                    return nextState;
                 }
             }
 
             return nextState;
         }
        
+    }
+    public void changeState()
+    {
+        nextState = attackState;
+        _Health.enabled = true;
+        _Health.start = true;
     }
 }
