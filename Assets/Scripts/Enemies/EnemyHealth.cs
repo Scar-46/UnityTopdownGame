@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
     public float knockbackTime = 0.2f;
     public float stunTime = 0.15f;
     public bool isObject = false;
+    private float freezeTime = 0.025f;
 
     public TextMeshProUGUI? enemyName;
     public string? enemyStringName;
@@ -80,7 +81,14 @@ public class EnemyHealth : MonoBehaviour
             navMeshAgent.isStopped = true;
             rb2D.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(ResetKnockback());
+            StartCoroutine(HitStop(freezeTime));
         }
+    }
+    private IEnumerator HitStop(float duration)
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(duration);
+        Time.timeScale = 1f;
     }
 
     private IEnumerator ResetKnockback()

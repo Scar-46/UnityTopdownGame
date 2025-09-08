@@ -429,7 +429,15 @@ MonoBehaviour:
   price: 1
   priceBox: {fileID: 2464353410862669968}
   priceText: {fileID: 9029717797044123715}
-  loot: {fileID: 3784215926138723190, guid: deaaaf07cb3e85840814c8b5b528a84b, type: 3}
+  spawnableObjects:
+  - prefab: {fileID: 3784215926138723190, guid: deaaaf07cb3e85840814c8b5b528a84b, type: 3}
+    spawnProbability: 0.7
+  - prefab: {fileID: 1572099924106660978, guid: 5ada15fe3cd2f3746a929959de1d7b46, type: 3}
+    spawnProbability: 0.3
+  - prefab: {fileID: 6807330138275900501, guid: 87911a0d4bab9ab41acf5a8eb1de7ae1, type: 3}
+    spawnProbability: 0.1
+  - prefab: {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
+    spawnProbability: 0.5
 --- !u!58 &7232736350515480214
 CircleCollider2D:
   m_ObjectHideFlags: 0

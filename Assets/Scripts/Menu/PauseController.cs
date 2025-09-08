@@ -3,14 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
-    //Menus
-    public GameObject settingsMenu;
+    [Header("Menus")]
     public GameObject pauseMenu;
-    public GameObject currentMenu;
+    public GameObject settingsMenu;
 
-    private bool isMenuActive = false;
+    [Header("Pause Settings")]
+    public KeyCode pauseKey = KeyCode.Escape;
 
-    public static bool blockMenu;
+    private GameObject currentMenu;
+    private bool isPaused = false;
+    public static bool blockMenu = false;
 
     //Set the current menu
     private void Awake()
@@ -20,7 +22,7 @@ public class PauseController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && !blockMenu)
+        if (Input.GetKeyUp(pauseKey) && !blockMenu)
         {
             ToggleMenu();
         }
@@ -31,26 +33,10 @@ public class PauseController : MonoBehaviour
         ToggleMenu();
     }
 
-    public void SettingsGame()
-    {
-        ToggleMenu();
-        currentMenu = settingsMenu;
-        ToggleMenu();
-    }
-
-    public void ReturnMenu()
-    {
-        Time.timeScale = 1f;
-        ToggleMenu();
-        LevelLoader.Instance.ReturnToMenu();
-
-    }
-
-
     private void ToggleMenu()
     {
-        isMenuActive = !isMenuActive;
-        if (isMenuActive)
+        isPaused = !isPaused;
+        if (isPaused)
         {
             currentMenu.SetActive(true);
             AudioManager.Instance.Play("Pause");
@@ -63,5 +49,21 @@ public class PauseController : MonoBehaviour
             Time.timeScale = 1f;
             currentMenu = pauseMenu;
         }
+    }
+
+    // Pause Menu exclusive may can be moved
+    public void ReturnMenu()
+    {
+        Time.timeScale = 1f;
+        ToggleMenu();
+        LevelLoader.Instance.ReturnToMenu();
+
+    }
+
+    public void SettingsGame()
+    {
+        ToggleMenu();
+        currentMenu = settingsMenu;
+        ToggleMenu();
     }
 }

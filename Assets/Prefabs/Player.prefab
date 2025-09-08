@@ -134,8 +134,8 @@ MonoBehaviour:
   minDamage: 20
   maxDamage: 30
   knockbackForce: 800
-  attackBloked: 0
-  attackDelay: 0.5
+  attackBlocked: 0
+  attackDelay: 0.6
   animator: {fileID: 8939396987066594548}
   projectile: {fileID: 1842283657040942082, guid: ba9d68aa383e65243b2b6839677b4ebb, type: 3}
   projectileForce: 6
@@ -155,8 +155,8 @@ MonoBehaviour:
   minDamage: 40
   maxDamage: 50
   knockbackForce: 5000
-  attackBloked: 0
-  attackDelay: 1.5
+  attackBlocked: 0
+  attackDelay: 1
   animator: {fileID: 8939396987066594548}
   isAttacking: 0
   radius: 1

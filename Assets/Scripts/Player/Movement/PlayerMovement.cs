@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get; private set; }
 
     [Header("Movement settings")]
     public float speed;
@@ -22,6 +23,18 @@ public class PlayerMovement : MonoBehaviour
     private GameObject camera;
     public GameObject minimapIcon;
     public GameObject weapon;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
