@@ -1,51 +1,101 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class StartState : State
 {
-    public State attackState;
-    public State nextState;
+    [SerializeField] private AttackState attackState;
+    [SerializeField] private State nextState;
 
-    [SerializeField]
-    private Animator _Animator;
-
-    [SerializeField]
-    private EnemyHealth _Health;
+    private Animator animator;
+    private EnemyHealth health;
+    private NavMeshAgent agent;
+    private AIData aiData;
 
     public bool autoStart = true;
     public float introDuration = 1f;
 
-    private NavMeshAgent agent;
     private bool introStarted = false;
     private bool introFinished = false;
-    private float introTimer = 0.5f;
+    private float introTimer = 0f;
 
-    private void Awake()
+    public override void OnEnter()
     {
-        _Animator = GetComponent<Animator>();
-        _Health = GetComponent<EnemyHealth>();
-        agent = GetComponent<NavMeshAgent>();
+        _isFacingRight = transform.localScale.x > 0;
+        if (animator == null)
+            animator = GetComponent<Animator>();
 
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        _Health.start = false;
+        if (health == null)
+            health = GetComponent<EnemyHealth>();
+
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
+
+        if (aiData == null)
+            aiData = GetComponent<AIData>();
+
+        // Reset intro sequence
+        introStarted = false;
+        introFinished = false;
+        introTimer = 0f;
+
+        // Prevent damage until intro ends
+        health.start = false;
+        health.enabled = false;
+
+        // Stay in this state until ready
         nextState = this;
     }
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        health = GetComponent<EnemyHealth>();
+        agent = GetComponent<NavMeshAgent>();
+        aiData = GetComponent<AIData>();
+
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        health.start = false;
+        nextState = this;
+    }
+
+    public override void OnExit()
+    {
+        // Ensure health is active when leaving
+        health.enabled = true;
+        health.start = true;
+    }
 
     public override State RunState()
     {
         if (!autoStart)
         {
-            if (_Health.health < _Health.maxHealth)
+            // Trigger intro only when enemy takes damage
+            if (health.health < health.maxHealth && !introStarted)
             {
-                _Animator.SetTrigger("Intro");
-                _Health.enabled = false;
+                animator.SetTrigger("Intro");
+                introStarted = true;
+                introTimer = 0f;
             }
+
+            if (introStarted && !introFinished)
+            {
+                introTimer += Time.deltaTime;
+                if (introTimer >= introDuration)
+                {
+                    introFinished = true;
+                    return attackState;
+                }
+            }
+
             return nextState;
-        } else
+        }
+        else
         {
             if (!introStarted)
             {
@@ -59,8 +109,6 @@ public class StartState : State
                 if (introTimer >= introDuration)
                 {
                     introFinished = true;
-                    _Health.enabled = true;
-                    _Health.start = true;
                     return attackState;
                 }
                 else
@@ -71,12 +119,5 @@ public class StartState : State
 
             return nextState;
         }
-       
-    }
-    public void changeState()
-    {
-        nextState = attackState;
-        _Health.enabled = true;
-        _Health.start = true;
     }
 }

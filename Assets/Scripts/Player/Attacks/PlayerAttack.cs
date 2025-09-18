@@ -1,23 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class PlayerAttack : MonoBehaviour
+public abstract class PlayerAttack : MonoBehaviour
 {
-    [Header("Damage settings")]
-    public float minDamage;
-    public float maxDamage;
-    public float knockbackForce = 16;
+    [Header("Damage Settings")]
+    [SerializeField] protected float minDamage = 5f;
+    [SerializeField] protected float maxDamage = 10f;
+    [SerializeField] protected float knockbackForce = 16f;
 
+    [Header("Attack Control")]
+    [SerializeField] protected float attackDelay = 0.3f;
     public bool attackBlocked = false;
-    public float attackDelay = 0f;
 
     [Header("Animator")]
-    public Animator animator;
+    protected Animator animator;
+
+    protected virtual void Awake()
+    {
+        // Always grab animator from player root
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        animator = playerObj.GetComponent<Animator>();
+    }
 
     protected IEnumerator DelayAttack()
     {
         yield return new WaitForSeconds(attackDelay);
         attackBlocked = false;
+    }
+
+    protected float GetRandomDamage()
+    {
+        return Random.Range(minDamage, maxDamage);
     }
 }

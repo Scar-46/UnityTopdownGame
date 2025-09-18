@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 6681823481651641492}
   - component: {fileID: 6531078459171152517}
   - component: {fileID: 8030102319931582437}
+  - component: {fileID: 1085535137117992970}
   m_Layer: 7
   m_Name: Mage 2
   m_TagString: Enemy
@@ -505,7 +506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 150
-  knockbackDelay: 0.2
+  knockbackTime: 0.2
+  stunTime: 0.15
   isObject: 0
   enemyName: {fileID: 0}
   enemyStringName: 
@@ -578,14 +580,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  target: {fileID: 0}
   targetDetector: {fileID: 6243144021069507388}
   aiData: {fileID: 4838395215938577633}
-  _ChaseState: {fileID: 6531078459171152517}
+  chaseState: {fileID: 6531078459171152517}
   centerCell: {x: 0, y: 0, z: 0}
   radius: 5
   tilemap: {fileID: 0}
-  tiles: []
 --- !u!114 &6531078459171152517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,8 +601,8 @@ MonoBehaviour:
   _isFacingRight: 1
   targetDetector: {fileID: 6243144021069507388}
   aiData: {fileID: 4838395215938577633}
-  _RoamingState: {fileID: 6681823481651641492}
-  _AttackState: {fileID: 8030102319931582437}
+  roamingState: {fileID: 6681823481651641492}
+  attackState: {fileID: 8030102319931582437}
 --- !u!114 &8030102319931582437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  _Attack: {fileID: 0}
+  enemyAttack: {fileID: 4618086993500341551}
   _AttackDistance: 5
   _FleeDistance: 1.4
   roamingState: {fileID: 6681823481651641492}
@@ -624,6 +624,20 @@ MonoBehaviour:
   targetDetector: {fileID: 6243144021069507388}
   aiData: {fileID: 4838395215938577633}
   attacking: 0
+--- !u!114 &1085535137117992970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7531244581153590692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73859193926989b479df03a312d6e474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFacingRight: 1
+  stunDuration: 0.5
 --- !u!1 &7605482125441366883
 GameObject:
   m_ObjectHideFlags: 0

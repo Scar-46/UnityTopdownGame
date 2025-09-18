@@ -1,45 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Tilemaps;
 
 public class StunState : State
 {
-    [SerializeField] float stunDuration = 2f;
+    [SerializeField] private float stunDuration = 2f;
+
+    private NavMeshAgent agent;
+    private Animator animator;
     private float stunTimer;
 
-    NavMeshAgent agent;
-    Animator _Animator;
+    private EnemyHealth enemyHealth;
+    private AIData aiData;
 
-    // Reference to a fallback state after stun (like Roaming or Idle)
-    [SerializeField] RoamingState _RoamingState;
-
-    private void Awake()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        _Animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        aiData = GetComponent<AIData>();
     }
 
-    private void OnEnable()
+    public override void OnEnter()
     {
-        stunTimer = 0f;
-        if (agent != null)
-            agent.ResetPath();
+        _isFacingRight = transform.localScale.x > 0;
+        stunTimer = stunDuration;
+        agent.ResetPath();
+        animator.SetFloat("Speed", 0f);
 
-        if (_Animator != null)
-            _Animator.SetFloat("Speed", 0f);
+        if (enemyHealth != null)
+            enemyHealth.invincible = true;
+    }
+
+    public override void OnExit()
+    {
+        if (enemyHealth != null)
+            enemyHealth.invincible = false;
     }
 
     public override State RunState()
     {
-        stunTimer += Time.deltaTime;
+        stunTimer -= Time.deltaTime;
 
-        if (stunTimer >= stunDuration)
+        if (stunTimer <= 0f)
         {
-            return _RoamingState;
+            return GetComponent<RoamingState>();
         }
 
         return this;

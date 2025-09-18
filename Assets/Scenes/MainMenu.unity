@@ -7814,6 +7814,10 @@ PrefabInstance:
       propertyPath: CurrentHealth
       value: 
       objectReference: {fileID: 1097581872}
+    - target: {fileID: 2059040093451584636, guid: 29f77d3a1ee6a934d9207efe339f0234, type: 3}
+      propertyPath: cameraShakeForce
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3552844631882325480, guid: 29f77d3a1ee6a934d9207efe339f0234, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -3,74 +3,75 @@ using UnityEngine.AI;
 
 public class ChaseState : State
 {
-    [SerializeField]
-    TargetDetector targetDetector;
+    [SerializeField] private TargetDetector targetDetector;
+    [SerializeField] private AIData aiData;
 
-    [SerializeField]
-    AIData aiData;
+    private NavMeshAgent agent;
+    private Animator animator;
 
-    NavMeshAgent agent;
+    // States
+    [SerializeField] private RoamingState roamingState;
+    [SerializeField] private AttackState attackState;
 
-    Animator _Animator;
-
-    //States
-    [SerializeField]
-    RoamingState _RoamingState;
-
-    [SerializeField]
-    AttackState _AttackState;
-
-    void Awake()
+    public override void OnEnter()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        _Animator = GetComponent<Animator>();
+        _isFacingRight = transform.localScale.x > 0;
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        agent.stoppingDistance = attackState._AttackDistance;
+        animator.SetFloat("Speed", 0f);
+    }
+
+    public override void OnExit()
+    {
+        // Reset movement when leaving chase
+        agent.ResetPath();
+        animator.SetFloat("Speed", 0f);
     }
 
     public override State RunState()
     {
         State nextState = this;
-        agent.stoppingDistance = _AttackState._AttackDistance;
+
+        // Always check targets
         targetDetector.Detect(aiData);
 
         if (aiData.targets != null && aiData.targets.Count > 0)
         {
+            Flip(aiData.targets[0]);
             float distance = Vector2.Distance(aiData.targets[0].position, transform.position);
 
-            if (distance <= _AttackState._AttackDistance)
+            if (distance <= attackState._AttackDistance)
             {
-                _AttackState._isFacingRight = _isFacingRight;
-                _AttackState.attacking = false;
-                nextState = _AttackState;
+                attackState._isFacingRight = _isFacingRight;
+                attackState.attacking = false;
+                nextState = attackState;
             }
             else
             {
-                Flip(aiData.targets[0]);
                 agent.SetDestination(aiData.targets[0].position);
-                _Animator.SetFloat("Speed", 0.06f);
+                animator.SetFloat("Speed", 0.06f);
             }
         }
         else
         {
-            _Animator.SetFloat("Speed", 0.04f);
-            _RoamingState._isFacingRight = _isFacingRight;
-            nextState = _RoamingState;
+            animator.SetFloat("Speed", 0.04f);
+            roamingState._isFacingRight = _isFacingRight;
+            nextState = roamingState;
         }
+
         return nextState;
     }
 
-    public void Flip(Transform target)
-    {
-        if (target.position.x > this.transform.position.x && !_isFacingRight)
-        {
-            _isFacingRight = !_isFacingRight;
-            this.transform.Rotate(0, 180, 0);
-        }
-        else if (target.position.x < this.transform.position.x && _isFacingRight)
-        {
-            _isFacingRight = !_isFacingRight;
-            this.transform.Rotate(0, 180, 0);
-        }
-    }
+
 }

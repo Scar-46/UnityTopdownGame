@@ -3,48 +3,67 @@ using UnityEngine;
 
 public class SpellAttack : PlayerAttack
 {
-    public GameObject projectile;
+    public GameObject projectilePrefab;
     public float projectileForce;
     public float magicConsumed = 0;
-
-    private void Start()
-    {
-        knockbackForce = 16;
-    }
+    public float spawnDelay = 0;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
-
-            if (PlayerStats.Instance.magic <= 0 || attackBlocked)
-                return;
-
-            AudioManager.Instance.Play("MagicAttack");
-            animator.SetTrigger("MagicAttack");
-            attackBlocked = true;
-            StartCoroutine(DelayAttack());
-
-            // Instantiate proyectile.
-            GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
-
-            // Calculate mouse direction.
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 playerPos = transform.position;
-            Vector2 direction = (mousePos - playerPos).normalized;
-
-            // Calculate rotation angle.
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // Rotate proyectile.
-            spell.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-            spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
-            spell.GetComponent<ProjectileDamage>().knockbackforce = knockbackForce;
-            spell.GetComponent<ProjectileDamage>().damage = Random.Range(minDamage, maxDamage);
-
-            //Consume magic
-            PlayerStats.Instance.UseMagic(magicConsumed);
+            CastSpell();
         }
+    }
+
+    private void CastSpell()
+    {
+        if (attackBlocked) return;
+        if (PlayerStats.Instance.magic < magicConsumed) return;
+
+        attackBlocked = true;
+
+        // Play animation and sound
+        animator.SetTrigger("MagicAttack");
+        AudioManager.Instance.Play("MagicAttack");
+
+        // Instantiate projectile
+        StartCoroutine(SpawnSpellWithDelay(spawnDelay));
+
+        // Consume magic
+        PlayerStats.Instance.UseMagic(magicConsumed);
+
+        // Unlock attack after delay
+        StartCoroutine(DelayAttack());
+    }
+
+    private IEnumerator SpawnSpellWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnProjectile();
+    }
+
+    private void SpawnProjectile()
+    {
+        // Instantiate projectile at player position
+        GameObject spell = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+        // Aim towards mouse
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 playerPos = transform.position;
+        Vector2 direction = (mousePos - playerPos).normalized;
+
+        // Rotate projectile
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        spell.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        // Apply velocity
+        Rigidbody2D rb = spell.GetComponent<Rigidbody2D>();
+        rb.velocity = direction * projectileForce;
+
+        // Set projectile damage & knockback
+        ProjectileDamage proj = spell.GetComponent<ProjectileDamage>();
+        proj.knockbackforce = knockbackForce;
+        proj.damage = GetRandomDamage();
     }
 }

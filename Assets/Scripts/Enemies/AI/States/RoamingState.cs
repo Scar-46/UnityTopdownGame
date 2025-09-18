@@ -1,94 +1,97 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
 
 public class RoamingState : State
 {
-    [SerializeField]
-    Transform target;
+    [SerializeField] private TargetDetector targetDetector;
+    [SerializeField] private AIData aiData;
 
-    [SerializeField]
-    TargetDetector targetDetector;
+    private NavMeshAgent agent;
+    private Animator animator;
 
-    [SerializeField]
-    AIData aiData;
+    // States
+    [SerializeField] private ChaseState chaseState;
 
-    NavMeshAgent agent;
-
-    Animator _Animator;
-
-    //States
-    [SerializeField]
-    ChaseState _ChaseState;
-
-    //Tiles
+    // Tiles
     public Vector3Int centerCell;
     public int radius = 5;
     public Tilemap tilemap;
-    public List<Vector3> tiles;
+    private List<Vector3> tiles = new List<Vector3>();
 
-    private void Awake()
+    void Awake() { 
+        agent = GetComponent<NavMeshAgent>(); 
+        agent.updateRotation = false; 
+        agent.updateUpAxis = false; 
+        animator = GetComponent<Animator>(); }
+
+    public override void OnEnter()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
+        _isFacingRight = transform.localScale.x > 0;
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
         agent.updateUpAxis = false;
-        _Animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        agent.stoppingDistance = 0.5f;
+        animator.SetFloat("Speed", 0f);
+    }
+
+    public override void OnExit()
+    {
+        // Optional cleanup when leaving roaming
+        agent.ResetPath();
+        animator.SetFloat("Speed", 0f);
     }
 
     public override State RunState()
     {
         State nextState = this;
 
-        agent.stoppingDistance = 0.5f;
-
-        if (targetDetector.Detect(aiData) == false)
+        // Check for target first
+        if (targetDetector.Detect(aiData))
         {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            return chaseState;
+        }
+
+        // Roaming logic
+        if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+        {
+            GetTilePosition();
+
+            if (tiles.Count > 0)
             {
-                GetTilePosition();
                 Vector2 target = tiles[Random.Range(0, tiles.Count)];
                 Flip(target);
                 agent.SetDestination(target);
-                _Animator.SetFloat("Speed", 0.06f);
-            }
-            else
-            {
-                _Animator.SetFloat("Speed", 0.4f);
+                animator.SetFloat("Speed", 0.06f);
             }
         }
         else
         {
-            _ChaseState._isFacingRight = _isFacingRight;
-            nextState = _ChaseState;
+            animator.SetFloat("Speed", 0.4f);
         }
+
         return nextState;
     }
 
-    public void Flip(Vector3 target)
+    private void GetTilePosition()
     {
-        if (target.x > this.transform.position.x && !_isFacingRight)
-        {
-            _isFacingRight = !_isFacingRight;
-            this.transform.Rotate(0, 180, 0);
-        }
-        else if (target.x < this.transform.position.x && _isFacingRight)
-        {
-            _isFacingRight = !_isFacingRight;
-            this.transform.Rotate(0, 180, 0);
-        }
-    }
-
-    void GetTilePosition()
-    {
+        tiles.Clear(); // avoid duplicate accumulation
         Vector3 objectPosition = transform.position;
-        centerCell = tilemap.WorldToCell(objectPosition);;
+        centerCell = tilemap.WorldToCell(objectPosition);
         GetTilesInRadius(centerCell, radius);
     }
 
-    void GetTilesInRadius(Vector3Int center, int radius)
+    private void GetTilesInRadius(Vector3Int center, int radius)
     {
         for (int x = -radius; x <= radius; x++)
         {
@@ -107,9 +110,8 @@ public class RoamingState : State
         }
     }
 
-    bool IsWithinRadius(Vector3Int center, Vector3Int currentCell, int radius)
+    private bool IsWithinRadius(Vector3Int center, Vector3Int currentCell, int radius)
     {
         return Vector3Int.Distance(center, currentCell) <= radius;
     }
-
 }

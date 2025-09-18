@@ -16,6 +16,13 @@ public class EnemyHealth : MonoBehaviour
     public bool isObject = false;
     private float freezeTime = 0.025f;
 
+    public CameraShake? cameraShake;
+    public float cameraShakeTime = 0.1f;
+    public float cameraShakeForce = .5f;
+
+    private StateMachine stateMachine;
+    private StunState stunState;
+
     public TextMeshProUGUI? enemyName;
     public string? enemyStringName;
 
@@ -33,12 +40,20 @@ public class EnemyHealth : MonoBehaviour
 
     public bool start = true;
 
+    [HideInInspector] public bool invincible = false;
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        stateMachine = GetComponent<StateMachine>();
+        stunState = GetComponent<StunState>();
         health = maxHealth;
+        if (GameObject.FindGameObjectWithTag("VCamera") != null)
+        {
+            cameraShake = GameObject.FindGameObjectWithTag("VCamera").GetComponent<CameraShake>();
+        }
     }
 
     public void HealCharacter(float heal)
@@ -62,8 +77,12 @@ public class EnemyHealth : MonoBehaviour
 
     public void DealDamage(float damage, Vector2 knockback)
     {
+        if (invincible) return;
+
         StopAllCoroutines();
         health -= damage;
+        if (cameraShake != null)
+            cameraShake.Shake(cameraShakeForce, cameraShakeTime);
         CheckDeath();
         if (CurrentHealth)
         {
@@ -82,6 +101,8 @@ public class EnemyHealth : MonoBehaviour
             rb2D.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(ResetKnockback());
             StartCoroutine(HitStop(freezeTime));
+            stateMachine.currentState = stunState;
+            stunState.OnEnter();
         }
     }
     private IEnumerator HitStop(float duration)

@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 8021768731658357541}
   - component: {fileID: 7487829692091469792}
   - component: {fileID: 3822310135276928887}
+  - component: {fileID: -7420736050239036990}
   m_Layer: 7
   m_Name: Mage
   m_TagString: Enemy
@@ -526,6 +527,7 @@ MonoBehaviour:
   lootDroop:
   - {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
   start: 1
+  invincible: 0
 --- !u!114 &9190416830621927434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,14 +591,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  target: {fileID: 0}
   targetDetector: {fileID: 4693668167619331877}
   aiData: {fileID: 6408599967917525329}
-  _ChaseState: {fileID: 8021768731658357541}
+  chaseState: {fileID: 8021768731658357541}
   centerCell: {x: 0, y: 0, z: 0}
   radius: 5
   tilemap: {fileID: 0}
-  tiles: []
 --- !u!114 &8021768731658357541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,8 +612,8 @@ MonoBehaviour:
   _isFacingRight: 1
   targetDetector: {fileID: 4693668167619331877}
   aiData: {fileID: 6408599967917525329}
-  _RoamingState: {fileID: 895221914509123595}
-  _AttackState: {fileID: 7487829692091469792}
+  roamingState: {fileID: 895221914509123595}
+  attackState: {fileID: 7487829692091469792}
 --- !u!114 &7487829692091469792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 1
-  _Attack: {fileID: 0}
+  enemyAttack: {fileID: 9190416830621927434}
   _AttackDistance: 5
   _FleeDistance: 1.5
   roamingState: {fileID: 895221914509123595}
@@ -648,12 +648,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isFacingRight: 0
-  attackState: {fileID: 895221914509123595}
+  attackState: {fileID: 7487829692091469792}
   nextState: {fileID: 895221914509123595}
-  _Animator: {fileID: 0}
-  _Health: {fileID: 0}
   autoStart: 1
   introDuration: 1
+--- !u!114 &-7420736050239036990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713606973205670275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73859193926989b479df03a312d6e474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFacingRight: 1
+  stunDuration: 0.5
 --- !u!1 &8000130368777031397
 GameObject:
   m_ObjectHideFlags: 0

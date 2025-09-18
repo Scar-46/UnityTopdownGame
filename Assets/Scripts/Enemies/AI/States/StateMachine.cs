@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
     public State currentState;
+
+    private void Start()
+    {
+        currentState?.OnEnter();
+    }
 
     private void Update()
     {
@@ -15,7 +17,7 @@ public class StateMachine : MonoBehaviour
     private void RunStateMachine()
     {
         State nextState = currentState?.RunState();
-        if (nextState != null)
+        if (nextState != null && nextState != currentState)
         {
             SwitchState(nextState);
         }
@@ -23,6 +25,16 @@ public class StateMachine : MonoBehaviour
 
     private void SwitchState(State nextState)
     {
+        currentState?.OnExit();
+
+        // Preserve facing direction
+        if (currentState != null && nextState != null)
+        {
+
+            nextState._isFacingRight = currentState._isFacingRight;
+        }
+
         currentState = nextState;
+        currentState?.OnEnter();
     }
 }

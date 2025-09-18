@@ -1,63 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class AttackState : State
 {
-    [SerializeField]
-    private EnemyAttack _Attack;
+    [SerializeField] private EnemyAttack enemyAttack;
 
-    [SerializeField]
-    public float _AttackDistance = 0.5f;
+    [SerializeField] public float _AttackDistance = 0.5f;
+    [SerializeField] public float _FleeDistance = 0f;
 
-    [SerializeField]
-    public float _FleeDistance = 0;
+    [SerializeField] private RoamingState roamingState;
+    [SerializeField] private ChaseState chasingState;
 
-    [SerializeField]
-    private State roamingState;
+    [SerializeField] private TargetDetector targetDetector;
+    [SerializeField] private AIData aiData;
 
-    [SerializeField]
-    private State chasingState;
-
-    Rigidbody2D _Rigidbody2;
-
-    [SerializeField]
-    private Detector targetDetector;
-
-    [SerializeField]
-    private AIData aiData;
-
-    NavMeshAgent agent;
+    private NavMeshAgent agent;
+    private Rigidbody2D rb;
+    private Animator animator;
 
     public bool attacking = false;
 
-    // Start is called before the first frame update
-    void Awake()
+    public override void OnEnter()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        _Attack = GetComponent<EnemyAttack>();
-        _Rigidbody2 = GetComponent<Rigidbody2D>();
+        _isFacingRight = transform.localScale.x > 0;
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
+
+        if (enemyAttack == null)
+            enemyAttack = GetComponent<EnemyAttack>();
+
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
+
+        // Stop movement before attacking
+        rb.velocity = Vector2.zero;
+        agent.ResetPath();
+
+        attacking = false;
+        animator.SetFloat("Speed", 0f);
     }
 
-    private void PerformDetection()
+    public override void OnExit()
     {
-        targetDetector.Detect(aiData);
+        // Reset attack state when leaving
+        attacking = false;
+        animator.SetFloat("Speed", 0f);
     }
 
     public override State RunState()
     {
         State nextState = this;
 
-        if (attacking == false)
+        // Prevent starting multiple attacks in a single frame
+        if (!attacking)
         {
             attacking = true;
-            _Rigidbody2.velocity = Vector2.zero;
-            PerformDetection();
+
+            // Detect player
+            targetDetector.Detect(aiData);
 
             if (aiData.targets != null && aiData.targets.Count > 0)
             {
@@ -67,42 +74,33 @@ public class AttackState : State
 
                 if (distance <= _FleeDistance)
                 {
+                    // Flee from player
                     Vector3 playerDir = transform.position - player.position;
                     Vector3 newPos = transform.position + playerDir;
+
                     agent.stoppingDistance = 0;
                     agent.SetDestination(newPos);
-                    StartCoroutine(_Attack.PerformAttack());
 
+                    StartCoroutine(enemyAttack.PerformAttack());
                 }
                 else if (distance <= _AttackDistance)
                 {
-                    StartCoroutine(_Attack.PerformAttack());
+                    // Normal attack
+                    StartCoroutine(enemyAttack.PerformAttack());
                 }
                 else
                 {
-                    chasingState._isFacingRight = _isFacingRight;
+                    // Out of range → chase again
                     nextState = chasingState;
                 }
             }
             else
             {
-                roamingState._isFacingRight = _isFacingRight;
+                // No targets → back to roaming
                 nextState = roamingState;
             }
         }
+
         return nextState;
-    }
-    public void Flip(Vector3 target)
-    {
-        if (target.x > this.transform.position.x && !_isFacingRight)
-        {
-            _isFacingRight = !_isFacingRight;
-            this.transform.Rotate(0, 180, 0);
-        }
-        else if (target.x < this.transform.position.x && _isFacingRight)
-        {
-            _isFacingRight = !_isFacingRight;
-            this.transform.Rotate(0, 180, 0);
-        }
     }
 }
