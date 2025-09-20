@@ -7,6 +7,7 @@ public class SpellAttack : PlayerAttack
     public float projectileForce;
     public float magicConsumed = 0;
     public float spawnDelay = 0;
+    public float movementReduction = 0;
 
     private void Update()
     {

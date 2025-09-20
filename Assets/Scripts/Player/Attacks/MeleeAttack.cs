@@ -25,7 +25,7 @@ public class MeleeAttack : PlayerAttack
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Z))
         {
             if (!attackBlocked)
                 PerformAttack(); // free to attack now

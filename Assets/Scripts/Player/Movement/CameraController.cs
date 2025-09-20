@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
     public float threshold;
-    private bool playerDead = false;
     public float smoothSpeed = 6f; // Speed of the camera centering
+    private Transform player;
+    private bool playerDead = false;
 
     private void OnEnable()
     {

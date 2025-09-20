@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float _dashDuration = 0.4f;
     private bool _isDashing;
     private bool _canDash;
+    private AfterImagePool _afterImagePool;
 
     private GameObject camera;
     public GameObject minimapIcon;
@@ -40,8 +41,9 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        minimapIcon.SetActive(true);
+        _afterImagePool = GetComponent<AfterImagePool>();
         _canDash = true;
+        minimapIcon.SetActive(false);
         camera = GameObject.FindGameObjectWithTag("Camera");
     }
 
@@ -75,7 +77,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && _canDash)
         {
-            StartCoroutine(Dash());
+            Vector2 dashDirection;
+            if (_playerInput != Vector2.zero)
+                dashDirection = _playerInput;
+            else
+                dashDirection = _isFacingRight ? Vector2.right : Vector2.left;
+
+            StartCoroutine(Dash(dashDirection));
         }
     }
 
@@ -84,14 +92,34 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Speed", direction.sqrMagnitude);
     }
 
-    private IEnumerator Dash()
+    private IEnumerator Dash(Vector2 dashDirection)
     {
         _canDash = false;
         _isDashing = true;
         _animator.SetTrigger("Dash");
         AudioManager.Instance.Play("Dash");
-        _rigidbody.velocity = _playerInput * dashSpeed;
-        yield return new WaitForSeconds(_dashDuration);
+
+        _rigidbody.velocity = dashDirection.normalized * dashSpeed;
+        float elapsed = 0f;
+        float dashAfterImageTimer = 0f;
+
+        while (elapsed < _dashDuration)
+        {
+            // Move player
+            _rigidbody.velocity = dashDirection.normalized * dashSpeed;
+
+            // Spawn after-image
+
+            dashAfterImageTimer += Time.deltaTime;
+            if (dashAfterImageTimer >= _afterImagePool.spawnRate)
+            {
+                _afterImagePool.SpawnAfterImage();
+                dashAfterImageTimer = 0f;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
         _isDashing = false;
 
         yield return new WaitForSeconds(_dashCooldown);
