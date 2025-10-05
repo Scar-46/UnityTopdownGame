@@ -60,6 +60,10 @@ public class OpenDoor : MonoBehaviour
 
         if (collision.tag == "Player" && !needKey)
         {
+            if (LowerDoor != null)
+            {
+                LowerDoor.SetActive(false);
+            }
             startRoom = false;
             _Animator.SetTrigger("Close");
         }

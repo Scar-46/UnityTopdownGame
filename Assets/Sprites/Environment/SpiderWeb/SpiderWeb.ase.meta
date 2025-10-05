@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 16
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638710913459767775
+  platformSettingsDirtyTick: 638940776277461384
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -131,8 +131,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
+      width: 16
+      height: 16
     spriteID: eb0764c616cde2e40a3a1bbec253c797
     spriteBone: []
     spriteOutline: []
@@ -149,10 +149,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 84
-      width: 30
-      height: 32
+      x: 28
+      y: 4
+      width: 15
+      height: 16
     spriteID: 022a8f2b35ee1af47a01313931e322ed
     spriteBone: []
     spriteOutline: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 84}
+    uvTransform: {x: 28, y: 4}
   - name: Frame_2
     originalName: 
     pivot: {x: 1, y: -2}
@@ -170,9 +170,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 44
-      width: 32
-      height: 32
+      y: 28
+      width: 16
+      height: 16
     spriteID: 680bcfb16b42f8146904542a9f8d614d
     spriteBone: []
     spriteOutline: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 44}
+    uvTransform: {x: 4, y: 28}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -195,28 +195,28 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       spriteId: eb0764c616cde2e40a3a1bbec253c797
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 64
-        width: 30
-        height: 32
+        x: 16
+        y: 32
+        width: 15
+        height: 16
       spriteId: 022a8f2b35ee1af47a01313931e322ed
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       spriteId: 680bcfb16b42f8146904542a9f8d614d
     linkedCells: []
     parentIndex: -1
@@ -272,5 +272,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 128}
-  previousTextureSize: {x: 64, y: 128}
+  canvasSize: {x: 64, y: 64}
+  previousTextureSize: {x: 64, y: 64}

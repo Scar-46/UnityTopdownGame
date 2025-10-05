@@ -66,9 +66,30 @@ public class MeleeAttack : PlayerAttack
         bufferTimer = bufferTime;
     }
 
+    public void DealDamageSound()
+    {
+        // Check if any enemy is in the attack radius
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
+        {
+            if (collider.TryGetComponent(out EnemyHealth enemy))
+            {
+                // Found an enemy → play the "Attack" sound
+                AudioManager.Instance.Stop("Miss");
+                AudioManager.Instance.Play("Attack");
+                return; // Stop after first found enemy
+            }
+        }
+
+        // No enemies in range → play the "Miss" sound
+        AudioManager.Instance.Play("Miss");
+    }
+
+
     // Called by Animation Event at impact frame
     public void DealDamage()
     {
+        bool soundPlayed = false;
+
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
             if (collider.TryGetComponent(out EnemyHealth enemy))
@@ -77,8 +98,12 @@ public class MeleeAttack : PlayerAttack
                 Vector2 knockback = (collider.transform.position - transform.position).normalized * knockbackForce;
                 enemy.DealDamage(damage, knockback);
 
-                AudioManager.Instance.Stop("Miss");
-                AudioManager.Instance.Play("Attack");
+                if (!soundPlayed)
+                {
+                    AudioManager.Instance.Stop("Miss");
+                    AudioManager.Instance.Play("Attack");
+                    soundPlayed = true;
+                }
             }
         }
     }

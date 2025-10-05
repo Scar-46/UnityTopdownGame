@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private GameObject camera;
     public GameObject minimapIcon;
     public GameObject weapon;
+
+    [Header("Control settings")]
+    public bool keyboardOnly = false;
 
     private void Awake()
     {
@@ -53,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         {
             ReadInput();
             SetAnimation(_playerInput);
-
         }
     }
 
@@ -62,19 +64,37 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         _rigidbody.velocity = _playerInput * speed;
 
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 playerPos = transform.position;
-
-
-        if (!_isFacingRight && (mousePos.x > playerPos.x))
+        if (keyboardOnly)
         {
-            Flip();
+            _animator.SetFloat("X", _playerInput.x);
+            //_animator.SetFloat("Y", _playerInput.y);
+            if (_playerInput.x > 0 && !_isFacingRight)
+            {
+                Flip();
+            }
+            else if (_playerInput.x < 0 && _isFacingRight)
+            {
+                Flip();
+            }
         }
-        else if (_isFacingRight && (mousePos.x < playerPos.x))
+        else
         {
-            Flip();
+            // ✅ Flip with mouse position
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 playerPos = transform.position;
+            _animator.SetFloat("X", Input.mousePosition.x);
+            //_animator.SetFloat("Y", Input.mousePosition.y);
+            if (!_isFacingRight && (mousePos.x > playerPos.x))
+            {
+                Flip();
+            }
+            else if (_isFacingRight && (mousePos.x < playerPos.x))
+            {
+                Flip();
+            }
         }
 
+        // Dash input
         if (Input.GetKeyDown(KeyCode.Space) && _canDash)
         {
             Vector2 dashDirection;
@@ -105,10 +125,7 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsed < _dashDuration)
         {
-            // Move player
             _rigidbody.velocity = dashDirection.normalized * dashSpeed;
-
-            // Spawn after-image
 
             dashAfterImageTimer += Time.deltaTime;
             if (dashAfterImageTimer >= _afterImagePool.spawnRate)

@@ -102,7 +102,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8887364692430681888, guid: 55ab9ce03577d7040a6a215d059f8e20, type: 3}
+  m_Sprite: {fileID: -4205546851372122643, guid: 9752f61b2f084284f912c18d6367ac6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,8 +150,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.34375}
-    oldSize: {x: 1.5, y: 2}
+    pivot: {x: 0.7857143, y: -0.3181818}
+    oldSize: {x: 0.875, y: 1.375}
     newSize: {x: 1.5, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -203,6 +203,9 @@ MonoBehaviour:
   knockbackTime: 0.2
   stunTime: 0.15
   isObject: 1
+  cameraShake: {fileID: 0}
+  cameraShakeTime: 0.1
+  cameraShakeForce: 0.5
   enemyName: {fileID: 0}
   enemyStringName: 
   healthbar: {fileID: 0}
@@ -211,6 +214,7 @@ MonoBehaviour:
   lootDroop:
   - {fileID: 7196777885801303235, guid: b5df016e3bcb21b49a77a9663bb7c34d, type: 3}
   start: 1
+  invincible: 0
 --- !u!114 &-3975373313214990936
 MonoBehaviour:
   m_ObjectHideFlags: 0

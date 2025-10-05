@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1653050316336902049}
   - component: {fileID: 6515125312108571243}
   - component: {fileID: 8613023093043582248}
-  - component: {fileID: 505554346835596294}
+  - component: {fileID: 5567699148478352889}
   - component: {fileID: 3661550243501425644}
   - component: {fileID: 3312984747974141401}
   - component: {fileID: 6833997420275121655}
-  - component: {fileID: 5567699148478352889}
+  - component: {fileID: 505554346835596294}
   m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
@@ -114,22 +114,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &505554346835596294
-MonoBehaviour:
+--- !u!50 &5567699148478352889
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3358034453562663567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a71a817c35f4e4381aacea31a4f8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  needKey: 0
-  stopper: {fileID: 3312984747974141401}
-  LowerDoor: {fileID: 0}
-  roomIsClean: 1
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &3661550243501425644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,30 +249,19 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!50 &5567699148478352889
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &505554346835596294
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3358034453562663567}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a71a817c35f4e4381aacea31a4f8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needKey: 0
+  stopper: {fileID: 3312984747974141401}
+  LowerDoor: {fileID: 0}
+  roomIsClean: 1
