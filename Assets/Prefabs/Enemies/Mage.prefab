@@ -596,6 +596,7 @@ MonoBehaviour:
   _isFacingRight: 1
   targetDetector: {fileID: 4693668167619331877}
   aiData: {fileID: 6408599967917525329}
+  roamingSpeed: 2
   chaseState: {fileID: 8021768731658357541}
   centerCell: {x: 0, y: 0, z: 0}
   radius: 5
