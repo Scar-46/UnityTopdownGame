@@ -332,7 +332,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2874341622295264873}
@@ -478,8 +478,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.041864652}
-  m_Radius: 0.34186465
+  m_Offset: {x: 0, y: 0.3}
+  m_Radius: 0.68
 --- !u!195 &2852198495245525675
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -519,6 +519,9 @@ MonoBehaviour:
   knockbackTime: 0.2
   stunTime: 0.15
   isObject: 0
+  cameraShake: {fileID: 0}
+  cameraShakeTime: 0.1
+  cameraShakeForce: 0.5
   enemyName: {fileID: 0}
   enemyStringName: 
   healthbar: {fileID: 0}
@@ -544,9 +547,9 @@ MonoBehaviour:
   maxDamage: 10
   knockbackForce: 0
   projectile: {fileID: 8546983383962561391, guid: 5ab861fc314dd26469c44c06306f1272, type: 3}
-  projectileForce: 2
+  projectileForce: 6
   projectileOrigin: {fileID: 2874341622295264873}
-  attackDelay: 1
+  attackDelay: 1.5
   separationAngle: 0
   projectiles: 1
   attackState: {fileID: 7487829692091469792}

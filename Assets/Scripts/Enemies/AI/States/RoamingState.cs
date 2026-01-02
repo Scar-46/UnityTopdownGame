@@ -10,6 +10,7 @@ public class RoamingState : State
 
     private NavMeshAgent agent;
     private Animator animator;
+    [SerializeField] private float roamingSpeed = 2f;
 
     // States
     [SerializeField] private ChaseState chaseState;
@@ -42,6 +43,7 @@ public class RoamingState : State
         }
 
         agent.stoppingDistance = 0.5f;
+        agent.speed = roamingSpeed;
         animator.SetFloat("Speed", 0f);
     }
 
